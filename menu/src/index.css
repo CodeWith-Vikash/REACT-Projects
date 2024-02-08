@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+@media(max-width:1120px){
+    .main{
+        grid-template-columns: repeat(2,1fr);
+        grid-column-gap: 70px;
+    }
+}
+@media(max-width:768px){
+    .main{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
