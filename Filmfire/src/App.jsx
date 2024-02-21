@@ -1,22 +1,25 @@
 import { data } from 'autoprefixer'
 import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
+import Loading from './components/Loading'
 
 
 const apiurl='https://www.omdbapi.com?apikey=9e22ef45'
 const App = () => {
   const [moviedata, setmoviedata] = useState([])
   const [inputval, setinputval] = useState("random")
+  const [loading, setloading] = useState(false)
 
     const fetchdata=async (title)=>{
       let response=await fetch(`${apiurl}&s=${title}`)
       let result= await response.json()
       let data=await result.Search
       setmoviedata(data)
-      console.log(moviedata);
+      setloading(false)
     }
 
     const fetchMovies=()=>{
+      setloading(true)
        fetchdata(inputval)
     }
   
@@ -31,9 +34,13 @@ const App = () => {
         /> 
         <button className='bg-green-600 font-semibold px-2 rounded-lg' onClick={fetchMovies}>Search</button>
        </div>
-        <div className='flex flex-wrap justify-center gap-4 py-4'>{moviedata.map((item)=>{
-            return <Card image={item.Poster} title={item.Title} type={item.Type}/>
-        })}</div>
+         <main>{loading ? <Loading/> :
+          <div className='flex flex-wrap justify-center gap-4 py-4'>{
+            !moviedata? <h3 className='text-red-500 font-semibold text-xl w-[70vw] text-center mt-4'>data not avilable fell free to search another things</h3> :moviedata.map((item)=>{
+              return <Card image={item.Poster} title={item.Title} type={item.Type}/>
+          })
+          }</div> 
+         }</main>
     </div>
   )
 }
