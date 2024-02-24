@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@media(min-width:750px){
+    .main{
+        display: flex;
+        
+    }
+    
+}

@@ -1,0 +1,9 @@
+.inputBox{
+   position: relative;
+}
+.text{
+    position: absolute;
+    top:-12px;
+    left: 12px;
+    background-color: white;
+}
