@@ -7,7 +7,10 @@
 .body{
     min-height: 100vh;
     width: 100vw;
-    background: linear-gradient(to bottom,rgb(246, 54, 54),rgb(174, 174, 28));
+    background-image: url(pexels-alexander-grey-1191710.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom;
 }
 .header{
     background-color: rgb(42, 42, 42);
@@ -17,7 +20,7 @@
 }
 .header h1{
     color: red;
-    font-size: 4vmax;
+    font-size:2 rem;
     text-align: center;
 }
 .head{
@@ -39,7 +42,7 @@ button{
     padding: 1vh 2vw;
     border: none;
     border-radius: 5px;
-    font-size:1.3rem;
+    font-size:1.02rem;
     cursor: pointer;
 }
 .buttons{
@@ -57,8 +60,8 @@ button{
     gap:15px;
 }
 .card{
-    border: 1px solid black;
-    background-color: rgb(57, 56, 56);
+    /* border: 1px solid black; */
+    background-color:rgb(0, 0, 0,0.5);
     border-radius: 10px;
     color: white;
     display: flex;
@@ -66,11 +69,10 @@ button{
     align-items: center;
     width: fit-content;
     padding: 1vh 1vw;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(7px);
 }
 .card-content{
-    width: 250px;
+    width: 200px;
     padding: 2vh 1vw;
     display: flex;
     flex-direction: column;
@@ -78,9 +80,18 @@ button{
 }
 .card-content p{
     text-align:left;
-    font-size: 1 rem;
+    font-size:0.8rem;
 }
 .card-content b{
     font-size:1.2rem;
 }
+.card img{
+    width:100px;
+}
+
+/* @media(max-width:425px){
+    .body{
+        background-image: url(https://tse1.mm.bing.net/th?id=OIP.jdfkfYl82U7LBixGdKevagHaJ3&pid=Api&P=0&h=220);
+    }
+} */
  
