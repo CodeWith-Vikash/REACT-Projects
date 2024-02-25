@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Buttons = ({text}) => {
+const Buttons = ({text,p,category,filterFun}) => {
   return (
-    <button>{text}</button>
+    <button data-id={category} onClick={()=>filterFun(category)}>{text}{p}</button>
   )
 }
 
