@@ -1,0 +1,92 @@
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+.score b{
+    font-size: 4rem;
+}
+.score label{
+    font-weight:500;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 8vw;
+    align-items: center;
+}
+.options{
+    display: flex;
+    gap: 2vw;
+}
+.options li{
+    list-style: none;
+    border: 1px solid black;
+    padding:5px 10px;
+    font-weight: bold;
+}
+.selected{
+    background-color: black;
+    color: white;
+}
+/* mian */
+.resetBtn{
+    border: 1px solid black;
+    padding:7px 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    padding:7px 45px;
+    cursor: pointer;
+    margin:0 auto;
+}
+.rules{
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight:bold;
+    padding:7px 45px;
+    cursor: pointer;
+    margin:0 auto;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+    gap: 3vh;
+    margin-top: 5vh;
+}
+.main img{
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.main label{
+    font-weight: bold;
+}
+.error{
+    color: red;
+    text-align: right;
+    padding:0 35px;
+}
+
+@media(min-width:750px){
+    .options li{
+        padding: 10px 20px;
+    }
+    .score b{
+        font-size: 5rem;
+    }
+    .main img{
+        width: 150px;
+        height: 150px;
+    }
+    .error{
+        padding: 0 120px;
+    }
+}
