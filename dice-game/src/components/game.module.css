@@ -74,6 +74,23 @@
     text-align: right;
     padding:0 35px;
 }
+.rulebox{
+    background-color: rgb(225, 220, 220);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: left;
+}
+.rulebox h4{
+    text-align: center;
+}
+.rulebox h5{
+    background-color:red;
+    color: white;
+    padding:5px 10px;
+    width: fit-content;
+    cursor: pointer;
+}
 
 @media(min-width:750px){
     .options li{
