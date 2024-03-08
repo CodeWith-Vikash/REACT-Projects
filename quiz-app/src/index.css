@@ -15,16 +15,18 @@
 }
 .box{
   height:60vh;
-  width:70vw;
+  width:350px;
   background-color: rgb(23, 79, 182);
   padding: 5vh 7vw;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
 }
 button{
   padding: 0.5vh 2vw;
   /* font-weight: bold; */
   font-size: 1rem;
-  width:35vw;
+  width:200px;
   margin: 0 auto ;
 }
 .quiz{
@@ -38,7 +40,7 @@ button{
 }
 .quiz h2{
   text-align: center;
-  color: green;
+  color:yellow;
 }
 
 /* start page */
@@ -48,10 +50,11 @@ button{
   flex-direction: column;
   gap: 2vh;
   padding: 10vh;
+  /* margin: 0 auto; */
 }
 .start input{
-  width: 35vw;
-  height: 5vh;
+  width: 200px;
+  height: 30px;
   padding: 1vh 1vw;
   font-size: 1 rem;
   outline: none;
