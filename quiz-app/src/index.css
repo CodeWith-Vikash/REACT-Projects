@@ -1,0 +1,58 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container{
+  color: white;
+  background-color: rgb(54, 53, 53);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  height:60vh;
+  width:70vw;
+  background-color: rgb(23, 79, 182);
+  padding: 5vh 7vw;
+  border-radius: 10px;
+}
+button{
+  padding: 0.5vh 2vw;
+  /* font-weight: bold; */
+  font-size: 1rem;
+  width:35vw;
+  margin: 0 auto ;
+}
+.quiz{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.quiz h3{
+  margin-bottom: 3vh;
+  text-align: center;
+}
+.quiz h2{
+  text-align: center;
+  color: green;
+}
+
+/* start page */
+
+.start{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: 10vh;
+}
+.start input{
+  width: 35vw;
+  height: 5vh;
+  padding: 1vh 1vw;
+  font-size: 1 rem;
+  outline: none;
+}
