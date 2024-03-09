@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav{
+  background-color: cornflowerblue;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+button{
+  padding: 1vh 2vw;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px black;
+  cursor: pointer;
+}
+#white{
+  background-color:white;
+}
+#blue{
+  background-color:blue;
+}
+#red{
+  background-color: red;
+}
+#oranged{
+  background-color: orangered;
+}
+#green{
+  background-color: green;
+}
+.container{
+  height: 100vh;
+}
