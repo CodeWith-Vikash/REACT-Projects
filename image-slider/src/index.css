@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+img{
+  max-width: 400px;
+}
+.icon{
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+.icon:hover{
+  color:gray;
+}
