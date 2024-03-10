@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+.container{
+   height: 100vh;
+   background-image: url(pexels-alesia-kozik-6771607.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position:center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.convertor{
+  background-color: rgb(0, 0, 0,0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+.inputbox{
+  height:fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 5vw;
+  gap: 5vw;
+  flex-wrap: wrap;
+}
+.input{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.select{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+/* .select label{
+  color: black;
+} */
+input{
+  outline: none;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+select{
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 60px;
+  background: transparent;
+  /* color: black; */
+}
+button{
+  background-color:black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 2vh 2vw;
+  cursor: pointer;
+}
+
+select option{
+  color: black;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.first{
+  border-bottom: 2px dotted white;
+}
+.box h1{
+  font-family: cursive;
+  text-align: center;
+}
