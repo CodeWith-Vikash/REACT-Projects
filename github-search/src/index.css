@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  background: #353535;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding-top: 5vh;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.input{
+  margin: 0 auto;
+  display: flex;
+  gap: 2vw;
+}
+h1{
+  text-align:  center;
+  font-family: cursive;
+  color: orange;
+}
+input{
+  padding: 1vh 2vw;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+button{
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width:fit-content;
+  margin:0 auto;
+  background-color: black;
+  padding:20px;
+  border-radius: 10px;
+}
+img{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+.pro{
+  display: flex;
+  gap: 5vw;
+  color: orange;
+}
+p{
+  font-weight: 500;
+  color: rgb(109, 104, 142);
+  max-width:250px;
+}
+.load{
+  font-size: 2rem;
+  font-weight: bold;
+  color:rgb(32, 242, 32);
+  margin:5vh auto;
+  text-align: center;
+}
+.warn{
+font-size: 1.5rem;
+font-weight: bold;
+color:red;
+margin:5vh auto;
+text-align: center;
+}
+.visit{
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  background-color:green;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width:fit-content;
+  margin: 0 auto;
+}
+.visit:hover{
+  background-color: rgb(44, 245, 44);
+}
+.visit a{
+  text-decoration: none;
+  color:white;
+}
