@@ -1,0 +1,11 @@
+.container{
+  height: 100vh;
+  background-color: rgb(50, 49, 49);
+  color: white;
+  padding: 20px;
+}
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}

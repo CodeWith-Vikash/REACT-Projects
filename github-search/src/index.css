@@ -65,6 +65,7 @@ p{
   font-weight: 500;
   color: rgb(109, 104, 142);
   max-width:250px;
+  margin: 0 auto;
 }
 .load{
   font-size: 2rem;

@@ -14,8 +14,8 @@
   align-items: center;
 }
 .box{
-  height:60vh;
-  width:350px;
+  min-height:60vh;
+  width:fit-content;
   background-color: rgb(23, 79, 182);
   padding: 5vh 7vw;
   border-radius: 10px;
@@ -50,6 +50,7 @@ button{
   flex-direction: column;
   gap: 2vh;
   padding: 10vh;
+  position: relative;
   /* margin: 0 auto; */
 }
 .start input{
@@ -58,4 +59,11 @@ button{
   padding: 1vh 1vw;
   font-size: 1 rem;
   outline: none;
+}
+.start h2{
+   text-align: center;
+   position: absolute;
+   top: 0;
+   left:30%;
+   color: orange;
 }

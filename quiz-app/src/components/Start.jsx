@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Option from './Option'
 
 
 let custumstyle={
@@ -12,6 +11,7 @@ const Start = ({switchstart}) => {
   const [name, setname] = useState('')
   return (
     <div className='start'>
+        <h2>Quiz App</h2>
         <input type="text" placeholder='Enter your name' value={name}
          onChange={(e)=>setname(e.target.value)}
         />
