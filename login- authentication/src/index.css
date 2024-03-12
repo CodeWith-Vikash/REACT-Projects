@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 100vh;
+  background-color: rgb(52, 51, 51);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card{
+  width: 250px;
+  background-color: rgb(191, 182, 182);
+  color: black;
+  height: 50vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+header,button{
+  background-color: orangered;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: cursive;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.option{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid rgb(66, 66, 66);
+   */
+   background-color: white;
+  padding: 1vh 1vw;
+  width: 220px;
+  gap:20px;
+  margin: 0 auto;
+}
+p{
+  text-align: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+input{
+  border: none;
+  outline: none;
+}
+.icon{
+  font-size: 1.2rem;
+}
+button{
+  border: none;
+  font-size: 1.5rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+.logout{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(pexels-johannes-plenio-3630100.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.logout button{
+  background-color: red;
+  border-radius: 10px;
+  padding: 1vh 2vw;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
