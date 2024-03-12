@@ -1,0 +1,113 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.container{
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgb(23, 23, 23);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10vh 0;
+}
+.product{
+  background-color: rgb(115, 113, 113);
+  width: 300px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  padding: 2vh 2vw;
+  height: fit-content;
+  border-radius: 10px;
+}
+button{
+  border: none;
+  background-color:rgb(243, 161, 8);
+  font-size: 1.1rem;
+  width: fit-content;
+  padding: 1vh 2vw;
+  border-radius: 20px;
+  margin: 0 auto;
+  /* color: white; */
+  cursor: pointer;
+  font-weight: bold;
+}
+b{
+  text-align: center;
+}
+.product img{
+  height: 200px;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 1px 1px 2px rgb(82, 81, 81);
+}
+.icon{
+  font-size: 2rem;
+  color: orangered;
+  cursor: pointer;
+}
+h1{
+  color: yellow;
+  text-shadow: 2px 2px 10px;
+}
+.cartitem{
+  background-color: rgb(61, 60, 60);
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+  padding: 1vh 2vw;
+  min-width:450px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.cartitem img{
+  width: 150px;
+  border-radius: 5px;
+  height: 100px;
+}
+.cartitem button{
+  border-radius: 5px;
+  background-color:red;
+  font-size: 1rem;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding: 35vh 0;
+}
+.materials{
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+.price{
+  display: flex;
+  flex-direction: column;
+  text-align:left;
+  width: fit-content;
+  background-color:rgb(159, 106, 8);
+  padding:10px;
+  border-radius: 10px;
+  position: absolute;
+  top:15vh;
+  right: 2vw;
+}
+.price button{
+  background-color: green;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 2vh auto;
+}
