@@ -1,0 +1,107 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 1000vh;
+  background-color: rgb(57, 56, 56);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 5vw;
+  background-color: black;
+  align-items: center;
+}
+.title{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+.title span{
+  font-size: 40px;
+}
+h1{
+  color: yellow;
+  font-family: cursive;
+}
+input{
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  height:30px;
+  padding: 1vh 2vw;
+  font-size: 1rem;
+}
+.recipe{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(252, 251, 250);
+  color: black;
+  width: 300px;
+  gap: 2vh;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  margin: 0 auto;
+}
+button{
+  border: 1px solid red;
+  color: red;
+  background: transparent;
+  padding: 1vh 2vw;
+  font-size: 1rem;
+  /* cursor: pointer; */
+}
+.fullbtn{
+  color: green;
+  border: 1px solid green;
+}
+.recipe img{
+  width:200px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5vh 0;
+  max-height:1000vh;
+}
+h2{
+  text-align: center;
+  margin-top: 15vh;
+  font-size: 2rem;
+  color: rgb(41, 248, 41);
+}
+a{
+  text-decoration: none;
+  color: green;
+}
+.ingredients{
+  background-color: gray;
+  color: black;
+  padding: 10px;
+  padding-left: 30px;
+  width:50vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  position:absolute;
+  top:0;
+  /* left:0px; */
+  z-index: 9;
+}
+.icon{
+  color: rgb(218, 11, 11);
+  font-size: 3rem;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
