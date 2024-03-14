@@ -9,14 +9,19 @@ const lightmode={
    backgroundColor:'white',
    color:'black'
 }
+// fetching data from localstorage
+ const getlocalstorage=()=>{
+      let data=localStorage.getItem('notes-app-data')
+      if(data){
+         return JSON.parse(data)
+      }else{
+         return []
+      }
+ }
 const App = () => {
   const [islight, setislight] = useState(false)
   const [searchval, setsearchval] = useState('')
-  const [notes, setnotes] = useState([{
-     id: nanoid(),
-     text:"i am saved note",
-     date:'14/03/2024'
-  }])
+  const [notes, setnotes] = useState(getlocalstorage())
   // fuction to toggle dark mode
   const toggle=()=>{
     setislight(!islight)
@@ -47,13 +52,6 @@ const App = () => {
      setnotes(tempnotes)
      console.log('delete rendered');
   }
-    // fetching data from localstorage
-   useEffect(()=>{
-      let SavedNote=JSON.parse(localStorage.getItem('notes-app-data'))
-      if(SavedNote){
-         setnotes(SavedNote)
-      }
-   },[])
   // saving data to localstorange
   useEffect(()=>{
      localStorage.setItem('notes-app-data',JSON.stringify(notes))
