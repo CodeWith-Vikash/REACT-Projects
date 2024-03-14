@@ -52,7 +52,7 @@ const App = () => {
        localStorage.setItem('grocerry-data',JSON.stringify(list))
    },[list])
   return (
-    <div className='bg-gray-700 h-screen flex justify-center pt-20'>
+    <div className='bg-gray-700 min-h-screen flex justify-center py-20'>
         <div className="box bg-white w-fit px-8 h-fit rounded-md py-4">
              <h1 className='text-center font-bold text-gray-900 text-2xl my-8'>Grocerry bud</h1>
              <div className="input flex justify-center items-center gap-2">
