@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 const App = () => {
@@ -7,14 +7,20 @@ const App = () => {
   const [inputval, setinputval] = useState("")
   const handleClick=()=>{
       if(newTask!=""){
-        todos.push(newTask)
+        settodos([...todos,newTask])
         setnewTask("")
         console.log(todos);
-        localStorage.setItem("list",JSON.stringify(todos))
       }
   }
-  let list=JSON.parse(localStorage.getItem("list"))
+  useEffect(()=>{
+    let list=JSON.parse(localStorage.getItem("todos-data"))
+    settodos(list)
+    console.log(todos);
+  },[])
 
+  useEffect(()=>{
+     localStorage.setItem('todos-data',JSON.stringify(todos))
+  },[todos])
   return (
     <div className='min-h-screen w-full bg-gray-700 text-white'>
       <h1 className='text-center font-bold p-4 text-2xl text-yellow-500'>To Do List</h1>
@@ -25,8 +31,8 @@ const App = () => {
       </section>
 
       <section className='my-10 mx-auto w-fit'>{
-        list.map((task,index)=>{
-           return <div className='task flex justify-between items-center bg-pink-400 w-[50vw] px-4 py-2 rounded mb-2'>
+        todos.map((task,index)=>{
+           return <div key={index} className='task flex justify-between items-center bg-pink-400 w-[50vw] px-4 py-2 rounded mb-2'>
            <div className='flex gap-1 items-center'>
            <span className='text-black text-lg font-semibold'>{task}</span>
            </div>
