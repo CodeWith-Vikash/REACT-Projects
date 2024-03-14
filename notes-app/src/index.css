@@ -1,0 +1,77 @@
+ *{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ .container{
+   min-height: 100vh;
+   background-color: rgb(25, 41, 50);
+   color: white;
+   display: flex;
+   flex-direction: column;
+   padding: 0 5vw;
+   padding-bottom: 5vh;
+   gap: 5vh;
+ }
+ .icon{
+  /* font-size: 2rem; */
+  cursor: pointer;
+ }
+ nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 5vw;
+ }
+ input{
+  border-radius: 10px;
+  outline: none;
+  border:1px solid rgb(25, 41, 50);
+  padding: 1vh 2vw;
+  font-size: 1rem;
+ }
+ textarea{
+  outline: none;
+  padding: 20px;
+  border: none;
+  background: transparent;
+  color: white;
+ }
+ .note{
+   background-color: rgb(11, 98, 98);
+   width: fit-content;
+   border-radius: 10px;
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 5vh;
+ }
+ .textelem{
+  display: flex;
+  justify-content: space-between;
+ }
+ button{
+  border: none;
+  border-radius: 10px;
+  padding:5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: cornflowerblue;
+ }
+ main{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+ }
+ .saved{
+  width: 265px;
+  min-height:290px;
+  justify-content: space-between;
+  padding: 20px;
+  background-color:rgb(187, 125, 10);
+ }
+ .saved p{
+   overflow-wrap: break-word;
+ }
+ 
