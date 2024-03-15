@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+.content{
+    width: 100vw;
+    min-height:90vh;
+    background-color: rgb(204, 240, 253);
+    color: black;
+    display: flex;
+}
+.left{
+    /* background-color: orange; */
+    width: 250px;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}
+.feed{
+    /* background-color: red; */
+    width: 766px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.right{
+    width:350px;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}

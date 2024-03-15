@@ -1,0 +1,54 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    /* width: vw; */
+    background-color: blue;
+    height: fit-content;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2vh 2vw;
+    height:10vh;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+.title{
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+img{
+    border-radius: 50%;
+    height: 2rem;
+}
+input{
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0 2vw;
+}
+select{
+    display: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+@media(max-width:1000px){
+    .content{
+        display: none;
+    }
+    select{
+        display: block;
+    }
+}
+@media(max-width:420px){
+    select{
+        display: none;
+    }
+}

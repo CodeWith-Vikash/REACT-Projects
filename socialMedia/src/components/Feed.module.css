@@ -1,0 +1,87 @@
+.Feed{
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}
+.post{
+    width: 600px;
+    box-shadow: 1px 1px 5px ;
+    border-radius: 10px;
+    padding: 10px;
+}
+.message{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+.post input{
+    background-color: transparent;
+    font-size: 1rem;
+}
+.message img{
+    height: 50px;
+}
+.hr{
+    background-color: rgb(101, 99, 99);
+    height: 2px;
+    width: 95%;
+    margin: 0 auto;
+}
+b{
+    color:rgb(37, 36, 36);
+    font-weight: 500;
+}
+.option span{
+    font-size: 1.6rem;
+}
+.option{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    cursor: pointer;
+}
+.options{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+.post button{
+    background-color: green;
+    color: white;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.postcontent{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 5vw;
+}
+/* post */
+.userpost{
+    width: 700px;
+    box-shadow: 1px 1px 5px;
+    border-radius: 5px;
+    padding: 10px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+.userp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.img{
+    border-radius: 0;
+    width:600px;
+    height: 400px;
+}

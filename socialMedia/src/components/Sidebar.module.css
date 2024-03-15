@@ -1,0 +1,33 @@
+aside{
+    /* background-color: white; */
+    /* width: 200px; */
+    /* min-height: 100vh; */
+    color:black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-right: 1px solid black;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    padding: 5vh 2vw;
+}
+.option{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+button{
+    width: 100px;
+    background-color: rgb(204, 201, 201);
+}
+.friend{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.friends{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
