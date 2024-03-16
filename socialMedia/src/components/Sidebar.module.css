@@ -4,7 +4,7 @@ aside{
     /* min-height: 100vh; */
     color:black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-right: 1px solid black;
+    /* border-right: 1px solid black; */
 }
 .options{
     display: flex;
@@ -30,4 +30,9 @@ button{
     display: flex;
     flex-direction: column;
     gap: 2vh;
+    border-top: 2px solid rgb(195, 192, 192);
+    padding-top: 10px;
+}
+.friend img{
+    width: 30px;
 }

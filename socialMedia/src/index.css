@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container{
@@ -72,4 +73,35 @@ form{
 .card span{
   color: blue;
   text-align: center;
+}
+.nav{
+  background-color:white;
+  width: 50vw;
+  min-height: 90vh;
+  position: absolute;
+  z-index: 99999;
+  top: 10vh;
+  transform: translate(-100%);
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  color: black;
+  padding: 20px;
+
+}
+.nav input{
+  height: 5vh;
+  border: 1px solid black;
+  font-size: 2vmax;
+}
+.important{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navoption{
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }

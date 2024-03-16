@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './Rightbar.module.css'
+import friends from './Data'
+
 
 const Rightbar = () => {
   return (
@@ -13,41 +15,14 @@ const Rightbar = () => {
         </div>
         <div className={styles.online}>
             <b>Online friends</b>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
-            <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <div className={styles.circle}></div>
-                    <span>Jone doe</span>
-            </div>
+            {friends.map((person)=>{
+                return  <div className={styles.friend} key={person.rollno}>
+                <img src={person.image}/>
+                <div className={styles.circle}></div>
+                <span>{person.username}</span>
+        </div>
+        
+            })}
         </div>
     </div>
   )

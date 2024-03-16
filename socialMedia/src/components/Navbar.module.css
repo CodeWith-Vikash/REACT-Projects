@@ -1,17 +1,21 @@
 nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     /* width: vw; */
     background-color: blue;
     height: fit-content;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2vh 2vw;
+    padding:20px;
     height:10vh;
+    position: sticky;
+    top:0 ;
 }
 .content{
     display: flex;
     justify-content: space-between;
-    width: 30vw;
+    width:fit;
+    gap: 20px;
 }
 .title{
     display: flex;
@@ -33,22 +37,15 @@ input{
     outline: none;
     padding: 0 2vw;
 }
-select{
+.ham{
     display: none;
-    border-radius: 10px;
-    outline: none;
 }
 
-@media(max-width:1000px){
+@media(max-width:1024px){
     .content{
         display: none;
     }
-    select{
+    .ham{
         display: block;
-    }
-}
-@media(max-width:420px){
-    select{
-        display: none;
     }
 }

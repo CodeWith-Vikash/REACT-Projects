@@ -3,14 +3,15 @@ import styles from './Navbar.module.css'
 import { FaUser } from "react-icons/fa";
 import { MdChat } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
-const Navbar = () => {
+const Navbar = ({togglenav}) => {
   return (
     <nav>
         <h1>Iamsocial</h1>
-        <input type="text" placeholder='search for friends posts or videos'/>
         <div className={styles.content}>
+        <input type="text" placeholder='search for friends posts or videos'/>
         <div className={styles.title}>
             <small>Homepage</small>
             <small>Timeline</small>
@@ -22,14 +23,7 @@ const Navbar = () => {
         </div>
           <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220" />
         </div>
-        <select>
-           <option><small>Homepage</small></option>
-           <option><small>Timeline</small></option>
-           <option><small>Friends</small></option>
-           <option><small>Messages</small></option>
-           <option><small>Notifications</small></option>
-           <option><small>Profile</small></option>
-        </select>
+        <GiHamburgerMenu className={styles.ham} size="3vmax" style={{cursor:'pointer'}} onClick={()=>togglenav()}/>
     </nav>
   )
 }

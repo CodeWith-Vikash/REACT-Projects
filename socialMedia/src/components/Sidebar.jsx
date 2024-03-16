@@ -9,6 +9,7 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { IoBagSharp } from "react-icons/io5";
 import { MdEventAvailable } from "react-icons/md";
 import { FaGraduationCap } from "react-icons/fa";
+import friends from './Data';
 
 const Sidebar = () => {
   return (
@@ -52,34 +53,12 @@ const Sidebar = () => {
             </div>
             <button>Show More</button>
             <div className={styles.friends}>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
-                <div className={styles.friend}>
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
-                    <span>Jone doe</span>
-                </div>
+               {friends.map((person)=>{
+                  return  <div className={styles.friend} key={person.rollno}>
+                  <img src={person.image}/>
+                  <span>{person.username}</span>
+                 </div>
+               })}
             </div>
         </div>
     </aside>
