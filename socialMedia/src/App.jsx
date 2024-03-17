@@ -20,8 +20,12 @@ import { FaGraduationCap } from "react-icons/fa";
 const App = () => {
   const [islogin, setislogin] = useState(false)
   const [isnav, setisnav] = useState(false)
-  const loginbox=()=>{
-       setislogin(!islogin)
+  const [isresistered, setisresistered] = useState(false)
+  const  toggleresitre=()=>{
+       setisresistered(!isresistered)
+  }
+  const loginfun=()=>{
+     setislogin(true)
   }
   const navref=useRef(null)
   const togglenav=()=>{
@@ -81,9 +85,10 @@ const App = () => {
                 <b>Courses</b>
             </div>
       </div>
-      {/* {islogin?<Login loginbox={loginbox}/>:<Register loginbox={loginbox}/>} */}
-      <Navbar togglenav={togglenav}/>
-      <Content/>
+      {islogin?<>
+        <Navbar togglenav={togglenav}/>
+         <Content/>
+      </>:isresistered?<Login loginbox={toggleresitre} loginfun={loginfun}/>:<Register loginbox={toggleresitre}/>}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Login = ({loginbox}) => {
+const Login = ({loginbox,loginfun}) => {
   return (
     <div className='login'>
        <div className='heading'>
@@ -12,7 +12,7 @@ const Login = ({loginbox}) => {
         <form>
         <input type="text" placeholder='username' required/>
           <input type="password" placeholder='Password' required/>
-          <button className='primary'>Login</button>
+          <button className='primary' onClick={loginfun}>Login</button>
         </form>
           <span>Forget password</span>
           <button className='secondary' onClick={()=>loginbox()}>Create a New Account</button>

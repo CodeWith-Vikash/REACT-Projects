@@ -15,13 +15,14 @@ const Feed = () => {
             <div className={styles.message}>
                 <img src="https://tse1.mm.bing.net/th?id=OIP.L9TDz5qgN6cJxSnqK8XDGQHaHa&pid=Api&P=0&h=220"/>
                 <input type="text" placeholder='What,s in your mind ?' />
+                <button>post</button>
             </div>
             <div className={styles.hr}></div>
             <div className={styles.postcontent}>
             <div className={styles.options}>
                 <div className={styles.option}>
                     <span>📷</span>
-                    <b>Photo or video</b>
+                    <b>Gallery</b>
                 </div>
                 <div className={styles.option}>
                     <FaLocationDot style={{color:'green'}} size=""/>
@@ -36,7 +37,7 @@ const Feed = () => {
                     <b>Feelings</b>
                 </div>
             </div>
-            <button>post</button>
+            
             </div>
        </div>
 
