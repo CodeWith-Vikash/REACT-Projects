@@ -40,17 +40,17 @@ const questions = [
     "answerOptions": [
       {"answerText": "CO2", "isCorrect": false},
       {"answerText": "O2", "isCorrect": false},
+      {"answerText": "H2O", "isCorrect": true},
       {"answerText": "N2", "isCorrect": false},
-      {"answerText": "H2O", "isCorrect": true}
     ]
   },
   {
     "questionText": "Which continent is the largest by land area?",
     "answerOptions": [
       {"answerText": "North America", "isCorrect": false},
+      {"answerText": "Asia", "isCorrect": true},
       {"answerText": "South America", "isCorrect": false},
       {"answerText": "Africa", "isCorrect": false},
-      {"answerText": "Asia", "isCorrect": true}
     ]
   },
   {
@@ -59,25 +59,25 @@ const questions = [
       {"answerText": "Albert Einstein", "isCorrect": false},
       {"answerText": "Marie Curie", "isCorrect": false},
       {"answerText": "Isaac Newton", "isCorrect": false},
-      {"answerText": "Alexander Fleming", "isCorrect": true}
+      {"answerText": "Alexander Fleming", "isCorrect": true},
     ]
   },
   {
     "questionText": "What is the currency of Germany?",
     "answerOptions": [
+      {"answerText": "Euro", "isCorrect": true},
       {"answerText": "Pound Sterling", "isCorrect": false},
       {"answerText": "Dollar", "isCorrect": false},
       {"answerText": "Yen", "isCorrect": false},
-      {"answerText": "Euro", "isCorrect": true}
     ]
   },
   {
     "questionText": "Who was the first man to step on the moon?",
     "answerOptions": [
       {"answerText": "Buzz Aldrin", "isCorrect": false},
+      {"answerText": "Neil Armstrong", "isCorrect": true},
       {"answerText": "Yuri Gagarin", "isCorrect": false},
       {"answerText": "John Glenn", "isCorrect": false},
-      {"answerText": "Neil Armstrong", "isCorrect": true}
     ]
   },
   {
@@ -94,26 +94,26 @@ const questions = [
     "answerOptions": [
       {"answerText": "Thomas Edison", "isCorrect": false},
       {"answerText": "Nikola Tesla", "isCorrect": false},
+      {"answerText": "Alexander Graham Bell", "isCorrect": true},
       {"answerText": "Guglielmo Marconi", "isCorrect": false},
-      {"answerText": "Alexander Graham Bell", "isCorrect": true}
     ]
   },
   {
     "questionText": "Which country is known as the Land of the Rising Sun?",
     "answerOptions": [
+      {"answerText": "Japan", "isCorrect": true},
       {"answerText": "South Korea", "isCorrect": false},
       {"answerText": "China", "isCorrect":false},
       {"answerText": "India", "isCorrect": false},
-      {"answerText": "Japan", "isCorrect": true}
     ]
   },
   {
     "questionText": "Who wrote 'To Kill a Mockingbird'?",
     "answerOptions": [
       {"answerText": "John Steinbeck", "isCorrect": false},
+      {"answerText": "Harper Lee", "isCorrect": true},
       {"answerText": "F. Scott Fitzgerald", "isCorrect": false},
       {"answerText": "Ernest Hemingway", "isCorrect": false},
-      {"answerText": "Harper Lee", "isCorrect": true}
     ]
   },
   {
