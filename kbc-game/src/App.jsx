@@ -5,7 +5,7 @@ const App = () => {
   const [isgame, setisgame] = useState(false)
   const startgame=(e)=>{
       let audio=new Audio
-      audio.src='src/Assests/play.mp3'
+      audio.src='kbc-game/src/Assests/play.mp3'
       audio.play()
       setisgame(true)
       setTimeout(() => {

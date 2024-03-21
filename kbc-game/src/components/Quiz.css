@@ -4,7 +4,7 @@
 }
 .quiz{
     height: 100vh;
-    background-image: url('src/Assests/bg.jpg');
+    background-image: url('kbc-game/src/Assests/bg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -44,7 +44,7 @@
     gap: 10px;
 }
 .options span{
-    background-color: rgb(45, 21, 68);
+    background: linear-gradient(to bottom , rgb(59, 9, 59),black);
     border: 2px solid white;
     border-radius: 10px;
     width:100%;

@@ -36,7 +36,7 @@ const Quiz = ({resetgame}) => {
             setwin(true)
             answerref.current.style.backgroundColor='green'
             let audio=new Audio
-            audio.src='src/Assests/correct.mp3'
+            audio.src='kbc-game/src/Assests/correct.mp3'
             audio.play()
             if(number<14){
                 setTimeout(() => {
@@ -49,7 +49,7 @@ const Quiz = ({resetgame}) => {
                 setTimeout(() => {
                     setshowfinal(true)
                     let audio=new Audio
-                    audio.src='src/Assests/final.mp3'
+                    audio.src='kbc-game/src/Assests/final.mp3'
                     audio.play()
                     setTimeout(() => {
                         audio.pause()
@@ -63,7 +63,7 @@ const Quiz = ({resetgame}) => {
                 setshowstatement(true)
             }, 2000);
             let audio=new Audio
-            audio.src='src/Assests/$2,000 Lose - Who Wants to Be a Millionaire_ (480p).mp4'
+            audio.src='kbc-game/src/Assests/$2,000 Lose - Who Wants to Be a Millionaire_ (480p).mp4'
             audio.play()
         }
         // setplayed(!played)
