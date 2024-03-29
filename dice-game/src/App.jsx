@@ -4,7 +4,7 @@ import Home from './components/Home'
 import Game from './components/Game'
 import song from './components/bgm.mp3'
 const App = () => {
-   const [play, setplay] = useState(!false)
+   const [play, setplay] = useState(false)
    const handlePlaybtn =(user)=>{
       new Audio(song).play()
       setplay(user)
