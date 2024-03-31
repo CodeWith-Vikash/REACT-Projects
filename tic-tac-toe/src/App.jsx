@@ -1,73 +1,62 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
-   const [xturn, setxturn] = useState(true)
-   const [win, setwin] = useState(false)
-   const data=["","","","","","","","",""]
-   console.log(data);
-   const showmove=(e,num)=>{
-       setxturn(!xturn)
-       if(xturn){
-          data[num]='❌'
-          e.target.innerHTML=data[num]
-        }else{
-          data[num]='🟢'
-          e.target.innerHTML=data[num]
+   const [xturn, setXturn] = useState(true);
+   const [win, setWin] = useState(false);
+   const [data, setData] = useState(Array(9).fill(""));
+
+   const showMove = (num) => {
+       if (!win && data[num] === "") {
+           const newData = [...data];
+           newData[num] = xturn ? '❌' : '🟢';
+           setData(newData);
+           setXturn(!xturn);
+           checkWin(newData);
        }
-       checkwin()
    }
 
-   const checkwin=()=>{
-      if(data[0]==data[1] && data[1]==data[2]&& data[2]!=""){
-          setwin(true)
-          console.log('won');
-      }else if(data[3]==data[4] && data[4]==data[5] && data[5]!=""){
-        setwin(true)
-        console.log('won');
-    }else if(data[6]==data[7] && data[7]==data[8] && data[8]!=""){
-      setwin(true)
-      console.log('won');
-  }else if(data[0]==data[3] && data[3]==data[6] && data[6]!=""){
-    setwin(true)
-    console.log('won');
-}else if(data[1]==data[4] && data[4]==data[7] && data[7]!=""){
-  setwin(true)
-  console.log('won');
-}else if(data[2]==data[5] && data[5]==data[8] && data[8]!=""){
-  setwin(true)
-  console.log('won');
-}else if(data[0]==data[4] && data[4]==data[8] && data[8]!=""){
-  setwin(true)
-  console.log('won');
-}else if(data[2]==data[4] && data[4]==data[6] && data[6]!=""){
-  setwin(true)
-  console.log('won');
-}else{
-   setwin(false)
-}
+   const checkWin = (currentData) => {
+       const winConditions = [
+           [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+           [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+           [0, 4, 8], [2, 4, 6] // Diagonals
+       ];
+
+       for (let condition of winConditions) {
+           const [a, b, c] = condition;
+           if (currentData[a] && currentData[a] === currentData[b] && currentData[a] === currentData[c]) {
+               setWin(true);
+               return;
+           }
+       }
+
+       if (!currentData.includes("")) {
+           setWin(true); // If no empty cells, it's a draw
+       }
    }
-  if(win){
-     alert('won')
-  }
-  useEffect(()=>{},[xturn])
-  return (
-    <div className='container'>
-        <div className="game">
-           <div className="box" onClick={(e)=> showmove(e,0)}></div>
-           <div className="box" onClick={(e)=> showmove(e,1)}></div>
-           <div className="box" onClick={(e)=> showmove(e,2)}></div>
-           <div className="box" onClick={(e)=> showmove(e,3)}></div>
-           <div className="box" onClick={(e)=> showmove(e,4)}></div>
-           <div className="box" onClick={(e)=> showmove(e,5)}></div>
-           <div className="box" onClick={(e)=> showmove(e,6)}></div>
-           <div className="box" onClick={(e)=> showmove(e,7)}></div>
-           <div className="box" onClick={(e)=> showmove(e,8)}></div>
-        </div>
-        <button>Reset</button>
-    </div>
-  )
+
+   const resetGame = () => {
+       setData(Array(9).fill(""));
+       setWin(false);
+       setXturn(true);
+   }
+
+   useEffect(() => {
+       if (win) {
+           alert('Game Over! Player ' + (!xturn ? '❌' : '🟢') + ' wins!');
+       }
+   }, [win]);
+
+   return (
+       <div className='container'>
+           <div className="game">
+               {data.map((cell, index) => (
+                   <div key={index} className="box" onClick={() => showMove(index)}>{cell}</div>
+               ))}
+           </div>
+           <button onClick={resetGame}>Reset</button>
+       </div>
+   );
 }
 
-export default App
-
-
+export default App;
