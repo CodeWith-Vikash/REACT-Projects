@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 100vh;
+  background-color: rgb(19, 19, 19);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+h2{
+  font-size: 3rem;
+  text-align: center;
+}
+.btns{
+  display: flex;
+  gap:20px;
+  justify-content: center;
+}
+button{
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
