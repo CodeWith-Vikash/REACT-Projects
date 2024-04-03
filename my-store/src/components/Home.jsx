@@ -2,14 +2,19 @@ import React from 'react'
 import heroimg from './images/hero.jpg'
 import Product from './Product'
 import Data from './Data'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <section className='home parent'>
+    <>
+     <Navbar/>
+     <section className='home parent'>
        <section className="hero">
          <div className="hero-content">
           <span>Welcome To,</span>
@@ -27,7 +32,7 @@ const Home = () => {
         </div>
        <div className="sale">
          {Data.filter((item)=> item.id<4).map((item)=>{
-             return <Product name={item.productName} price={item.price} img={item.image}/>
+             return <NavLink to="/singleprod"><Product name={item.productName} price={item.price} img={item.image}/></NavLink>
          })}
        </div>
        </section>
@@ -63,6 +68,8 @@ const Home = () => {
          </div>
        </section>
     </section>
+     <Footer/>
+    </>
   )
 }
 

@@ -20,11 +20,11 @@ const Navbar = () => {
       <div className="logo">Devshop</div>
       <GiHamburgerMenu size="2rem" style={{cursor:"pointer"}} onClick={toggleNav} className='ham'/>
       <div className="options">
-        <NavLink to='/home'>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
         <p>welcome,vikash</p>
-        <button>Login</button>
+        <NavLink to="/login"><button>Login</button></NavLink>
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
           <div className="circle">0</div>
@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
     </nav>
      <div className="slidenav" ref={navref}>
-         <NavLink to='/home'>Home</NavLink>
+         <NavLink to='/'>Home</NavLink>
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
         <p>welcome,vikash</p>

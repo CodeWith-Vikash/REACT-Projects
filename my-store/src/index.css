@@ -15,6 +15,7 @@ nav{
   background-color: rgb(238, 236, 236);
   padding: 10px 20px;
   align-items: center;
+  padding-right: 80px;
 }
 nav .options{
   display: flex;
@@ -203,12 +204,168 @@ button{
    height: 50px;
 }
 
+/* contact section */
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+}
+.contact img{
+  width: 100vw;
+  height: 50vh;
+}
+.contact form{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  margin-bottom: 10vh;
+}
+.contact input,.contact textarea{
+  padding:5px 10px;
+}
+
+/* products page */
+.pronav{
+  display: flex;
+  gap: 5vw;
+  justify-content: center;
+}
+.pronav input,.pronav select{
+  padding:5px 10px;
+  outline: none;
+}
+.products{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 40px;
+   margin-bottom: 10vh;
+   max-width: 800px;
+}
+.productspage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
+  padding:5vh 10px;
+}
+
+/* single product */
+
+.singleprod{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 5vh 5vw;
+}
+.singleprod img{
+  height: 200px;
+  width: 200px;
+}
+.single-content{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  max-width: 600px;
+}
+.prodfeatures{
+  display: flex;
+  gap:2vw;
+}
+.feat{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter{
+  display: flex;
+  gap: 20px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.counter span{
+  cursor: pointer;
+}
+
+/* cart component */
+.headings{
+  display: flex;
+  gap: 60px;
+}
+.cart-content{
+  display: flex;
+  gap: 55px;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 10px;
+}
+.cart-content img{
+  width: 50px;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+.total{
+  background-color: rgb(226, 222, 222);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10vh 0;
+  margin-left: 300px;
+}
+.removeicon{
+  font-size: 1.6rem;
+}
+
 @media(max-width:768px){
    nav .options{
      display: none;
    }
    .ham{
     display: block;
+   }
+   .headings{
+     gap: 27px;
+     font-size: 0.7rem;
+     justify-content: center;
+   }
+   .cart-content{
+     gap: 25px;
+     font-size: 0.7rem;
+   }
+   .item img{
+    width: 30px;
+   }
+   .buttons{
+     width: 250px;
+   }
+   .buttons button{
+    font-size: 0.7rem;
+   }
+   .total{
+    margin-left: 0;
+   }
+   .removeicon{
+     font-size: 1rem;
+   }
+   .pronav input,.pronav select{
+     font-size: 0.5rem;
+   }
+   .feat span{
+    font-size: 0.5rem;
+   }
+   .counter{
+    font-size: 1rem;
    }
 }
 @media(min-width:768px){
@@ -234,5 +391,10 @@ button{
   }
   .trust{
     gap: 10vh;
+  }
+  .singleprod{
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
 }

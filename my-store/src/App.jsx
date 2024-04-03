@@ -4,19 +4,18 @@ import Home from './components/Home'
 import Cart from './components/Cart'
 import Contact from './components/Contact'
 import Products from './components/Productspage'
-import Layout from './components/Layout'
 import SingleProd from './components/SingleProd'
+import Login from './components/Login'
 
 const App = () => {
   return <BrowserRouter>
        <Routes>
-       <Route path='/' element={<Layout/>}>
-        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/singleprod' element={<SingleProd/>}/>
-     </Route>
+        <Route path='/login' element={<Login/>}/>
   </Routes>
 </BrowserRouter>
 }
