@@ -327,6 +327,67 @@ button{
   font-size: 1.6rem;
 }
 
+/* login component */
+.login{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+.loginel{
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  padding:5vh 20px;
+  align-items: center;
+}
+.login form{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.login input{
+  outline: blue;
+  padding: 0 10px;
+}
+.login button{
+  border-radius: 0;
+  background-color: blue;
+  font-weight: normal;
+}
+.forget{
+  color: blue;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.social{
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  border: 1px solid gray;
+  color: rgb(66, 63, 63);
+  padding: 5px 10px;
+}
+.social-login{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.error{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  padding:0 50px;
+}
+.error b,.error span{
+  font-size: 2rem;
+}
+
 @media(max-width:768px){
    nav .options{
      display: none;

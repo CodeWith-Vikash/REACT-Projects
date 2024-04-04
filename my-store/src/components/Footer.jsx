@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="row">
       <div className="col-6 col-md-2 mb-3">
         <ul className="nav flex-column">
-          <li className="nav-item mb-2"><NavLink to="/home" className="nav-link p-0 text-body-secondary">Home</NavLink></li>
+          <li className="nav-item mb-2"><NavLink to="/" className="nav-link p-0 text-body-secondary">Home</NavLink></li>
           <li className="nav-item mb-2"><NavLink to="/cart" className="nav-link p-0 text-body-secondary">Cart</NavLink></li>
           <li className="nav-item mb-2"><NavLink to="/products" className="nav-link p-0 text-body-secondary">Products</NavLink></li>
           <li className="nav-item mb-2"><NavLink to="/contact" className="nav-link p-0 text-body-secondary">Contact</NavLink></li>

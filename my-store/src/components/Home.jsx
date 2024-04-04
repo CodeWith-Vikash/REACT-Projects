@@ -20,7 +20,7 @@ const Home = () => {
           <span>Welcome To,</span>
           <h1>Dev Shops</h1>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus facilis quasi consequuntur perspiciatis. Quidem laudantium .</p>
-          <button>Shop Now</button>
+          <NavLink to="/products"><button>Shop Now</button></NavLink>
          </div>
          <img src={heroimg}/>
        </section>
