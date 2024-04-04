@@ -3,6 +3,7 @@ import Data from './Data'
 import Product from './Product'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { NavLink } from 'react-router-dom'
 
 const Products = () => {
   return (
@@ -18,7 +19,7 @@ const Products = () => {
     </div>
     <div className="products">
       {Data.map((item)=>{
-         return <Product name={item.productName} price={item.price} img={item.image}/>
+         return <NavLink to="/singleprod"><Product name={item.productName} price={item.price} img={item.image} id={item.id} key={item.productName}/></NavLink>
       })}
     </div>
    </div>

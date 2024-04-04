@@ -1,15 +1,17 @@
-import React from 'react'
-import Data from './Data'
+import React, { useContext } from 'react'
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { Appcontext } from '../context/Productcontext';
 
 
 const SingleProd = () => {
-  const {productName,price,discountedPrice,image,about}=Data[0]
+  const {singledata}=useContext(Appcontext)
+  const {productName,price,discountedPrice,image,about}=singledata[0]
+  console.log(singledata);
   return (
     <>
        <Navbar/>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import heroimg from './images/hero.jpg'
 import Product from './Product'
 import Data from './Data'
@@ -9,8 +9,10 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { NavLink } from 'react-router-dom';
+import { Appcontext } from '../context/Productcontext'
 
 const Home = () => {
+  const {getsingledata}=useContext(Appcontext)
   return (
     <>
      <Navbar/>
@@ -19,7 +21,7 @@ const Home = () => {
          <div className="hero-content">
           <span>Welcome To,</span>
           <h1>Dev Shops</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus facilis quasi consequuntur perspiciatis. Quidem laudantium .</p>
+          <p>At DEVSHOP, we strive to revolutionize your shopping experience by offering a vast array of products conveniently accessible from the comfort of your home.</p>
           <NavLink to="/products"><button>Shop Now</button></NavLink>
          </div>
          <img src={heroimg}/>
@@ -32,7 +34,7 @@ const Home = () => {
         </div>
        <div className="sale">
          {Data.filter((item)=> item.id<4).map((item)=>{
-             return <NavLink to="/singleprod"><Product name={item.productName} price={item.price} img={item.image}/></NavLink>
+             return <NavLink to="/singleprod"><Product name={item.productName} price={item.price} img={item.image} id={item.id} key={item.productName}/></NavLink>
          })}
        </div>
        </section>
