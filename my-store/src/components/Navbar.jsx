@@ -1,10 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CartContext } from '../context/Cartcontext';
 
 const Navbar = () => {
   const [slidenav, setslidenav] = useState(false)
+  const {cart} =useContext(CartContext)
   let navref=useRef()
   const toggleNav=()=>{
     if(slidenav){
@@ -27,7 +29,7 @@ const Navbar = () => {
         <NavLink to="/login"><button>Login</button></NavLink>
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
-          <div className="circle">0</div>
+          <div className="circle">{cart.length}</div>
         </div>
       </div>
     </nav>

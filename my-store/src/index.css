@@ -310,6 +310,7 @@ button{
 .item{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .buttons{
   display: flex;
@@ -386,6 +387,12 @@ button{
 }
 .error b,.error span{
   font-size: 2rem;
+}
+.cartmessage{
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  padding: 20vh 0;
 }
 
 @media(max-width:768px){

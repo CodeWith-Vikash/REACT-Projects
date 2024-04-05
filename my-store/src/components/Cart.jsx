@@ -1,31 +1,34 @@
-import React from 'react'
-import Data from './Data'
+import React, { useContext, useState } from 'react'
 import Cartitem from './Cartitem';
 import { NavLink } from 'react-router-dom';
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { CartContext } from '../context/Cartcontext';
 
 const Cart = () => {
-  const {productName,price,discountedPrice,image,about}=Data[0]
+  const {cart,clearcart}=useContext(CartContext)
+  const [cartitems, setcartitems] = useState(cart)
   return (
     <>
         <Navbar/>
-        <div className='cart'>
-      <Cartitem name={productName} price={discountedPrice} image={image}/>
-      <Cartitem name={productName} price={discountedPrice} image={image}/>
-      <Cartitem name={productName} price={discountedPrice} image={image}/>
-      <div className="buttons">
-        <NavLink to="/products"><button>continue shopping</button></NavLink>
-        <button style={{backgroundColor:"red"}}>Clear cart</button>
-      </div>
-      <div className="total">
-        <p>sub total: 1000$</p>
-        <p>Shipping fee : 50$</p>
-        <hr />
-        <span>Total : 1050$</span>
-      </div>
-    </div>
-    <Footer/>
+        {cart.length==0?<div className='cartmessage'>No items in cart</div>:
+          <div className='cart'>
+            {cart.map((item)=>{
+               return <Cartitem name={item.productName} price={item.discountedPrice} image={item.image} quantity={item.quantity} id={item.id} cart={cartitems}/>
+            })}
+          <div className="buttons">
+            <NavLink to="/products"><button>continue shopping</button></NavLink>
+            <button style={{backgroundColor:"red"}} onClick={clearcart}>Clear cart</button>
+          </div>
+          <div className="total">
+            <p>sub total: 1000$</p>
+            <p>Shipping fee : 50$</p>
+            <hr />
+            <span>Total : 1050$</span>
+          </div>
+        </div>
+        }
+        <Footer/>
     </>
   )
 }

@@ -1,17 +1,38 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import Navbar from './Navbar'
 import Footer from './Footer'
-import { Appcontext } from '../context/Productcontext';
+import { CartContext } from '../context/Cartcontext';
 
-
+const getlocalstorage=()=>{
+    const prodata=JSON.parse(localStorage.getItem("productdata"))
+    return prodata
+}
 const SingleProd = () => {
-  const {singledata}=useContext(Appcontext)
-  const {productName,price,discountedPrice,image,about}=singledata[0]
-  console.log(singledata);
+  const [isitemexistincart, setisitemexistincart] = useState(false)
+  const {addtocart,cart}=useContext(CartContext)
+  const [localprodata, setlocalprodata] = useState(getlocalstorage)
+  const {productName,price,discountedPrice,image,about,quantity,id}=localprodata[0]
+  const [proquantity, setproquantity] = useState(quantity)
+  console.log(cart);
+  const increasequantity=()=>{
+      setproquantity(proquantity+1)
+  }
+  const decresequantity=()=>{
+    if(proquantity>1){
+      setproquantity(proquantity-1)
+    }
+  }
+  useEffect(()=>{
+    cart.map((item)=>{
+       if(item.id==id){
+         setisitemexistincart(true)
+       }
+    })
+  },[])
   return (
     <>
        <Navbar/>
@@ -41,11 +62,17 @@ const SingleProd = () => {
            </div>
          </div>
          <div className="counter">
-          <span>-</span>
-          <span>0</span>
-          <span>+</span>
+          <span onClick={decresequantity}>-</span>
+          <span>{proquantity}</span>
+          <span onClick={increasequantity}>+</span>
          </div>
-         <button>Add to cart</button>
+           <button onClick={() => {
+            if (!isitemexistincart) {
+              addtocart(proquantity);
+              // Update state after successful addition (assuming addtocart returns true on success)
+              setisitemexistincart(true);
+            }
+          }}>Add to cart</button>
        </div>
     </div>
     <Footer/>
