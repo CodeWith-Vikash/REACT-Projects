@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { FaTrashAlt } from "react-icons/fa";
 import { CartContext } from '../context/Cartcontext';
-
 const Cartitem = ({name,price,image,quantity,id,cart}) => {
   const {removefromcart}=useContext(CartContext)
   const [productquantity, setproductquantity] = useState(quantity)
@@ -29,11 +28,7 @@ const decresequantity=()=>{
             <span>{name}</span>
           </div>
           <span>{price}$</span>
-          <div className="counter">
-          <span onClick={decresequantity}>-</span>
-          <span>{productquantity}</span>
-          <span onClick={increasequantity}>+</span>
-         </div>
+           <b>{quantity}</b>
          <span>{price*productquantity}$</span>
          <span className='removeicon' onClick={()=>removefromcart(cart,id)}><FaTrashAlt style={{color:"red",cursor:"pointer"}}/></span>
         </div>

@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineSecurity } from "react-icons/md";
 import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Counter from './Counter'
 import { CartContext } from '../context/Cartcontext';
 
 const getlocalstorage=()=>{
@@ -15,17 +17,18 @@ const SingleProd = () => {
   const [isitemexistincart, setisitemexistincart] = useState(false)
   const {addtocart,cart}=useContext(CartContext)
   const [localprodata, setlocalprodata] = useState(getlocalstorage)
-  const {productName,price,discountedPrice,image,about,quantity,id}=localprodata[0]
-  const [proquantity, setproquantity] = useState(quantity)
-  console.log(cart);
+  const {productName,price,discountedPrice,image,about,id}=localprodata[0]
+  const [quantity, setquantity] = useState(1)
+
   const increasequantity=()=>{
-      setproquantity(proquantity+1)
+      setquantity(quantity+1)
   }
-  const decresequantity=()=>{
-    if(proquantity>1){
-      setproquantity(proquantity-1)
-    }
+  const decreasequantity=()=>{
+    if(quantity>1){
+       setquantity(quantity-1)
+     }
   }
+   
   useEffect(()=>{
     cart.map((item)=>{
        if(item.id==id){
@@ -61,18 +64,18 @@ const SingleProd = () => {
              <span>Product Safety</span>
            </div>
          </div>
-         <div className="counter">
-          <span onClick={decresequantity}>-</span>
-          <span>{proquantity}</span>
-          <span onClick={increasequantity}>+</span>
-         </div>
-           <button onClick={() => {
+          <Counter
+             quantity={quantity}
+             increasequantity={increasequantity}
+             decreasequantity={decreasequantity}
+          />
+           <NavLink to="/cart"><button onClick={() => {
             if (!isitemexistincart) {
-              addtocart(proquantity);
+              addtocart(quantity);
               // Update state after successful addition (assuming addtocart returns true on success)
               setisitemexistincart(true);
             }
-          }}>Add to cart</button>
+          }}>Add to cart</button></NavLink>
        </div>
     </div>
     <Footer/>

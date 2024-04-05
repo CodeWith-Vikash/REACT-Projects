@@ -38,7 +38,7 @@ const Navbar = () => {
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
         <p>welcome,vikash</p>
-        <button>Login</button>
+        <NavLink to="/login"><button>Login</button></NavLink>
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
           <div className="circle">0</div>

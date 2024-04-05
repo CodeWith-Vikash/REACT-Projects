@@ -293,10 +293,12 @@ button{
 .headings{
   display: flex;
   gap: 60px;
+  padding-left: 15px;
 }
 .cart-content{
   display: flex;
-  gap: 55px;
+  justify-content: space-between;
+  padding-right: 15px;
 }
 .cart{
   display: flex;
