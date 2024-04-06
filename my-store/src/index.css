@@ -468,3 +468,13 @@ button{
     align-items: flex-start;
   }
 }
+@media(max-width:375px){
+   .features{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+   .feature{
+     width: 250px;
+   }
+}

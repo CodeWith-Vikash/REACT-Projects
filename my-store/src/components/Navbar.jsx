@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CartContext } from '../context/Cartcontext';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   const [slidenav, setslidenav] = useState(false)
+  const { loginWithRedirect, logout, isAuthenticated} = useAuth0();
+
   const {cart} =useContext(CartContext)
   let navref=useRef()
   const toggleNav=()=>{
@@ -26,7 +29,7 @@ const Navbar = () => {
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
         <p>welcome,vikash</p>
-        <NavLink to="/login"><button>Login</button></NavLink>
+        {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>:<button onClick={() => loginWithRedirect()}>Log In</button>}
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
           <div className="circle">{cart.length}</div>
@@ -38,7 +41,7 @@ const Navbar = () => {
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
         <p>welcome,vikash</p>
-        <NavLink to="/login"><button>Login</button></NavLink>
+        {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>:<button onClick={() => loginWithRedirect()}>Log In</button>}
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
           <div className="circle">0</div>

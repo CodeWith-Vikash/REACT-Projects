@@ -78,6 +78,86 @@ const Data = [
         image: "https://tse1.mm.bing.net/th?id=OIP.f39jvygchyqBhPiAM1LDIwHaE7&pid=Api&P=0&h=220",
         about: "Power your productivity with this high-performance laptop. Engineered for efficiency and reliability, it offers seamless multitasking and stunning visuals. Dominate your workflow with unmatched performance.",
         discountedPrice: 900 // Example discounted price
+    },
+    {
+        id: 11,
+        productName: "Coat",
+        price: 150,
+        image: "https://tse3.mm.bing.net/th?id=OIP.9c7qLgDo7sqwJOwLcTQcJAHaIt&pid=Api&P=0&h=220",
+        about: "Stay warm and stylish with this classic coat. Made from high-quality materials, it's perfect for chilly days and formal occasions. Elevate your winter wardrobe with this timeless piece.",
+        discountedPrice: 135 // Example discounted price
+    },
+    {
+        id: 12,
+        productName: "Running Watch",
+        price: 80,
+        image: "https://tse1.mm.bing.net/th?id=OIP.LUtRVSaDBTDp9P4kz0jVxwHaE8&pid=Api&P=0&h=220",
+        about: "Track your workouts with precision using this advanced running watch. With built-in GPS and heart rate monitoring, it helps you achieve your fitness goals. Stay motivated and stay on track.",
+        discountedPrice: 70 // Example discounted price
+    },
+    {
+        id: 13,
+        productName: "Leather Wallet",
+        price: 25,
+        image: "https://tse1.mm.bing.net/th?id=OIP.SdF4u8UspO3I-Kz9NTFjIAHaHa&pid=Api&P=0&h=220",
+        about: "Organize your essentials in style with this sleek leather wallet. With multiple compartments and a durable construction, it's both practical and fashionable. Carry your cards and cash with confidence.",
+        discountedPrice: 20 // Example discounted price
+    },
+    {
+        id: 14,
+        productName: "Hoodie",
+        price: 35,
+        image: "https://tse3.mm.bing.net/th?id=OIP.0ByzJ-5El8GcJvrf1tEy2AHaHa&pid=Api&P=0&h=220",
+        about: "Stay comfortable and cozy with this classic hoodie. Made from soft and breathable fabric, it's perfect for lounging or layering. Add a casual vibe to your look with this wardrobe staple.",
+        discountedPrice: 30 // Example discounted price
+    },
+    {
+        id: 15,
+        productName: "Gaming Mouse",
+        price: 50,
+        image: "https://tse2.mm.bing.net/th?id=OIP.-nIgHODNrchajCeRLRyukAHaDt&pid=Api&P=0&h=220",
+        about: "Enhance your gaming experience with this high-performance gaming mouse. Featuring customizable buttons and ergonomic design, it gives you the edge in competitive gaming. Dominate the battlefield with precision and control.",
+        discountedPrice: 40 // Example discounted price
+    },
+    {
+        id: 16,
+        productName: "Desk Lamp",
+        price: 25,
+        image: "https://tse1.mm.bing.net/th?id=OIP.91C1wLxp6dKMwAfFJ0NoQQHaHa&pid=Api&P=0&h=220",
+        about: "Illuminate your workspace with this stylish desk lamp. Featuring adjustable brightness and a modern design, it adds both functionality and aesthetics to your desk. Brighten up your workday.",
+        discountedPrice: 20 // Example discounted price
+    },
+    {
+        id: 17,
+        productName: "Yoga Mat",
+        price: 30,
+        image: "https://tse1.explicit.bing.net/th?id=OIP.oadOOuJvKoSgfP5OPP20XwHaHa&pid=Api&P=0&h=220",
+        about: "Enhance your yoga practice with this premium yoga mat. Made from eco-friendly materials and offering excellent grip, it provides stability and comfort during your workouts. Find your inner balance.",
+        discountedPrice: 25 // Example discounted price
+    },
+    {
+        id: 18,
+        productName: "Wireless Earbuds",
+        price: 60,
+        image: "https://tse3.mm.bing.net/th?id=OIP.libpofDBp-fePjfg01HpZgHaFj&pid=Api&P=0&h=220",
+        about: "Experience true wireless freedom with these Bluetooth earbuds. With long battery life and crystal-clear sound, they're perfect for workouts, commutes, and everyday use. Cut the cords and enjoy music on the go.",
+        discountedPrice: 50 // Example discounted price
+    },
+    {
+        id: 19,
+        productName: "Cookware Set",
+        price: 100,
+        image: "https://tse2.mm.bing.net/th?id=OIP.-FqWkwtrPylviU45r4pY8gHaGd&pid=Api&P=0&h=220",
+        about: "Upgrade your kitchen with this comprehensive cookware set. Featuring pots, pans, and utensils made from durable materials, it's perfect for both beginner cooks and seasoned chefs. Prepare delicious meals with ease.",
+        discountedPrice: 90 // Example discounted price
+    },
+    {
+        id: 20,
+        productName: "Bluetooth Speaker",
+        price: 40,
+        image: "https://tse4.mm.bing.net/th?id=OIP.PwCDHyxErSoV5-mw3GtWMQHaHa&pid=Api&P=0&h=220",
+        about: "Take your music anywhere with this portable Bluetooth speaker. With a compact design and powerful sound, it's perfect for parties, picnics, and outdoor adventures. Keep the music playing wherever you go.",
+        discountedPrice: 35 // Example discounted price
     }
 ];
 

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className="container" style={{backgroundColor:"rgb(125, 96, 205)",minWidth:"100vw",margin:"0"}}>
+    <div className="container" style={{backgroundColor:"rgb(125, 96, 205)",minWidth:"100vw",margin:"0",paddingLeft:"30px"}}>
   <footer className="py-5">
     <div className="row">
       <div className="col-6 col-md-2 mb-3">
@@ -21,7 +21,7 @@ const Footer = () => {
           <p style={{color:"white"}}>Monthly digest of what's new and exciting from us.</p>
           <div className="d-flex flex-column flex-sm-row w-100 gap-2">
             <label for="newsletter1" className="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" className="form-control" placeholder="Email address" fdprocessedid="h2up1" style={{maxWidth:"300px"}}/>
+            <input id="newsletter1" type="text" className="form-control" placeholder="Email address" fdprocessedid="h2up1" style={{maxWidth:"250px"}}/>
             <button className="btn btn-primary" type="button" fdprocessedid="3dg9b">Subscribe</button>
           </div>
         </form>

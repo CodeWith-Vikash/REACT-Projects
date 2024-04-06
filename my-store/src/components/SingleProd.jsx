@@ -43,8 +43,8 @@ const SingleProd = () => {
        <img src={image}/>
        <div className="single-content">
          <b>{productName}</b>
-         <p>MRP: {price}</p>
-         <p>Deal of the day : {discountedPrice}</p>
+         <p style={{color:"black"}}>MRP: <span style={{textDecoration:"line-through"}}>{price}$</span></p>
+         <p style={{color:"black"}}>Deal of the day : {discountedPrice}$</p>
          <p>{about}</p>
          <div className="prodfeatures">
            <div className="feat">
