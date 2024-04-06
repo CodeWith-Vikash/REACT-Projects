@@ -1,8 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Contact = () => {
+  const {user,isAuthenticated}=useAuth0()
   return (
     <>
        <Navbar/>
@@ -14,12 +16,14 @@ const Contact = () => {
            name='username'
            required
            autoComplete='off'
+            value={isAuthenticated ? user.name:""}
            />
           <input type="email" 
           placeholder='Email'
           name='Email'
           required
           autoComplete='off'
+          value={isAuthenticated ? user.email:""}
           />
           <textarea cols="30" rows="5" 
           placeholder='message'

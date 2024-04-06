@@ -20,6 +20,7 @@ const SingleProd = () => {
   const {productName,price,discountedPrice,image,about,id}=localprodata[0]
   const [quantity, setquantity] = useState(1)
 
+  console.log(cart);
   const increasequantity=()=>{
       setquantity(quantity+1)
   }
@@ -71,7 +72,7 @@ const SingleProd = () => {
           />
            <NavLink to="/cart"><button onClick={() => {
             if (!isitemexistincart) {
-              addtocart(quantity);
+              addtocart(quantity,cart);
               // Update state after successful addition (assuming addtocart returns true on success)
               setisitemexistincart(true);
             }

@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   const [slidenav, setslidenav] = useState(false)
-  const { loginWithRedirect, logout, isAuthenticated} = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated,user} = useAuth0();
 
   const {cart} =useContext(CartContext)
   let navref=useRef()
@@ -28,19 +28,19 @@ const Navbar = () => {
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
-        <p>welcome,vikash</p>
         {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>:<button onClick={() => loginWithRedirect()}>Log In</button>}
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
           <div className="circle">{cart.length}</div>
         </div>
+        {isAuthenticated && <img src={user.picture}/>}
       </div>
     </nav>
      <div className="slidenav" ref={navref}>
          <NavLink to='/'>Home</NavLink>
         <NavLink to='/products'>Products</NavLink>
         <NavLink to='/contact'>Contact</NavLink>
-        <p>welcome,vikash</p>
+        {isAuthenticated && <p>welcome,{user.name}</p>}
         {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>:<button onClick={() => loginWithRedirect()}>Log In</button>}
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
