@@ -20,7 +20,7 @@ const SingleProd = () => {
   const {productName,price,discountedPrice,image,about,id}=localprodata[0]
   const [quantity, setquantity] = useState(1)
 
-  console.log(cart);
+  // console.log(cart);
   const increasequantity=()=>{
       setquantity(quantity+1)
   }
@@ -30,13 +30,6 @@ const SingleProd = () => {
      }
   }
    
-  useEffect(()=>{
-    cart.map((item)=>{
-       if(item.id==id){
-         setisitemexistincart(true)
-       }
-    })
-  },[])
   return (
     <>
        <Navbar/>

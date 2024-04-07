@@ -11,7 +11,7 @@ const Products = () => {
   const [selectval, setselectval] = useState()
 
   const searchproducts=()=>{
-     setfiltereddate(Data.filter((item)=> item.productName.toLowerCase().startsWith(searchval.toLowerCase())))
+     setfiltereddate(Data.filter((item)=> item.productName.toLowerCase().includes(searchval.toLowerCase())))
   }
 
   const sortproducts=()=>{
@@ -27,7 +27,7 @@ const Products = () => {
 
   useEffect(()=>{
     sortproducts()
-  },[selectval,Data])
+  },[selectval,Data,setselectval])
 
   useEffect(()=>{
     searchproducts()

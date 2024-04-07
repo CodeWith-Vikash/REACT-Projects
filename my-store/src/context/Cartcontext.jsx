@@ -13,21 +13,32 @@ export const Cartprovider=({children})=>{
     const updatedCart = [...cart, {...prodata[0], quantity: quantity}]
     localStorage.setItem("mystorecart", JSON.stringify(updatedCart))
     setcart(updatedCart)
+    console.log(updatedCart);
 }
 
 const removefromcart = (cartitems, id) => {
+    console.log("Removing item with ID:", id);
+    console.log("Current cart:", cartitems); // Log current cart before removal
+
     const updatedCart = cartitems.filter((item) => item.id !== id);
-    setcart(updatedCart);
+    console.log("Updated cart:", updatedCart); // Log updated cart after removal
+
+    setcart(updatedCart); // Update cart state
+    localStorage.setItem("mystorecart", JSON.stringify(updatedCart)); // Update local storage
+
+    console.log("Cart after removal:", cart); // Log current cart after state update
 }
+
 
      const clearcart=(setcartitems)=>{
         localStorage.removeItem("mystorecart")
         setcartitems([])
+        setcart([])
     }
-    useEffect(()=>{
-       if(cart.length>0){
-        localStorage.setItem("mystorecart", JSON.stringify(cart));
-       }
-     },[cart,removefromcart])
+    // useEffect(()=>{
+    //    if(cart.length>0){
+    //     localStorage.setItem("mystorecart", JSON.stringify(cart));
+    //    }
+    //  },[cart,removefromcart])
     return <CartContext.Provider value={{cart,addtocart,getprodata,removefromcart,clearcart}}>{children}</CartContext.Provider>
 }

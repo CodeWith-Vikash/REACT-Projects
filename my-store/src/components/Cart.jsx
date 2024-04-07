@@ -27,7 +27,7 @@ const Cart = () => {
     }
     
     // Calculate subtotal based on cart items
-    const subtotal = localCart.reduce((acc, curr) => {
+    const subtotal = cart.reduce((acc, curr) => {
       return curr.discountedPrice * curr.quantity + acc;
     }, 0);
   

@@ -34,7 +34,7 @@ const Home = () => {
         </div>
        <div className="sale">
          {Data.filter((item)=> item.id<4).map((item)=>{
-             return <NavLink to="/singleprod"><Product name={item.productName} price={item.price} img={item.image} id={item.id} key={item.productName}/></NavLink>
+             return <NavLink to="/singleprod" key={item.productName}><Product name={item.productName} price={item.price} img={item.image} id={item.id}/></NavLink>
          })}
        </div>
        </section>
