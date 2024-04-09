@@ -7,7 +7,7 @@ import Home from './components/Home'
 
 const App = () => {
   return (
-    <div className='h-screen bg-gray-950'><Home/></div>
+    <div className='h-screen bg-gray-950'><Register/></div>
   )
 }
 

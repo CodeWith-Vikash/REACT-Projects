@@ -4,6 +4,7 @@ import { IoIosVideocam } from "react-icons/io";
 import { RiUserAddFill } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineAttachFile } from "react-icons/md";
+import Message from './Message';
 
 
 const Chatbox = () => {
@@ -18,7 +19,7 @@ const Chatbox = () => {
             </div>
         </header>
         <main className='overflow-auto h-[73vh]'>
-             {/*  */}
+             <Message/>
         </main>
         <footer className='h-[60px] bg-white flex justify-between items-center px-4 w-[100%]'>
             <input type="text" placeholder='write something....' className='outline-none bg-transparent px-4 py-2'/>
