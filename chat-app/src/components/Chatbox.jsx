@@ -6,33 +6,76 @@ import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineAttachFile } from "react-icons/md";
 import Message from './Message';
 import { ChatContext } from '../context/Chatcontext';
-import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../Firebase';
+import { Timestamp, arrayUnion, doc, onSnapshot, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { db,storage } from '../Firebase';
 import { AppContext } from '../context/AuthContext';
-
+import {v4 as uuid} from 'uuid'
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Chatbox = () => {
   const {currentuser}=useContext(AppContext)
   const {data}=useContext(ChatContext)
-  const [messages, setmessages] = useState([])
+  const [Messages, setMessages] = useState([])
   const [inputtext, setinputtext] = useState("")
-  const [inputimg, setinputimg] = useState(null)
-  useEffect(()=>{
-    const unsub=onSnapshot(doc(db,"chats",data.chatId),(doc)=>{
-       doc.exists() && setmessages(doc.data().messages)
-    })
-    return ()=>{
-      unsub()
-    }
-  },[data.chatId])
-  console.log(messages);
+  const [inputimg, setinputimg] = useState(false)
+  console.log(data);
+  useEffect(() => {
+    const unSub = onSnapshot(doc(db, "chats",data.chatId), (doc) => {
+      doc.exists() && setMessages(doc.data().messages);
+    });
 
-  const handlesend=()=>{
+    return () => {
+      unSub();
+    };
+  }, [data.chatId]);
+  console.log(Messages);
+
+  const handlesend=async ()=>{
     if(inputimg){
+      const fileRef = ref(storage,uuid());
+      const uploadTask = uploadBytesResumable(fileRef, inputimg);
 
+
+      uploadTask.on('state_changed', 
+      null, 
+      (uploadError) => {
+        // setError(true);
+        console.log(uploadError);
+      }, 
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+          await updateDoc(doc(db,"chats",data.chatId),{
+            messages:arrayUnion({
+              id:uuid(),
+              inputtext,
+              senderId:currentuser.uid,
+              date:Timestamp.now(),
+              img:downloadURL,
+            })
+          })
+        });
+      }
+    );
     }else{
-
+      await updateDoc(doc(db,"chats",data.chatId),{
+        messages:arrayUnion({
+          id:uuid(),
+          inputtext,
+          senderId:currentuser.uid,
+          date:Timestamp.now(),
+        })
+      })
     }
+
+    await updateDoc(doc(db,"userChats",data.user.uid),{
+      [data.chatId+".lastMessage"]:{
+        inputtext,
+      },
+      [data.chatId+".date"]:serverTimestamp(),
+    })
+
+    setinputimg(null)
+    setinputtext("")
   }
   return (
     <div className='chatbox bg-gray-400 h-[93.3vh]'>
@@ -45,8 +88,8 @@ const Chatbox = () => {
             </div>
         </header>
         <main className='overflow-auto h-[73vh]'>
-            {messages.map((m)=>{
-               return <Message key={m} message={m}/>
+            {Messages?.map((m)=>{
+               return <Message key={m.id} text={m.inputtext}/>
             })}
         </main>
         <footer className='h-[60px] bg-white flex justify-between items-center px-4 w-[100%]'>

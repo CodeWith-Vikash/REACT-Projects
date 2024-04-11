@@ -105,10 +105,10 @@ const Sidebar = () => {
             {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
             {Object.entries(chats)?.map((item)=>{
                return  <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2' key={item[0]} onClick={()=>handleselected(item[1].userinfo)}>
-               <img src={item[1].userinfo.photoURL} className='h-10 rounded-full'/>
+               <img src={item[1].userinfo.photoURL} className='h-10 rounded-full w-10'/>
                <div>
                    <b>{item[1].userinfo.displayName}</b>
-                   <p>see you later</p>
+                   {/* <p className='text-sm'>{item[1].lastMessage.inputtext && item[1].lastMessage.inputtext}</p> */}
                </div>
                </div>
             })}
