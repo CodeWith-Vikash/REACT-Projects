@@ -2,14 +2,16 @@ import React, { useContext, useEffect, useState } from 'react'
 import {signOut} from 'firebase/auth'
 import { auth, db } from '../Firebase'
 import { AppContext } from '../context/AuthContext'
-import { collection, query, where,getDocs} from "firebase/firestore";
+import { collection, query, where,getDocs, setDoc, updateDoc, serverTimestamp,getDoc,doc, onSnapshot} from "firebase/firestore";
+import { ChatContext } from '../context/Chatcontext';
 
 const Sidebar = () => {
+    const {dispatch}=useContext(ChatContext)
     const {currentuser}=useContext(AppContext)
     const [username, setusername] = useState("")
     const [user, setuser] = useState(null)
     const [error, seterror] = useState(false)
-    const [allusers, setallusers] = useState([])
+    const [chats, setchats] = useState([])
 
     const handlekeydown=async (e)=>{
         if(e.code=="Enter"){
@@ -27,6 +29,56 @@ const Sidebar = () => {
           }
       }
     }
+    const handleSelect=async ()=>{
+      const combinedid=currentuser.uid>user.uid?currentuser.uid+user.uid:user.uid+currentuser.uid
+      try {
+        const docRef = doc(db, "chats", combinedid);
+        const res = await getDoc(docRef);
+         if(!res.exists()){
+            await setDoc(docRef,{"messages":[]})
+
+            // create userchats for first
+            await updateDoc(doc(db,"userChats",currentuser.uid),{
+              [combinedid+".userinfo"]:{
+                uid:user.uid,
+                displayName:user.displayName,
+                photoURL:user.photoURL
+              },
+              [combinedid+".date"]:serverTimestamp()
+            })
+            // for second
+            await updateDoc(doc(db,"userChats",user.uid),{
+              [combinedid+".userinfo"]:{
+                uid:currentuser.uid,
+                displayName:currentuser.displayName,
+                photoURL:currentuser.photoURL
+              },
+              [combinedid+".date"]:serverTimestamp()
+            })
+         }
+        
+       } catch (err) {
+           console.log(err);
+       }
+       setuser(null)
+       setusername("")
+    }
+    useEffect(()=>{
+      const getchats=()=>{
+         const unsub=onSnapshot(doc(db,'userChats',currentuser.uid),(doc)=>{
+             setchats(doc.data())
+         })
+         return ()=>{
+            unsub()
+         }
+      }
+      currentuser.uid && getchats()
+    },[currentuser.uid])
+    console.log(Object.entries(chats));
+
+    const handleselected=(u)=>{
+      dispatch({type:"CHANGE_USER",payload:u})
+    }
   return (
     <div className='sidebar text-white bg-violet-800 w-full h-[93vh]'>
         <nav className='flex gap-6 bg-violet-950 items-center px-2 h-[60px]'> 
@@ -39,33 +91,27 @@ const Sidebar = () => {
                 <button className='bg-blue-800 px-2 h-7 rounded-lg text-sm' onClick={()=> signOut(auth)}>Logout</button>
             </div>
         </nav>
-        <input type="text" placeholder="search friends" className='w-full outline-none text-black px-4 py-2 bg-gray-200' onChange={(e)=> setusername(e.target.value)} 
+        <input type="text" placeholder="search friends" className='w-full outline-none text-black px-4 py-2 bg-gray-200'value={username} onChange={(e)=> setusername(e.target.value)} 
           onKeyDown={(e)=>handlekeydown(e)}
         />
         <section className='user-section  border-t-black overflow-auto h-[75vh]'>
             {error && <span>user not found</span>}
-            {user && <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2'>
+            {user && <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2' onClick={handleSelect}>
             <img src={user.photoURL} className='h-10 rounded-full w-10'/>
             <div>
                 <b>{user.displayName}</b>
             </div>
             </div>}
             {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
-            <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2'>
-            <img src="https://up.yimg.com/ib/th?id=OIP.7PFJ2-xr8x_3EprzHWmXAgHaHa&pid=Api&rs=1&c=1&qlt=95&w=110&h=110" className='h-10 rounded-full w-10'/>
-            <div>
-                <b>Tyler</b>
-                <p>see you later</p>
-            </div>
-            </div>
-            {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
-            <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2'>
-            <img src="https://up.yimg.com/ib/th?id=OIP.7PFJ2-xr8x_3EprzHWmXAgHaHa&pid=Api&rs=1&c=1&qlt=95&w=110&h=110" className='h-10 rounded-full'/>
-            <div>
-                <b>Tyler</b>
-                <p>see you later</p>
-            </div>
-            </div>
+            {Object.entries(chats)?.map((item)=>{
+               return  <div className='user flex gap-2 items-center pl-5 hover:bg-violet-950 py-2' key={item[0]} onClick={()=>handleselected(item[1].userinfo)}>
+               <img src={item[1].userinfo.photoURL} className='h-10 rounded-full'/>
+               <div>
+                   <b>{item[1].userinfo.displayName}</b>
+                   <p>see you later</p>
+               </div>
+               </div>
+            })}
             {/* &&&&&&&&&&&&&&&&&&&&&&&&&&&& */}
         </section>
     </div>
