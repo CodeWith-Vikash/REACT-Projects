@@ -1,26 +1,31 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { AppContext } from '../context/AuthContext';
+import { ChatContext } from '../context/Chatcontext';
 
-const Message = (text) => {
-    console.log(text);
+const Message = ({message}) => {
+    const {currentuser}=useContext(AppContext)
+    const {data}=useContext(ChatContext)
+    console.log(message);
+    const ref=useRef(null)
+    useEffect(()=>{
+        ref.current?.scrollIntoView({behaviour:"smooth"})
+    },[message])
   return (
-       <div>
-          <div className='flex items-center gap-4 p-4'>
+       <div className=''>
+          <div className={message.senderId==currentuser.uid?'owner':'sender'} ref={ref}>
         <div>
-            <img src="https://up.yimg.com/ib/th?id=OIP.umVFeuYa-emf28UMBkK37wHaHa&pid=Api&rs=1&c=1&qlt=95&w=115&h=115" className='rounded-full h-10'/>
-            <p className='text-sm text-gray-800'>just now</p>
+            <img src={
+                message.senderId==currentuser.uid?
+                currentuser.photoURL:
+                data.user.photoURL
+            } className='rounded-full h-10 w-10'/>
+            {/* <p className='text-sm text-gray-800'>just now</p> */}
         </div>
-        <div className='bg-white px-4 py-2 rounded-xl font-semibold max-w-[300px] rounded-tl-none'>{text.text}</div>
-    </div>
-    {/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */}
-    <div className='flex items-center gap-4 p-4 justify-end'>
-       
-        <div className='bg-blue-500 text-white px-4 py-2 rounded-xl font-semibold max-w-[300px] rounded-tr-none'>No thanks i,m okay</div>
-        <div>
-            <img src="https://up.yimg.com/ib/th?id=OIP.7PFJ2-xr8x_3EprzHWmXAgHaHa&pid=Api&rs=1&c=1&qlt=95&w=110&h=110" className='rounded-full h-10'/>
-            <p className='text-sm text-gray-800'>just now</p>
+        <div className='bg-white px-4 py-2 rounded-xl font-semibold max-w-[250px] rounded-tl-none text h-fit mt-4'>{message.inputtext}
+        {message.img && <img src={message.img} alt="" />}
         </div>
     </div>
-       </div>
+     </div>
   )
 }
 

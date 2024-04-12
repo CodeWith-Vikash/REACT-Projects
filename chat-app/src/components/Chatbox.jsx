@@ -80,20 +80,23 @@ const Chatbox = () => {
   return (
     <div className='chatbox bg-gray-400 h-[93.3vh]'>
         <header className='bg-violet-600 text-white px-6 h-[60px] flex justify-between items-center'>
-            <b className='text-lg'>{data.user?.displayName}</b>
+            <div className='flex gap-2 items-center'>
+               <img src={data.user?.photoURL} className='h-10 w-10 rounded-full'/>
+               <b className='text-lg'>{data.user?.displayName}</b>
+            </div>
             <div className='flex gap-4 items-center'>
               <IoIosVideocam size="1.5rem" style={{cursor:"pointer"}}/>
               <RiUserAddFill size="1.5rem" style={{cursor:"pointer"}}/>
               <BsThreeDots size="1.5rem" style={{cursor:"pointer"}}/>
             </div>
         </header>
-        <main className='overflow-auto h-[73vh]'>
+        <main className='overflow-auto h-[73vh] message-container p-4'>
             {Messages?.map((m)=>{
-               return <Message key={m.id} text={m.inputtext}/>
+               return <Message key={m.id} message={m}/>
             })}
         </main>
-        <footer className='h-[60px] bg-white flex justify-between items-center px-4 w-[100%]'>
-            <input type="text" placeholder='write something....' className='outline-none bg-transparent px-4 py-2'
+        <footer className='h-[60px] bg-white flex justify-between items-center px-4 w-[100vw]'>
+            <input type="text" placeholder='write something....' className='outline-none bg-transparent px-4 py-2 w-[50vw]'
              value={inputtext}
               onChange={e=>setinputtext(e.target.value)}
             />

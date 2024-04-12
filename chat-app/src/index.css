@@ -23,11 +23,31 @@ form{
     /* transform: translate(-100%); */
     transition: all ease-in-out 0.3s;
 }
+.owner,.sender{
+    display: flex;
+    gap: 10px;
+}
+.sender{
+    /* justify-content: flex-end; */
+    flex-direction: row-reverse;
+}
+.sender .text{
+    background-color: rgb(36, 36, 248);
+    color: white;
+    border-top-right-radius: 0;
+    border-top-left-radius: 10px;
+}
+.message-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
 
 @media(min-width:768px){
     .sideleft{
         width: 40%;
         position: static;
+        transform: translate(0%,0%);
     }
     .chatside{
         width: 60%;
@@ -50,6 +70,12 @@ form{
     }
     .chatbox main{
         height: 80vh;
+    }
+    .chatbox footer{
+        width: 100%;
+    }
+    .chatbox footer input{
+        width: 50%;
     }
 }
 @media(min-width:1060px){
