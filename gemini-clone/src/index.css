@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+
+#hero h2{
+    background-image: linear-gradient(to right,blue,rgb(211, 52, 79),blue,rgb(208, 52, 78));
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+}
