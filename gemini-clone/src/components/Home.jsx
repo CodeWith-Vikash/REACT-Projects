@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { Aicontext } from '../config/gemini';
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
+import { GiPentagramRose } from "react-icons/gi";
 
 
 const TypingAnimation = ({ text, speed }) => {
@@ -41,7 +42,7 @@ const Home = () => {
     const [inputValue, setInputValue] = useState("");
     const [question, setQuestion] = useState("");
     const [responseText, setResponseText] = useState("");
-    const { data, getdata, isloading, response,islight } = useContext(Aicontext);
+    const { data, getdata, isloading, response,islight,iserror } = useContext(Aicontext);
 
     useEffect(() => {
         let styledText = formatText(data)
@@ -65,13 +66,18 @@ const Home = () => {
                         <div className="hr w-[90%]"></div>
                         <div className="hr w-[85%]"></div>
                     </div>
+                ):iserror?(
+                    <b className='text-red-600 mt-10'>Something went wrong try again!</b>
                 ) : response ? (
                     <section className='w-full p-4 max-w-[700px] pb-[20vh]'>
-                        <div className='flex gap-2 items-center mb-[5vh]'>
+                        <div className='flex gap-2  mb-[5vh]'>
                             <img src="https://tse1.mm.bing.net/th?id=OIP.-4nY2ID2ybM6f3UnHOPaeQHaFj&pid=Api&P=0&h=220" className='h-10 w-10 rounded-full' alt='Profile'/>
-                            <p>{question}</p>
+                            <strong>{question}</strong>
                         </div>
-                        <TypingAnimation text={responseText} speed={20} />
+                        <div className=''>
+                            <GiPentagramRose size="2.5rem" className='text-green-500'/>
+                           <TypingAnimation text={responseText} speed={20} />
+                        </div>
                     </section>
                 ) : (
                     <section id='hero' className='max-w-[500px] leading-tight px-6 py-4'>

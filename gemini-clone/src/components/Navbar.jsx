@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiPentagramRose } from "react-icons/gi";
 import { MdDarkMode } from "react-icons/md";
 import { Aicontext } from '../config/gemini';
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center px-6 py-4 shadow-md 'style={islight?{backgroundColor:"white",color:"black"}:null}>
         <div className='flex gap-3 items-center'>
-            <GiHamburgerMenu size="1.5rem" className='cursor-pointer'/>
+            <GiPentagramRose size="2rem" className='cursor-pointer text-green-500'/>
             <h1 className='text-xl font-semibold font-sans'>Jarvis</h1>
         </div>
         <div className='flex gap-4 items-center'>
