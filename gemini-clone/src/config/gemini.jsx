@@ -8,6 +8,7 @@ export const Aicontext=createContext(null)
 export const ContextProvider=({children})=>{
    const [data, setdata] = useState("")
    const [isloading, setisloading] = useState(false)
+   const [islight, setislight] = useState(false)
    const [response, setresponse] = useState(false)
    const getdata=async (userinput)=>{
       console.log("working");
@@ -23,5 +24,8 @@ export const ContextProvider=({children})=>{
        setresponse(true)
       console.log(apiresponse);
    }
-   return <Aicontext.Provider value={{data,getdata,isloading,response}}>{children}</Aicontext.Provider>
+   const toggleMode=()=>{
+      setislight(!islight)
+   }
+   return <Aicontext.Provider value={{data,getdata,isloading,response,toggleMode,islight}}>{children}</Aicontext.Provider>
 }

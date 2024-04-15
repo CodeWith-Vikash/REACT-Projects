@@ -14,3 +14,42 @@
     -webkit-text-fill-color: transparent;
     font-weight: 500;
 }
+
+::-webkit-scrollbar {
+    width: 10px; /* Adjust width as needed */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background:rgb(60, 60, 60);
+    border-radius: 5px; /* Add rounded corners */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background:transparent;
+  }
+
+  .loader .hr{
+    height: 20px;
+    background:linear-gradient(to right ,rgb(17, 98, 138),rgb(199, 247, 247),rgb(17, 98, 138));
+    /* width: 100%; */
+    max-width: 600px;
+    border-radius: 20px;
+    animation: loader 3s infinite linear;
+  }
+  .loader{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 100vw;
+    padding: 10vh 40px;
+    align-items: center;
+  }
+
+  @keyframes loader{
+    0%{
+        background-position: -800px 0;
+    }
+    100%{
+        background-position: 800px 0;
+    }
+  }
