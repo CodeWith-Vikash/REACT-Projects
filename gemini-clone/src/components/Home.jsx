@@ -87,7 +87,7 @@ const Home = () => {
                 )}
             </main>
 
-            <section id='input' className='absolute bottom-5 w-full px-4 flex justify-center'>
+            <section id='input' className='absolute bottom-6 w-full px-4 flex justify-center'>
                 <div className='flex justify-between items-center bg-zinc-700 h-16 gap-10 pr-8 rounded-full w-full max-w-[800px]' style={islight?{backgroundColor:"gray"}:null}>
                     <input
                         type="text"
@@ -117,6 +117,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <p className='left-[40%] absolute bottom-0'>Copyright@codeWithVikash</p>
         </div>
     );
 };
