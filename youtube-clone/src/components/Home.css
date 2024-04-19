@@ -4,20 +4,86 @@
     gap: 30px;
     padding: 30px 20px;
     justify-content: center;
+    width: 60%;
+    /* height: 90vh; */
+    overflow: auto;
 }
 .home{
     display: flex;
+    height: 90vh;
+    /* width: 100vw; */
+    /* background-color: red; */
 }
 aside{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding:25px 15px;
+    padding:20px 15px;
     position: sticky;
-    top:30px;
+    top:45px;
+    /* height: 100vh; */
+    overflow: auto;
+    width: 40%;
+}
+.area,.subscritpt{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.chanel{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.chanel img{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
 }
 aside .option{
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+@media(min-width:768px){
+    aside{
+        width: 20%;
+    }
+    .videos{
+        width: 80%;
+    }
+}
+/* Target the scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+    
+  }
+  
+  /* Style the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background:transparent; /* Set the background color */
+  }
+  
+  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background: #b0aeae; /* Set the background color */
+    border-radius: 5px; /* Add rounded corners */
+  }
+  
+  
+@media(max-width:425px){
+    aside p{
+        display: none;
+    }
+    aside{
+        width: fit-content;
+    }
+    .subscritpt{
+        display: none;
+    }
+    .videos{
+        /* background-color: red; */
+        width: 90%;
+    }
 }

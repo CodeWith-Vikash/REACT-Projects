@@ -1,0 +1,75 @@
+video{
+    width: 100%;
+}
+.videosection{
+    padding: 20px;
+    height: 90vh;
+    overflow: auto;
+}
+.mainvid{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.vidviews{
+    display: flex;
+    justify-content: space-between;
+}
+.vidoptions{
+    display: flex;
+    gap: 20px;
+    
+}
+.like{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.subscribe{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    align-items: center;
+}
+.subchanel{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.subchanel img,.comment img{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+.subscribe button{
+    background-color: red;
+    color: white;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    padding:5px 10px;
+    border-radius: 5px ;
+    font-weight: bold;
+}
+.commentsec{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.commenttitle{
+    display: flex;
+    gap: 5px ;
+    align-items: center;
+}
+.comlike{
+    display: flex;
+    gap: 10px;
+}

@@ -17,7 +17,8 @@ const Home = () => {
   return (
     <div className='home'>
        <aside>
-         <div className="option">
+        <div className="area">
+        <div className="option">
            <IoMdHome size="1.5rem"/>
            <p>Home</p>
          </div>
@@ -62,6 +63,36 @@ const Home = () => {
            <p>News</p>
          </div>
          {/* '''''''' */}
+        </div>
+        
+        <div className="subscritpt">
+          <b>Subscription</b>
+          <div className="chanel">
+            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+            <p>peter pots</p>
+          </div>
+          {/* 000000000000 */}
+          <div className="chanel">
+            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+            <p>peter pots</p>
+          </div>
+          {/* 000000000000 */}
+          <div className="chanel">
+            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+            <p>peter pots</p>
+          </div>
+          {/* 000000000000 */}
+          <div className="chanel">
+            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+            <p>peter pots</p>
+          </div>
+          {/* 000000000000 */}
+          <div className="chanel">
+            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+            <p>peter pots</p>
+          </div>
+          {/* 000000000000 */}
+        </div>
        </aside>
         <div className="videos">
         {arr.map((item)=>{

@@ -12,7 +12,6 @@ const Navbar = () => {
   return (
     <nav>
         <div className="logo-sec">
-            <GiHamburgerMenu size="1.2rem"/>
             <div className="logo">
                 <FaPlayCircle size="2rem" color='red'/>
                 <h1>VideosHub</h1>
