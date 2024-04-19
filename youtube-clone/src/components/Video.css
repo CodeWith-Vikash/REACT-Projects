@@ -1,0 +1,16 @@
+.video{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap:10px;
+    font-size: 0.9rem;
+    line-height: 0.9;
+    background-color: rgb(250, 245, 245);
+    padding: 10px;
+}
+.video img{
+    width:100%;
+}
+.video p{
+    font-weight: 500;
+}
