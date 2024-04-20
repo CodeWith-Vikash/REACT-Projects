@@ -45,6 +45,12 @@ aside .option{
     align-items: center;
     gap: 10px;
 }
+li{
+    list-style: none;
+}
+.videos h4{
+    width: 300px;
+}
 
 @media(min-width:768px){
     aside{

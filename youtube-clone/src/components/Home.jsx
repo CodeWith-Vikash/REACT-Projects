@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Home.css'
 import Video from './Video'
 import { IoMdHome } from "react-icons/io";
@@ -10,10 +10,11 @@ import { GrTechnology } from "react-icons/gr";
 import { MdLibraryMusic } from "react-icons/md";
 import { LiaBlogSolid } from "react-icons/lia";
 import { FaRegNewspaper } from "react-icons/fa6";
+import { Appcontext } from '../context/Vidcontext';
 
 
 const Home = () => {
-  const arr=[1,2,3,4,5,6,7,8,5,5]
+  const {videos}=useContext(Appcontext)
   return (
     <div className='home'>
        <aside>
@@ -95,9 +96,19 @@ const Home = () => {
         </div>
        </aside>
         <div className="videos">
-        {arr.map((item)=>{
-          return <Video/>
-        })}
+        {videos.map(video => (
+          <li key={video.id}>
+            <iframe
+              width="300"
+              height="230"
+              src={`https://www.youtube.com/embed/${video.id}`}
+              title={video.snippet.title}
+              frameBorder="0"
+              allowFullScreen
+              ></iframe>
+              <h4>{video.snippet.title}</h4>
+          </li>
+        ))}
         </div>
     </div>
   )
