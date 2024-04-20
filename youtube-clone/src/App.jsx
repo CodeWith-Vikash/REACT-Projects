@@ -1,16 +1,19 @@
 import React, { useEffect,useState } from 'react';
-import Navbar from './components/Navbar';
 import Home from './components/Home';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Singlevid from './components/Singlevid'
 
 
 const App = () => {
   
   
   return (
-    <div>
-      <Navbar />
-      <Home/>
-    </div>
+     <BrowserRouter>
+      <Routes>
+         <Route path="/" element={<Home/>}/>
+         <Route path="/video" element={<Singlevid/>}/>
+      </Routes>
+     </BrowserRouter>
   );
 }
 

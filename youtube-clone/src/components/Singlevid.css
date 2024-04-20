@@ -73,3 +73,10 @@ video{
     display: flex;
     gap: 10px;
 }
+iframe{
+    height: 50vh;
+}
+.desc{
+    height: 20vh;
+    overflow: auto;
+}
