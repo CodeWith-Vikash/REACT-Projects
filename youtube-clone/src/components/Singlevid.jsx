@@ -9,8 +9,9 @@ import { Datacontext } from '../context/Chanelcontext';
 
 
 const Singlevid = () => {
-    const {singledata}=useContext(Appcontext)
-    const {chaneldata}=useContext(Datacontext)
+    const {singledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
+    const {chaneldata,comments}=useContext(Datacontext)
+    console.log(comments);
     // console.log(chaneldata);
   return (
     <div className='vidpage'>
@@ -25,16 +26,16 @@ const Singlevid = () => {
         <b>{singledata.title}</b>
         <div className="vidviews">
             <div className="views">
-                <p>{singledata.views} views . 7 hours ago</p>
+                <p>{convertnumbers(singledata.views)} views . {calculateTimeGap(singledata.uploadtime)} ago</p>
             </div>
             <div className="vidoptions">
                 <div className="like">
                     <BiSolidLike/>
-                    <p>{singledata.likes}</p>
+                    <p>{convertnumbers(singledata.likes)}</p>
                 </div>
                 <div className="like">
                     <BiSolidDislike/>
-                    <p>8k</p>
+                    <p></p>
                 </div>
                 <div className="like">
                     <FaShare/>
@@ -51,29 +52,32 @@ const Singlevid = () => {
            {/* ....... */}
            <div className="subscribe">
              <div className="subchanel">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
+                <img src={chaneldata.items[0].snippet.thumbnails.default.url} alt="chanel" />
                 <div className="subcontent">
                     <b>{singledata.chanel}</b>
-                    {/* <p>{chaneldata.items.statistics.subscriberCount} subscribers</p> */}
+                    <p>{convertnumbers(chaneldata.items[0].statistics.subscriberCount)} subscribers</p>
                 </div>
              </div>
              <button>subscribe</button>
            </div>
            <p className='desc'>{singledata.desc}</p>
            <hr />
+           {/* comment section */}
            <div className="commentsec">
-             <p>{singledata.comments} comments</p>
-             <div className="comment">
+             <p>{convertnumbers(singledata.comments)} comments</p>
+             {comments.map((item)=>{
+                return <div className="comment">
                 <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
+                <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl
+} alt="chanel" />
+                <b>{item.snippet.topLevelComment.snippet.authorDisplayName}</b>
+                <p>{calculateTimeGap(item.snippet.topLevelComment.snippet.publishedAt)} ago</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
+                <p>{item.snippet.topLevelComment.snippet.textDisplay}</p>
                 <div className="comlike">
                    <div className="like">
                    <BiSolidLike/>
-                    <p>498k</p>
+                    <p>{convertnumbers(item.snippet.topLevelComment.snippet.likeCount)}</p>
                    </div>
                    <div className="like">
                     <BiSolidDislike/>
@@ -81,102 +85,8 @@ const Singlevid = () => {
                 </div>
                 </div>
              </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
-             <div className="comment">
-                <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
-                <div className="comlike">
-                   <div className="like">
-                   <BiSolidLike/>
-                    <p>498k</p>
-                   </div>
-                   <div className="like">
-                    <BiSolidDislike/>
-                    <p>8k</p>
-                </div>
-                </div>
-             </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
-             <div className="comment">
-                <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
-                <div className="comlike">
-                   <div className="like">
-                   <BiSolidLike/>
-                    <p>498k</p>
-                   </div>
-                   <div className="like">
-                    <BiSolidDislike/>
-                    <p>8k</p>
-                </div>
-                </div>
-             </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
-             <div className="comment">
-                <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
-                <div className="comlike">
-                   <div className="like">
-                   <BiSolidLike/>
-                    <p>498k</p>
-                   </div>
-                   <div className="like">
-                    <BiSolidDislike/>
-                    <p>8k</p>
-                </div>
-                </div>
-             </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
-             <div className="comment">
-                <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
-                <div className="comlike">
-                   <div className="like">
-                   <BiSolidLike/>
-                    <p>498k</p>
-                   </div>
-                   <div className="like">
-                    <BiSolidDislike/>
-                    <p>8k</p>
-                </div>
-                </div>
-             </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
-             <div className="comment">
-                <div className="commenttitle">
-                <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-                <b>peter pageo</b>
-                <p>14 hours ago</p>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tenetur.</p>
-                <div className="comlike">
-                   <div className="like">
-                   <BiSolidLike/>
-                    <p>498k</p>
-                   </div>
-                   <div className="like">
-                    <BiSolidDislike/>
-                    <p>8k</p>
-                </div>
-                </div>
-             </div>
-             {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
+             })}
+             
            </div>
         </section>
         <section className="rightbar"></section>

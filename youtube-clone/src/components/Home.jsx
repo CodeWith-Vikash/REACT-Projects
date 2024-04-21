@@ -21,8 +21,8 @@ import { Datacontext } from '../context/Chanelcontext';
 
 
 const Home = () => {
-  const {videos,setcategoryId,setsingledata}=useContext(Appcontext)
-  const {fetchChaneldata}= useContext(Datacontext)
+  const {videos,setcategoryId,setsingledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
+  const {fetchChaneldata,chaneldata}= useContext(Datacontext)
   return (
     <>
     <Navbar/>
@@ -132,7 +132,9 @@ const Home = () => {
                chanel:video.snippet.channelTitle,
                comments:video.statistics.commentCount,
                chanelid:video.snippet.channelId,
+               uploadtime:video.snippet.publishedAt
             })
+            localStorage.setItem("chanelid",video.snippet.channelId)
             fetchChaneldata()
             }}>
              <img src={video.snippet.thumbnails.medium.url} alt="thumbnail" width="240"/>
@@ -140,8 +142,8 @@ const Home = () => {
               <h4>{video.snippet.title}</h4>
               <p className='chanelname'>{video.snippet.channelTitle}</p>
               <div className="chanel">
-              <p>{video.statistics.viewCount} views</p>
-              <p>{}2 days ago</p>
+              <p>{convertnumbers(video.statistics.viewCount)} views</p>
+              <p>{calculateTimeGap(video.snippet.publishedAt)} ago</p>
               </div>
               </div>
           </li>
