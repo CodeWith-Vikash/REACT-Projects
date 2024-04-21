@@ -16,11 +16,13 @@ import { MdTheaterComedy } from "react-icons/md";
 import { MdVolunteerActivism } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import { Datacontext } from '../context/Chanelcontext';
 
 
 
 const Home = () => {
   const {videos,setcategoryId,setsingledata}=useContext(Appcontext)
+  const {fetchChaneldata}= useContext(Datacontext)
   return (
     <>
     <Navbar/>
@@ -121,14 +123,18 @@ const Home = () => {
         <div className="videos">
         {videos.map(video => (
           <Link to="/video" key={video.id}>
-            <li onClick={()=> setsingledata({
+            <li onClick={()=>{ setsingledata({
                id:video.id,
                desc:video.snippet.description,
                title:video.snippet.title,
                views:video.statistics.viewCount,
                likes:video.statistics.likeCount,
                chanel:video.snippet.channelTitle,
-            })}>
+               comments:video.statistics.commentCount,
+               chanelid:video.snippet.channelId,
+            })
+            fetchChaneldata()
+            }}>
              <img src={video.snippet.thumbnails.medium.url} alt="thumbnail" width="240"/>
               <div className="thumbcontent">
               <h4>{video.snippet.title}</h4>

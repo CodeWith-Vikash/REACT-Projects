@@ -24,7 +24,7 @@ export const ContextProvider=({children})=>{
              }
            }
          );
-         console.log(response)
+        //  console.log(response)
          setVideos(response.data.items);
        } catch (error) {
          console.error('Error fetching videos:', error);
@@ -32,6 +32,8 @@ export const ContextProvider=({children})=>{
      };
  
      fetchPopularVideos();
+
+     
    }, [countryCode,categoryId]);
     return <Appcontext.Provider value={{videos,setcategoryId,singledata,setsingledata}}>{children}</Appcontext.Provider>
 }

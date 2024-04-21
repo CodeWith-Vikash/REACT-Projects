@@ -5,11 +5,13 @@ import { BiSolidDislike } from "react-icons/bi";
 import { FaShare } from "react-icons/fa6";
 import { IoSave } from "react-icons/io5";
 import { Appcontext } from '../context/Vidcontext';
+import { Datacontext } from '../context/Chanelcontext';
 
 
 const Singlevid = () => {
     const {singledata}=useContext(Appcontext)
-    console.log(singledata);
+    const {chaneldata}=useContext(Datacontext)
+    // console.log(chaneldata);
   return (
     <div className='vidpage'>
         <section className="videosection">
@@ -52,7 +54,7 @@ const Singlevid = () => {
                 <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
                 <div className="subcontent">
                     <b>{singledata.chanel}</b>
-                    <p>3m subscribers</p>
+                    {/* <p>{chaneldata.items.statistics.subscriberCount} subscribers</p> */}
                 </div>
              </div>
              <button>subscribe</button>
@@ -60,7 +62,7 @@ const Singlevid = () => {
            <p className='desc'>{singledata.desc}</p>
            <hr />
            <div className="commentsec">
-             <p>5k comments</p>
+             <p>{singledata.comments} comments</p>
              <div className="comment">
                 <div className="commenttitle">
                 <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
@@ -75,7 +77,7 @@ const Singlevid = () => {
                    </div>
                    <div className="like">
                     <BiSolidDislike/>
-                    <p>8k</p>
+                    <p></p>
                 </div>
                 </div>
              </div>
