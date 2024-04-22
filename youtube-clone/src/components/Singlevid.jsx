@@ -6,15 +6,21 @@ import { FaShare } from "react-icons/fa6";
 import { IoSave } from "react-icons/io5";
 import { Appcontext } from '../context/Vidcontext';
 import { Datacontext } from '../context/Chanelcontext';
+import { MdHome } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 const Singlevid = () => {
-    const {singledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
-    const {chaneldata,comments}=useContext(Datacontext)
-    console.log(comments);
+    const {singledata,convertnumbers,calculateTimeGap,setsingledata}=useContext(Appcontext)
+    const {chaneldata,comments,relatedvid}=useContext(Datacontext)
+    // console.log(comments);
     // console.log(chaneldata);
   return (
-    <div className='vidpage'>
+    <> 
+      <div className="gohome">
+        <Link to="/"><MdHome size="2rem"/>go to homepage</Link>
+      </div>
+      <div className='vidpage'>
         <section className="videosection">
            <div className="mainvid">
            <iframe
@@ -49,7 +55,7 @@ const Singlevid = () => {
         </div>
            <hr />
            </div>
-           {/* ....... */}
+           
            <div className="subscribe">
              <div className="subchanel">
                 <img src={chaneldata.items[0].snippet.thumbnails.default.url} alt="chanel" />
@@ -62,15 +68,17 @@ const Singlevid = () => {
            </div>
            <p className='desc'>{singledata.desc}</p>
            <hr />
-           {/* comment section */}
+           
            <div className="commentsec">
              <p>{convertnumbers(singledata.comments)} comments</p>
              {comments.map((item)=>{
-                return <div className="comment">
+                return <div className="comment" key={item.id}>
                 <div className="commenttitle">
-                <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl
+                 <div className="ct1">
+                 <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl
 } alt="chanel" />
                 <b>{item.snippet.topLevelComment.snippet.authorDisplayName}</b>
+                 </div>
                 <p>{calculateTimeGap(item.snippet.topLevelComment.snippet.publishedAt)} ago</p>
                 </div>
                 <p>{item.snippet.topLevelComment.snippet.textDisplay}</p>
@@ -89,8 +97,38 @@ const Singlevid = () => {
              
            </div>
         </section>
-        <section className="rightbar"></section>
+
+        <section className="rightbar">
+            {relatedvid.map((video)=>{
+                return <div className="suggestion" key={video.id} onClick={()=>{
+                    setsingledata({
+                        id:video.id,
+                        desc:video.snippet.description,
+                        title:video.snippet.title,
+                        views:video.statistics.viewCount,
+                        likes:video.statistics.likeCount,
+                        chanel:video.snippet.channelTitle,
+                        comments:video.statistics.commentCount,
+                        chanelid:video.snippet.channelId,
+                        uploadtime:video.snippet.publishedAt
+                     })
+                     localStorage.setItem("chanelid",JSON.stringify({
+                        id:video.snippet.channelId,
+                        category:video.snippet.categoryId
+                     }))
+                }}>
+                <img src={video.snippet.thumbnails.high.url} alt="suggested" />
+                <div className="sugg-content">
+                <b>{video.snippet.localized.title}</b>
+                <span>{video.snippet.channelTitle}</span>
+                <p>{convertnumbers(video.statistics.viewCount)} views</p>
+                </div>
+            </div>
+            })}
+
+        </section>
     </div>
+    </>
   )
 }
 

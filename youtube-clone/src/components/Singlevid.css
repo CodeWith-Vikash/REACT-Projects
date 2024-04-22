@@ -1,10 +1,15 @@
+.vidpage{
+    display: flex;
+}
 video{
     width: 100%;
 }
 .videosection{
     padding: 20px;
+    padding-top: 0;
     height: 90vh;
     overflow: auto;
+    width: 60%;
 }
 .mainvid{
     display: flex;
@@ -64,7 +69,7 @@ video{
     flex-direction: column;
     gap: 10px;
 }
-.commenttitle{
+.commenttitle,.ct1{
     display: flex;
     gap: 5px ;
     align-items: center;
@@ -77,6 +82,65 @@ iframe{
     height: 50vh;
 }
 .desc{
-    height: 15vh;
+    max-height: 15vh;
     overflow: auto;
+}
+.suggestion{
+    display: flex;
+    height: fit-content;
+    cursor: pointer;
+}
+.suggestion img{
+    width: 170px;
+    height: 130px;
+}
+.sugg-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding:0 20px;
+    font-size: 1vmax;
+}
+.rightbar{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding:20px 10px;
+    gap: 20px;
+    height: 90vh;
+    overflow: auto;
+    padding-top: 0;
+}
+.sugg-content span{
+    font-weight: 600;
+}
+.gohome{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+.gohome a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media(max-width:768px){
+    .rightbar{
+        display: none;
+    }
+    .videosection{
+        width: 100%;
+    }
+}
+@media(max-width:490px){
+    .vidviews{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .commenttitle{
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

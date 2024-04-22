@@ -134,8 +134,11 @@ const Home = () => {
                chanelid:video.snippet.channelId,
                uploadtime:video.snippet.publishedAt
             })
-            localStorage.setItem("chanelid",video.snippet.channelId)
-            fetchChaneldata()
+            localStorage.setItem("chanelid",JSON.stringify({
+               id:video.snippet.channelId,
+               category:video.snippet.categoryId
+            }))
+            // fetchChaneldata()
             }}>
              <img src={video.snippet.thumbnails.medium.url} alt="thumbnail" width="240"/>
               <div className="thumbcontent">

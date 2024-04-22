@@ -10,9 +10,10 @@ export const ChanelProvider=({children})=>{
     const {singledata}=useContext(Appcontext)
     const [chaneldata, setchaneldata] = useState({})
     const [comments, setcomments] = useState([])
-    let chanelid=localStorage.getItem("chanelid")
+    const [relatedvid, setrelatedvid] = useState({})
+    let chanelid=JSON.parse(localStorage.getItem("chanelid")).id
     const fetchChaneldata=async ()=>{
-         try {
+        try {
            const response=await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${chanelid}&key=${apikey}
          `
          )
@@ -32,9 +33,22 @@ export const ChanelProvider=({children})=>{
         setcomments(commentsdata.items)
     
     }
+    const fetchRelatedVideos=async ()=>{
+        let categoryid=JSON.parse(localStorage.getItem("chanelid")).category
+         try{
+            const videoResponse=await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&videoCategoryId=${categoryid}&regionCode=IN&key=${apikey}
+         `)
+         let data=await videoResponse.json()
+         console.log(data.items)
+         setrelatedvid(data.items)
+        }catch(err){
+            console.log(err);
+         }
+    }
     useEffect(()=>{
         fetchChaneldata()
         fetchcomments()
+        fetchRelatedVideos()
     },[singledata])
-    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments}}>{children}</Datacontext.Provider>
+    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments,relatedvid}}>{children}</Datacontext.Provider>
 }
