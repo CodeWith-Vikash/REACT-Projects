@@ -57,6 +57,7 @@ video{
     padding:5px 10px;
     border-radius: 5px ;
     font-weight: bold;
+    cursor: pointer;
 }
 .commentsec{
     display: flex;
@@ -124,6 +125,10 @@ iframe{
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.subscribe .unsub{
+    background-color: gray;
+    color: black;
 }
 
 @media(max-width:768px){

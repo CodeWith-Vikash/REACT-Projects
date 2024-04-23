@@ -39,7 +39,7 @@ export const ChanelProvider=({children})=>{
             const videoResponse=await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&videoCategoryId=${categoryid}&regionCode=IN&key=${apikey}
          `)
          let data=await videoResponse.json()
-         console.log(data.items)
+        //  console.log(data.items)
          setrelatedvid(data.items)
         }catch(err){
             console.log(err);

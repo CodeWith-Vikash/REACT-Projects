@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext , useEffect, useState} from 'react'
 import './Singlevid.css'
 import { BiSolidLike } from "react-icons/bi";
 import { BiSolidDislike } from "react-icons/bi";
@@ -8,13 +8,30 @@ import { Appcontext } from '../context/Vidcontext';
 import { Datacontext } from '../context/Chanelcontext';
 import { MdHome } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { SubContext } from '../context/SubscriptionContext';
+import { db, storage } from '../firebase';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 
 const Singlevid = () => {
     const {singledata,convertnumbers,calculateTimeGap,setsingledata}=useContext(Appcontext)
     const {chaneldata,comments,relatedvid}=useContext(Datacontext)
+    const [issubscribed, setissubscribed] = useState(false)
     // console.log(comments);
     // console.log(chaneldata);
+    console.log(chaneldata.items[0].snippet.thumbnails.default.url);
+    const getdata=async()=>{
+      try {
+        let data=await getDoc(doc(db,"data",singledata.chanel))
+        setissubscribed(data.data().subscribed)
+      } catch (error) {
+          console.log("suberror"+error);
+      }
+    }
+    useEffect(()=>{
+      getdata()
+    },[singledata])
   return (
     <> 
       <div className="gohome">
@@ -64,7 +81,30 @@ const Singlevid = () => {
                     <p>{convertnumbers(chaneldata.items[0].statistics.subscriberCount)} subscribers</p>
                 </div>
              </div>
-             <button>subscribe</button>
+             {issubscribed ? <button className='unsub'>Unsubscribe</button>:<button onClick={()=>{
+              const storageref=ref(storage,singledata.chanel)
+             
+              const uploadTask=uploadBytesResumable(storageref,chaneldata.items[0].snippet.thumbnails.default.url)
+              uploadTask.on(
+                "state_changed",
+                null,
+                (error) => {
+                  console.log(error);
+                },
+                () => {
+                  getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                    const subdata = {
+                      chanelName: singledata.chanel,
+                      imageurl: downloadURL,
+                      subscribed:true
+                    };
+                    await setDoc(doc(db, "data", singledata.chanel), subdata);
+                    console.log(subdata);
+                  });
+                }
+              );
+              setissubscribed(true)
+             }}>subscribe</button>}
            </div>
            <p className='desc'>{singledata.desc}</p>
            <hr />

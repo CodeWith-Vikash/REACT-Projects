@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useState} from 'react'
 import './Home.css'
 import Video from './Video'
 import { IoMdHome } from "react-icons/io";
@@ -17,12 +17,32 @@ import { MdVolunteerActivism } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Datacontext } from '../context/Chanelcontext';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 
 const Home = () => {
   const {videos,setcategoryId,setsingledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
   const {fetchChaneldata,chaneldata}= useContext(Datacontext)
+  const [subdata, setsubdata] = useState([])
+
+  const getfirestore=async()=>{
+     try {
+       const collectionref=collection(db,"data")
+       const querry=await getDocs(collectionref)
+       const data=querry.docs.map((doc)=>({...doc.data(),id:doc.id}))
+       console.log(data);
+       setsubdata(data)
+     } catch (error) {
+        console.log(error);
+     }
+  }
+
+  useEffect(()=>{
+    getfirestore()
+  },[])
   return (
     <>
     <Navbar/>
@@ -93,31 +113,13 @@ const Home = () => {
         
         <div className="subscritpt">
           <b>Subscription</b>
-          <div className="chanel">
-            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-            <p>peter pots</p>
-          </div>
-          {/* 000000000000 */}
-          <div className="chanel">
-            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-            <p>peter pots</p>
-          </div>
-          {/* 000000000000 */}
-          <div className="chanel">
-            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-            <p>peter pots</p>
-          </div>
-          {/* 000000000000 */}
-          <div className="chanel">
-            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-            <p>peter pots</p>
-          </div>
-          {/* 000000000000 */}
-          <div className="chanel">
-            <img src="https://up.yimg.com/ib/th?id=OIP.hLTThhxHPeGqFQVjpD1-hwHaE8&pid=Api&rs=1&c=1&qlt=95&w=167&h=111" alt="chanel" />
-            <p>peter pots</p>
-          </div>
-          {/* 000000000000 */}
+          {subdata.map((item)=>{
+             return <div className="chanel" key={item.chanelName}>
+             <img src={item.imageurl} alt="chanel" />
+             <p>{item.chanelName}</p>
+           </div>
+          })}
+
         </div>
        </aside>
         <div className="videos">
