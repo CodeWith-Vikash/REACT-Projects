@@ -6,7 +6,7 @@ import axios from 'axios';
 export const Appcontext=createContext()
 
 export const ContextProvider=({children})=>{
-    const apikey='AIzaSyAyxmfhPMPRHvTf2HEimPkhZNFvztzL5qo'
+    const apikey='AIzaSyCxs6VyMGzx-ioube33x0F4JctyBfjf9Fg'
   const chanelid='UC-kKbeMavrjlf3zJOo3QS7w'   
    const [videos, setVideos] = useState([]);
    const [singledata, setsingledata] = useState({})

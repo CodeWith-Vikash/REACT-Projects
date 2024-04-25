@@ -6,11 +6,12 @@ export const Datacontext=createContext()
 
 
 export const ChanelProvider=({children})=>{
-    const apikey='AIzaSyAyxmfhPMPRHvTf2HEimPkhZNFvztzL5qo'
+    const apikey='AIzaSyCxs6VyMGzx-ioube33x0F4JctyBfjf9Fg'
     const {singledata}=useContext(Appcontext)
     const [chaneldata, setchaneldata] = useState({})
     const [comments, setcomments] = useState([])
     const [relatedvid, setrelatedvid] = useState({})
+    const [imgarr, setimgarr] = useState([])
     let chanelid=JSON.parse(localStorage.getItem("chanelid")).id
     const fetchChaneldata=async ()=>{
         try {
@@ -50,5 +51,5 @@ export const ChanelProvider=({children})=>{
         fetchcomments()
         fetchRelatedVideos()
     },[singledata])
-    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments,relatedvid}}>{children}</Datacontext.Provider>
+    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments,relatedvid,imgarr,setimgarr}}>{children}</Datacontext.Provider>
 }

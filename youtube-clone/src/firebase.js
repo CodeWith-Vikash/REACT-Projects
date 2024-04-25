@@ -8,12 +8,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAyxmfhPMPRHvTf2HEimPkhZNFvztzL5qo",
-  authDomain: "api-key-2024-420901.firebaseapp.com",
-  projectId: "youtube-api-key-2024-420901",
-  storageBucket: "youtube-api-key-2024-420901.appspot.com",
-  messagingSenderId: "900893632717",
-  appId: "1:900893632717:web:9a39ff417c5a64cd30a184"
+  apiKey: "AIzaSyBIM0X8TuBkgez9C2hfFOx4oDpgKYWRujc",
+  authDomain: "clone-2cfea.firebaseapp.com",
+  projectId: "clone-2cfea",
+  storageBucket: "clone-2cfea.appspot.com",
+  messagingSenderId: "27416826278",
+  appId: "1:27416826278:web:49c286bece6b0831e6ff67"
 };
 
 // Initialize Firebase

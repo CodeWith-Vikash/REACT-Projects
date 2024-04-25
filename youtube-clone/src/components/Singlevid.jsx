@@ -1,4 +1,4 @@
-import React, { useContext , useEffect, useState} from 'react'
+import React, { useContext , useEffect, useRef, useState} from 'react'
 import './Singlevid.css'
 import { BiSolidLike } from "react-icons/bi";
 import { BiSolidDislike } from "react-icons/bi";
@@ -16,11 +16,12 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const Singlevid = () => {
     const {singledata,convertnumbers,calculateTimeGap,setsingledata}=useContext(Appcontext)
-    const {chaneldata,comments,relatedvid}=useContext(Datacontext)
+    const {chaneldata,comments,relatedvid,imgarr,setimgarr}=useContext(Datacontext)
     const [issubscribed, setissubscribed] = useState(false)
     // console.log(comments);
     // console.log(chaneldata);
-    console.log(chaneldata.items[0].snippet.thumbnails.default.url);
+    console.log(singledata.chanel);
+    const imgvalue=chaneldata.items[0].snippet.thumbnails.default.url
     const getdata=async()=>{
       try {
         let data=await getDoc(doc(db,"data",singledata.chanel))
@@ -81,30 +82,23 @@ const Singlevid = () => {
                     <p>{convertnumbers(chaneldata.items[0].statistics.subscriberCount)} subscribers</p>
                 </div>
              </div>
-             {issubscribed ? <button className='unsub'>Unsubscribe</button>:<button onClick={()=>{
-              const storageref=ref(storage,singledata.chanel)
-             
-              const uploadTask=uploadBytesResumable(storageref,chaneldata.items[0].snippet.thumbnails.default.url)
-              uploadTask.on(
-                "state_changed",
-                null,
-                (error) => {
-                  console.log(error);
-                },
-                () => {
-                  getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                    const subdata = {
-                      chanelName: singledata.chanel,
-                      imageurl: downloadURL,
-                      subscribed:true
-                    };
-                    await setDoc(doc(db, "data", singledata.chanel), subdata);
-                    console.log(subdata);
-                  });
-                }
-              );
+             {issubscribed ? <button className='unsub'>Unsubscribe</button>:<button onClick={async () => {
+               if(imgarr.length>1){
+                setimgarr((pre)=> [...pre,{image:chaneldata.items[0].snippet.thumbnails.default.url,name:singledata.chanel}])
+                localStorage.setItem('imgarr',JSON.stringify(imgarr))
+               }else{
+                setimgarr((pre)=> [...pre,{image:chaneldata.items[0].snippet.thumbnails.default.url,name:singledata.chanel}])
+                localStorage.setItem('imgarr',JSON.stringify([...imgarr,{image:chaneldata.items[0].snippet.thumbnails.default.url,name:singledata.chanel}]))
+               }
+               const subdata = {
+                chanelName: singledata.chanel,
+                subscribed: true
+              };
+              await setDoc(doc(db, "data", singledata.chanel), subdata);
+              console.log(subdata);
               setissubscribed(true)
-             }}>subscribe</button>}
+}}>subscribe</button>
+}
            </div>
            <p className='desc'>{singledata.desc}</p>
            <hr />

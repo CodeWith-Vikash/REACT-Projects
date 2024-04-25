@@ -25,9 +25,11 @@ import { collection, getDocs } from 'firebase/firestore';
 
 const Home = () => {
   const {videos,setcategoryId,setsingledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
-  const {fetchChaneldata,chaneldata}= useContext(Datacontext)
+  const {fetchChaneldata,chaneldata,imgarr}= useContext(Datacontext)
   const [subdata, setsubdata] = useState([])
-
+  let subimages=JSON.parse(localStorage.getItem("imgarr"))
+  console.log(subimages);
+  console.log(subdata);
   const getfirestore=async()=>{
      try {
        const collectionref=collection(db,"data")
@@ -41,6 +43,7 @@ const Home = () => {
   }
 
   useEffect(()=>{
+    
     getfirestore()
   },[])
   return (
@@ -113,9 +116,11 @@ const Home = () => {
         
         <div className="subscritpt">
           <b>Subscription</b>
-          {subdata.map((item)=>{
+          {subdata.map((item,index)=>{
              return <div className="chanel" key={item.chanelName}>
-             <img src={item.imageurl} alt="chanel" />
+             <img src={subimages.filter((img)=>{
+                 return img.name==item.id
+             }).map((ele)=> ele.image)} alt="chanel" />
              <p>{item.chanelName}</p>
            </div>
           })}
