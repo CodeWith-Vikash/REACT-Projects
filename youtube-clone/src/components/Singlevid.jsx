@@ -8,7 +8,6 @@ import { Appcontext } from '../context/Vidcontext';
 import { Datacontext } from '../context/Chanelcontext';
 import { MdHome } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { SubContext } from '../context/SubscriptionContext';
 import { db, storage } from '../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -20,7 +19,7 @@ const Singlevid = () => {
     const [issubscribed, setissubscribed] = useState(false)
     // console.log(comments);
     // console.log(chaneldata);
-    console.log(singledata.chanel);
+    // console.log(singledata.chanel);
     const imgvalue=chaneldata.items[0].snippet.thumbnails.default.url
     const getdata=async()=>{
       try {

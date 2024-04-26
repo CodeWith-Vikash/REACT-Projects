@@ -4,15 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import { ContextProvider } from './context/Vidcontext.jsx'
 import { ChanelProvider } from './context/Chanelcontext.jsx'
-import { SubProvider } from './context/SubscriptionContext.jsx'
+import { SearchProvider } from './context/SearchContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ContextProvider>
       <ChanelProvider>
-        <SubProvider>
-         <App />
-        </SubProvider>
+        <SearchProvider>
+            <App />
+        </SearchProvider>
       </ChanelProvider>
     </ContextProvider>
   </React.StrictMode>,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaPlayCircle } from "react-icons/fa";
@@ -6,9 +6,11 @@ import { IoVideocamSharp } from "react-icons/io5";
 import { PiCirclesFourFill } from "react-icons/pi";
 import { IoNotifications } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import { SearchContext } from '../context/SearchContext';
 
 
 const Navbar = () => {
+    const {setinputval,inputval,getSerachData} = useContext(SearchContext)
   return (
     <nav>
         <div className="logo-sec">
@@ -18,8 +20,15 @@ const Navbar = () => {
             </div>
         </div>
         <div className="search">
-            <input type="text" placeholder='serach'/>
-            <FaSearch color='gray'/>
+            <input type="text" placeholder='serach' value={inputval}
+              onChange={(e)=>setinputval(e.target.value)}
+              onKeyDown={(e)=>{
+                if(e.key=="Enter"){
+                    getSerachData()
+                }
+              }}
+            />
+            <FaSearch color='gray' onClick={getSerachData} style={{cursor:"pointer"}}/>
         </div>
         <div className="options-sec">
         <div className="options">

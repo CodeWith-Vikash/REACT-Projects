@@ -20,23 +20,25 @@ import { Datacontext } from '../context/Chanelcontext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { SearchContext } from '../context/SearchContext';
 
 
 
 const Home = () => {
   const {videos,setcategoryId,setsingledata,convertnumbers,calculateTimeGap}=useContext(Appcontext)
   const {fetchChaneldata,chaneldata,imgarr}= useContext(Datacontext)
+  const {searchdata,isloading,issearch,iserror} = useContext(SearchContext)
   const [subdata, setsubdata] = useState([])
   let subimages=JSON.parse(localStorage.getItem("imgarr"))
-  console.log(subimages);
-  console.log(subdata);
+  // console.log(subimages);
+  // console.log(subdata);
   const getfirestore=async()=>{
      try {
        const collectionref=collection(db,"data")
        const querry=await getDocs(collectionref)
        const data=querry.docs.map((doc)=>({...doc.data(),id:doc.id}))
-       console.log(data);
-       setsubdata(data)
+      //  console.log(data);
+      //  setsubdata(data)
      } catch (error) {
         console.log(error);
      }
@@ -50,7 +52,7 @@ const Home = () => {
     <>
     <Navbar/>
     <div className='home'>
-       <aside>
+      {!issearch && <aside>
         <div className="area">
         <div className="option" onClick={()=>setcategoryId(0)}>
            <IoMdHome size="1.5rem"/>
@@ -117,7 +119,7 @@ const Home = () => {
         <div className="subscritpt">
           <b>Subscription</b>
           {subdata.map((item,index)=>{
-             return <div className="chanel" key={item.chanelName}>
+             return <div className="chanel" key={index}>
              <img src={subimages.filter((img)=>{
                  return img.name==item.id
              }).map((ele)=> ele.image)} alt="chanel" />
@@ -126,9 +128,40 @@ const Home = () => {
           })}
 
         </div>
-       </aside>
-        <div className="videos">
-        {videos.map(video => (
+       </aside>}
+        <div className="videos" style={issearch?{width:"100%"}:null}>
+        {iserror?<b>An Error Occured</b>:issearch?searchdata.map(search => (
+          <Link to="/video" key={search.id}>
+            <li onClick={()=>{ setsingledata({
+               id:search.id,
+               desc:search.snippet.description,
+               title:search.snippet.title,
+              //  views:search.statistics.viewCount,
+              //  likes:search.statistics.likeCount,
+               chanel:search.snippet.channelTitle,
+              //  comments:search.statistics.commentCount,
+               chanelid:search.snippet.channelId,
+               uploadtime:search.snippet.publishedAt
+            })
+            localStorage.setItem("chanelid",JSON.stringify({
+               id:search.snippet.channelId,
+               category:search.snippet.categoryId
+            }))
+            // fetchChaneldata()
+            }}>
+             <img src={search.snippet.thumbnails.medium.url} alt="thumbnail" width="240"/>
+              <div className="thumbcontent">
+              <h4>{search.snippet.title}</h4>
+              <p className='chanelname'>{search.snippet.channelTitle}</p>
+              <div className="chanel">
+              {/* <p>{convertnumbers(search.statistics.viewCount)} views</p> */}
+              <p>{calculateTimeGap(search.snippet.publishedAt)} ago</p>
+              </div>
+              </div>
+          </li>
+          </Link>
+        ))
+        :videos.map(video => (
           <Link to="/video" key={video.id}>
             <li onClick={()=>{ setsingledata({
                id:video.id,

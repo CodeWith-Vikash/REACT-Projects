@@ -8,6 +8,9 @@
     /* height: 90vh; */
     overflow: auto;
 }
+.videos b{
+    color: red;
+}
 .home{
     display: flex;
     height: 90vh;
