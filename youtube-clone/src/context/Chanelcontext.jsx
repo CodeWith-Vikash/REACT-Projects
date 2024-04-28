@@ -13,6 +13,7 @@ export const ChanelProvider=({children})=>{
     const [relatedvid, setrelatedvid] = useState({})
     const [imgarr, setimgarr] = useState([])
     let chanelid=JSON.parse(localStorage.getItem("chanelid")).id
+    const [ischanelerror, setischanelerror] = useState(false)
     const fetchChaneldata=async ()=>{
         try {
            const response=await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${chanelid}&key=${apikey}
@@ -20,7 +21,10 @@ export const ChanelProvider=({children})=>{
          )
            let data=await response.json()
            setchaneldata(data)
-        //    console.log(data);
+           console.log(data);
+           if(data.error){
+            setischanelerror(true)
+           }
          } catch (error) {
              console.log("chanel error"+error);
          }
@@ -51,5 +55,5 @@ export const ChanelProvider=({children})=>{
         fetchcomments()
         fetchRelatedVideos()
     },[singledata])
-    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments,relatedvid,imgarr,setimgarr}}>{children}</Datacontext.Provider>
+    return <Datacontext.Provider value={{chaneldata,fetchChaneldata,comments,relatedvid,imgarr,setimgarr,ischanelerror}}>{children}</Datacontext.Provider>
 }

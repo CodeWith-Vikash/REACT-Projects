@@ -15,7 +15,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const Singlevid = () => {
     const {singledata,convertnumbers,calculateTimeGap,setsingledata}=useContext(Appcontext)
-    const {chaneldata,comments,relatedvid,imgarr,setimgarr}=useContext(Datacontext)
+    const {chaneldata,comments,relatedvid,imgarr,setimgarr,ischanelerror}=useContext(Datacontext)
     const [issubscribed, setissubscribed] = useState(false)
     // console.log(comments);
     // console.log(chaneldata);
@@ -37,7 +37,7 @@ const Singlevid = () => {
       <div className="gohome">
         <Link to="/"><MdHome size="2rem"/>go to homepage</Link>
       </div>
-      <div className='vidpage'>
+      {ischanelerror?<b>an error occured while loading data</b>:<div className='vidpage'>
         <section className="videosection">
            <div className="mainvid">
            <iframe
@@ -75,7 +75,7 @@ const Singlevid = () => {
            
            <div className="subscribe">
              <div className="subchanel">
-                <img src={chaneldata.items[0].snippet.thumbnails.default.url} alt="chanel" />
+                <img src={chaneldata?.items[0].snippet.thumbnails.default.url} alt="chanel" />
                 <div className="subcontent">
                     <b>{singledata.chanel}</b>
                     <p>{convertnumbers(chaneldata.items[0].statistics.subscriberCount)} subscribers</p>
@@ -104,7 +104,7 @@ const Singlevid = () => {
            
            <div className="commentsec">
              <p>{convertnumbers(singledata.comments)} comments</p>
-             {comments.map((item)=>{
+             {comments?.map((item)=>{
                 return <div className="comment" key={item.id}>
                 <div className="commenttitle">
                  <div className="ct1">
@@ -132,7 +132,7 @@ const Singlevid = () => {
         </section>
 
         <section className="rightbar">
-            {relatedvid.map((video)=>{
+            {relatedvid?.map((video)=>{
                 return <div className="suggestion" key={video.id} onClick={()=>{
                     setsingledata({
                         id:video.id,
@@ -160,7 +160,7 @@ const Singlevid = () => {
             })}
 
         </section>
-    </div>
+    </div>}
     </>
   )
 }

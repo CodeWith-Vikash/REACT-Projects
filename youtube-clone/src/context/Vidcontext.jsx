@@ -24,7 +24,7 @@ export const ContextProvider=({children})=>{
              }
            }
          );
-        //  console.log(response.data.items)
+         console.log(response)
          setVideos(response.data.items);
        } catch (error) {
          console.error('Error fetching videos:', error);

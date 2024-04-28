@@ -19,7 +19,7 @@ const Navbar = () => {
                 <h1>VideosHub</h1>
             </div>
         </div>
-        <div className="search">
+        {/* <div className="search">
             <input type="text" placeholder='serach' value={inputval}
               onChange={(e)=>setinputval(e.target.value)}
               onKeyDown={(e)=>{
@@ -29,7 +29,7 @@ const Navbar = () => {
               }}
             />
             <FaSearch color='gray' onClick={getSerachData} style={{cursor:"pointer"}}/>
-        </div>
+        </div> */}
         <div className="options-sec">
         <div className="options">
             <IoVideocamSharp size="1.2rem" color='red'/>
