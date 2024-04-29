@@ -1,22 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-const Pokemons = () => {
-   let  arr=[]
-   let data=useSelector((state)=>state)
-   console.log(data);
-   if(data.isloading){
+const Pokemons = ({allpokemons,isloading,iserror,setsingle}) => {
+   if(isloading){
       return <h1 className='text-center text-xl text-yellow-300'>Loading...</h1>
    }
-   if(data.iserror){
+   if(iserror){
     return <h1 className='text-center text-xl text-red-500'>an error occured</h1> 
    }
   return (
     <div className='flex flex-wrap gap-4 justify-center p-4'>
-        {data.data && data.data.results.map((item)=>{
-            return <div className="flex items-center gap-6 bg-blue-400 text-black w-[220px] p-2 rounded-xl font-semibold shadow-xl cursor-pointer" key={item.name}>
-            <p>36</p>
-            <img src={item.url} className='h-10 w-10'/>
+        {allpokemons && allpokemons.map((item)=>{
+            return <div className="flex items-center gap-2 justify-center bg-blue-400 text-black w-[220px] p-2 rounded-xl font-semibold shadow-xl cursor-pointer" key={item.id} onClick={()=> setsingle(item)}>
+            <p>{item.id}</p>
+            <img src={item.sprites.front_default} className='h-20 w-20'/>
             <p>{item.name}</p>
         </div>
         })}

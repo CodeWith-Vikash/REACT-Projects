@@ -31,5 +31,4 @@ const pokeSlice=createSlice({
     
 })
 
-export const {getData} = pokeSlice.actions
 export default pokeSlice.reducer
