@@ -3,6 +3,8 @@ import './Style.scss'
 import { useNavigate } from 'react-router-dom'
 import useFetch from '../../../Hooks/useFetch'
 import { useSelector } from 'react-redux'
+import Img from '../../../components/lazyload/img'
+import ContentWrapper from '../../../components/contentWrapper/Wrapper'
 
 const Hero = () => {
     const [query, setquery] = useState("")
@@ -18,17 +20,24 @@ const Hero = () => {
     // console.log(data);
     useEffect(()=>{
         let random=Math.floor(Math.random()*20)
+        console.log(random);
         let bg=url.backdrop+data?.results[random]?.backdrop_path;
         setbackground(bg)
     },[data])
   return (
     <div className="heropage">
-        <div className="herocontent">
+        {!loading && 
+            <img src={background}/>
+        }
+        <div className="opacity"></div>
+        <ContentWrapper>
+         <div className="wrapper">
+         <div className="herocontent">
             <div className="title">
                 Welcome.
             </div>
             <div className="subtitle">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, fugiat.
+                watch popular movies and tv shows absolutely free of cost
             </div>
             <div className="search-section">
                 <input type="text" placeholder='search tvshows and movies'
@@ -39,6 +48,8 @@ const Hero = () => {
                 <button>search</button>
             </div>
         </div>
+         </div>
+        </ContentWrapper>
     </div>
   )
 }
