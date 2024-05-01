@@ -40,7 +40,7 @@ const App = () => {
           <Route path='/search/:query' element={<Searchpage/>}/>
           <Route path='*' element={<Errorpage/>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </BrowserRouter>
     </div>
   )

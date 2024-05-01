@@ -18,9 +18,21 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    useEffect(()=>{
+      window.scrollTo(0,0)
+    },[location])
+    const searchQueryHandler=(e)=>{
+      if(e.key=="Enter" && query.length>0){
+          navigate(`/search/${query}`)
+          setTimeout(() => {
+             setShowSearch(false)
+          },1000);
+        }
+  }
+
     const opensearch=()=>{
       setShowSearch(true)
-    setMobileMenu(false)
+      setMobileMenu(false)
     }
     
     const openmobilemenu=()=>{
@@ -28,24 +40,86 @@ const Header = () => {
       setMobileMenu(true)
     }
 
+    const navigateHandler=(type)=>{
+       if(type=='movie'){
+         navigate("/explore/movie")
+       }else{
+          navigate("/explore/tv")
+       }
+       setMobileMenu(false)
+    }
+
+    const handleScroll=()=>{
+    //   console.log(window.scrollY);
+      if(window.scrollY>200){
+         if(window.scrollY>lastScrollY && !mobileMenu){
+             setShow("hide")
+         }else{
+          setShow('show')
+         }
+        }else{
+          setShow('top')
+        }
+        setLastScrollY(window.scrollY)
+    }
+
+    useEffect(()=>{
+      window.addEventListener("scroll",handleScroll)
+
+      return ()=> window.removeEventListener('scroll',handleScroll)
+    },[lastScrollY])
     return (
-        <header className={`header ${mobileMenu ? 'mobileView':""} ${show}`}>
-          <ContentWrapper>
-            <div className="logo">
+      <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
+      <ContentWrapper>
+          <div className="logo" onClick={() => navigate("/")}>
               <img src={logo} alt="" />
-            </div>
-            <ul className="menuItems">
-              <li className="menuItem">Movies</li>
-              <li className="menuItem">TvShows</li>
-              <li className="menuItem"><HiOutlineSearch/></li>
-            </ul>
-            <div className="mobileMenuItems">
-              {mobileMenu?
-                <VscChromeClose onClick={()=>setMobileMenu(false)}/>
-              :<SlMenu onClick={openmobilemenu}/>}
-            </div>
-          </ContentWrapper>
-        </header>
+          </div>
+          <ul className="menuItems">
+              <li
+                  className="menuItem"
+                  onClick={()=> navigateHandler('movie')}
+              >
+                  Movies
+              </li>
+              <li
+                  className="menuItem"
+                  onClick={()=> navigateHandler('tv')}
+              >
+                  TV Shows
+              </li>
+              <li className="menuItem">
+                  <HiOutlineSearch onClick={opensearch} />
+              </li>
+          </ul>
+
+          <div className="mobileMenuItems">
+              <HiOutlineSearch onClick={opensearch} />
+              {mobileMenu ? (
+                  <VscChromeClose onClick={() => setMobileMenu(false)} />
+              ) : (
+                  <SlMenu onClick={openmobilemenu} />
+              )}
+          </div>
+      </ContentWrapper>
+      {showSearch && (
+          <div className="searchBar">
+              <ContentWrapper>
+                  <div className="searchInput">
+                      <input
+                          type="text"
+                          placeholder="Search for a movie or tv show...."
+                          onChange={(e) => setQuery(e.target.value)}
+                          onKeyUp={searchQueryHandler}
+                      />
+                      <VscChromeClose
+                          onClick={() => setShowSearch(false)}
+                          color="black"
+                      />
+                  </div>
+              </ContentWrapper>
+          </div>
+      )}
+  </header>
     );
 };
 

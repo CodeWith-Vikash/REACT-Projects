@@ -1,0 +1,39 @@
+.switchtab{
+    display: flex;
+    align-items: center;
+    // gap: 40px;
+    color: black;
+    background-color: white;
+    height: 35px;
+    width: 200px;
+    justify-content: space-between;
+    // padding: 0 20px;
+    border-radius: 20px;
+    // font-weight: 600;
+    position: relative;
+    // z-index: -1;
+    p{
+        z-index: 2;
+        cursor: pointer;
+        // background-color: red;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .active{
+        color: white;
+    }
+}
+.activetab{
+    position: absolute;
+    height:30px;
+    width: 100px;
+    border-radius: 20px;
+    background: var(--gradient);
+    left: 3px;
+    top:3px;
+    z-index: 1;
+    transition: all ease-in-out 0.3s;
+}

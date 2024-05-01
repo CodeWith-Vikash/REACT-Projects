@@ -20,7 +20,7 @@ const Hero = () => {
     // console.log(data);
     useEffect(()=>{
         let random=Math.floor(Math.random()*20)
-        console.log(random);
+        // console.log(random);
         let bg=url.backdrop+data?.results[random]?.backdrop_path;
         setbackground(bg)
     },[data])

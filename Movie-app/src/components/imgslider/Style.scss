@@ -1,0 +1,47 @@
+.slider{
+    .contentWrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        overflow: auto;
+        height: fit-content;
+        .card{
+            height: 320px;
+            // background-color: red;
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            position: relative;
+            img{
+              height: 200px;
+              border-radius:15px;
+            }
+            span{
+                color: rgb(72, 71, 71);
+            }
+            p,span{
+                padding-left: 10px;
+            }
+            p{
+                margin-top: 3vh;
+                width: 130px;
+                height: 17px;
+                overflow: hidden;
+            }
+            .circle{
+                background-color: white;
+                color: black;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom:100px;
+                left: 10px;
+            }
+        }
+    }
+}
