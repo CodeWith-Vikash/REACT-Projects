@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Style.scss'
 
-const SwitchTabs = ({tabs}) => {
+const SwitchTabs = ({tabs,onTabChange}) => {
     let activeref=useRef(null)
     const [activetab, setactivetab] = useState(0)
     const [selectedside, setselectedside] = useState('left')
@@ -18,7 +18,9 @@ const SwitchTabs = ({tabs}) => {
             setselectedside('left')
         }
     }
-     
+     useEffect(()=>{
+        onTabChange(activetab)
+     },[activetab])
   return (
     <>
       <div className='switchtab'>{

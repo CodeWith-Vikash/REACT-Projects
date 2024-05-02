@@ -1,47 +1,130 @@
+@import '../../mixins.scss';
+
+
 .slider{
+    
+    .arrow{
+        position: absolute;
+        top: 27%;
+        color:rgba(255, 255, 255,0.3);
+        cursor: pointer;
+        display: none;
+    }
+    @include md{
+        .arrow{
+            display:block;
+        }
+    }
+    .arrow:hover{
+        color:white;
+    }
+    .arrowLeft{
+        left:110px;
+    }
+    .arrowRight{
+        right:110px;
+    }
+    position: relative;
     .contentWrapper{
         display: flex;
         justify-content: center;
-        align-items: center;
-        gap: 10px;
-        overflow: auto;
-        height: fit-content;
-        .card{
-            height: 320px;
-            // background-color: red;
+        .slideitems{
             display: flex;
-            flex-direction: column;
-            gap: 2vh;
-            position: relative;
-            img{
-              height: 200px;
-              border-radius:15px;
-            }
-            span{
-                color: rgb(72, 71, 71);
-            }
-            p,span{
-                padding-left: 10px;
-            }
-            p{
-                margin-top: 3vh;
-                width: 130px;
-                height: 17px;
-                overflow: hidden;
-            }
-            .circle{
-                background-color: white;
-                color: black;
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            overflow: auto;
+            height: fit-content;
+            // background-color: rebeccapurple;
+            
+            .card{
+                height: 320px;
+                // background-color: red;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                bottom:100px;
-                left: 10px;
+                flex-direction: column;
+                gap: 2vh;
+                position: relative;
+                img{
+                  width: 150px;
+                  border-radius:15px;
+                }
+                @include md{
+                    img{
+                        width: 190px;
+                    }
+                }
+                span{
+                    color: rgb(72, 71, 71);
+                }
+                p,span{
+                    padding-left: 10px;
+                }
+                p{
+                    margin-top: 3vh;
+                    width: 130px;
+                    height: 17px;
+                    overflow: hidden;
+                }
+                .circle{
+                    background-color: white;
+                    width: 45px;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom:80px;
+                    left: 20px;
+                }
+                @include md{
+                    .circle{
+                        bottom:110px;
+                        width: 50px;
+                    }
+                }
+            }
+            @include md{
+                .card{
+                    height: 400px;
+                }
             }
         }
+        @include md{
+            .slideitems{
+                width: 75%;
+                gap: 10px;
+            }
+        }
+    }
+}
+
+.loading{
+    .contentWrapper{
+        display: flex;
+        gap: 10px;
+        overflow: auto;
+    .loadingSkeleton{
+        height: 250px;
+        width: 180px;
+        padding: 10px 0;
+        display: flex;
+        flex-direction:column;
+        gap: 2vh;
+        .posterske{
+            height: 200px;
+            width: 160px;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+        .textske{
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+            .titleske,.dateske{
+                height: 20px;
+                width: 90%;
+            }
+            .dateske{
+                width: 70%;
+            }
+        }
+    }
     }
 }

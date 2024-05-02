@@ -1,3 +1,6 @@
+@import '../../mixins.scss';
+
+
 .switchtab{
     display: flex;
     align-items: center;
@@ -5,7 +8,10 @@
     color: black;
     background-color: white;
     height: 35px;
-    width: 200px;
+    width: 150px;
+    @include sm{
+        width: 200px;
+    }
     justify-content: space-between;
     // padding: 0 20px;
     border-radius: 20px;
@@ -29,11 +35,14 @@
 .activetab{
     position: absolute;
     height:30px;
-    width: 100px;
+    width: 75px;
     border-radius: 20px;
     background: var(--gradient);
     left: 3px;
     top:3px;
     z-index: 1;
     transition: all ease-in-out 0.3s;
+    @include sm{
+        width: 100px;
+    }
 }
