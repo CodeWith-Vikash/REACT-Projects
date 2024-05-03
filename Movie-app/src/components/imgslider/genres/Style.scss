@@ -1,0 +1,16 @@
+.genre-container{
+    display: flex;
+    width:130px;
+    justify-content: flex-end;
+    gap:5px;
+    flex-wrap: wrap;
+    padding-right: 5px;
+
+    .p{
+        background-color: var(--pink);
+        padding:5px  10px;
+        font-weight: 500;
+        border-radius:5px;
+        font-size: 12px;
+    }
+}

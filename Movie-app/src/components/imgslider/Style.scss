@@ -2,7 +2,7 @@
 
 
 .slider{
-    
+    margin-bottom: 10vh;
     .arrow{
         position: absolute;
         top: 27%;
@@ -19,10 +19,10 @@
         color:white;
     }
     .arrowLeft{
-        left:110px;
+        left:7vw;
     }
     .arrowRight{
-        right:110px;
+        right:7vw;
     }
     position: relative;
     .contentWrapper{
@@ -44,6 +44,7 @@
                 flex-direction: column;
                 gap: 2vh;
                 position: relative;
+                cursor: pointer;
                 img{
                   width: 150px;
                   border-radius:15px;
@@ -73,10 +74,19 @@
                     bottom:80px;
                     left: 20px;
                 }
+                .genres{
+                    position: absolute;
+                    bottom: 130px;
+                    right: 0px;
+                    display: none;
+                }
                 @include md{
                     .circle{
-                        bottom:110px;
+                        bottom:97px;
                         width: 50px;
+                    }
+                    .genres{
+                        display: block;
                     }
                 }
             }
@@ -96,7 +106,6 @@
 }
 
 .loading{
-    .contentWrapper{
         display: flex;
         gap: 10px;
         overflow: auto;
@@ -127,4 +136,7 @@
         }
     }
     }
+
+.none{
+    display: none;
 }

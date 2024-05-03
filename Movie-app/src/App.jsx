@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { fetchdatafromapi } from './utils/api'
-import {getApiConfiguration} from './store/homeSlice'
+import {getApiConfiguration,getGenres} from './store/homeSlice'
 import { useDispatch,useSelector } from 'react-redux'
 import Home from './pages/home/Home'
 import Header from './components/header/Header'
@@ -26,8 +26,24 @@ const App = () => {
         dispatch(getApiConfiguration(url))
      })
   }
+  const genrescall=async()=>{
+     let responses=[]
+     let endpoints=["tv","movie"]
+     let allgenres={}
+     endpoints.forEach((url)=>{
+        responses.push(fetchdatafromapi(`/genre/${url}/list`))
+     })
+    //promise.all waits till the all apis are fetched
+    let data= await Promise.all(responses)
+    // console.log(data);
+    data.map(({genres})=>{
+        return genres.map((item)=> allgenres[item.id]=item)
+    })
+    dispatch(getGenres(allgenres))
+  }
   useEffect(()=>{
      fetchconfig()
+     genrescall()
   },[])
   return (
     <div style={{color:"white"}}>

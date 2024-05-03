@@ -7,8 +7,11 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Img from '../lazyload/img';
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import Genres from './genres/Genres';
+import { useNavigate } from 'react-router-dom';
 
-const Slider = ({ data, loading }) => {
+const Slider = ({ data, loading,endpoint }) => {
+    const navigate=useNavigate()
     console.log(data, loading);
     const { url } = useSelector((state) => state.home);
     const slidecontainerref = useRef(null);
@@ -22,33 +25,34 @@ const Slider = ({ data, loading }) => {
         });
     };
 
-    const skiitem = () => (
-        <div className="loadingSkeleton">
-            <div className="posterske skeleton"></div>
-            <div className="textske">
-                <div className="titleske skeleton"></div>
-                <div className="dateske skeleton"></div>
-            </div>
-        </div>
-    );
+    // const skiitem = () => {
+    //    return 
+    // }
 
     return (
         <div className='slider'>
-            <FaArrowCircleLeft className='arrow arrowLeft' size="2rem" onClick={() => slideImages("left")} />
-            <FaArrowCircleRight className='arrow arrowRight' size="2rem" onClick={() => slideImages("right")} />
+            <FaArrowCircleLeft className={loading ? 'none':"arrow arrowLeft"} size="2rem" onClick={() => slideImages("left")} />
+            <FaArrowCircleRight className={loading ? 'none':"arrow arrowRight"}  size="2rem" onClick={() => slideImages("right")} />
+
             <ContentWrapper>
                 {loading ? (
                     <div className="loading">
-                        {[...Array(10)].map((_, index) => (
-                            <React.Fragment key={index}>
-                                {skiitem()}
-                            </React.Fragment>
-                        ))}
+                        {
+                           [...Array(10)].map((item,index)=>{
+                              return <div className="loadingSkeleton">
+                              <div className="posterske skeleton"></div>
+                              <div className="textske">
+                                  <div className="titleske skeleton"></div>
+                                  <div className="dateske skeleton"></div>
+                              </div>
+                          </div>
+                           })
+                        }
                     </div>
                 ) : (
                     <div className="slideitems" ref={slidecontainerref}>
                         {data?.map((item) => (
-                            <div className="card" key={item.id}>
+                            <div className="card" key={item.id} onClick={()=> navigate(`/${item.media_type || endpoint}/${item.id}`)}>
                                 <Img src={item.poster_path ? url.poster + item.poster_path : posteralt} alt="" />
                                 <div className="circle">
                                     <CircularProgressbar
@@ -62,6 +66,9 @@ const Slider = ({ data, loading }) => {
                                             textSize: "30"
                                         })}
                                     />
+                                </div>
+                                <div className="genres">
+                                    <Genres data={item.genre_ids}/>
                                 </div>
                                 <p>{item.title || item.name}</p>
                                 <span>{item.release_date || item.first_air_date}</span>

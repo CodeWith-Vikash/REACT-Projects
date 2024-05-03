@@ -5,30 +5,30 @@ import '../Style.scss'
 import SwitchTabs from '../../../components/switchtabs/SwitchTabs'
 import Slider from '../../../components/imgslider/Slider'
 
-const Trending = () => {
-    const [trendingquery, settrendingquery] = useState("day")
-    const {data,loading}=useFetch(`/trending/all/${trendingquery}`)
-    // console.log(data);
+const Toprated = () => {
+    const [endpoint, setendpoint] = useState("tv")
+    const {data,loading}=useFetch(`/${endpoint}/top_rated`)
+    console.log(data);
     const onTabChange=(qurey)=>{
        if(qurey==1){
-         settrendingquery("week")
+         setendpoint("movie")
        }else{
-         settrendingquery("day")
+         setendpoint("tv")
        }
     }
   return (
-     <div className="trending">
+     <div className="Popular">
       <ContentWrapper>
         <div className="title">
            <h3>
-            Trending
+            Top Rated
            </h3>
-           <SwitchTabs tabs={['Day','Week']} onTabChange={onTabChange}/>
+           <SwitchTabs tabs={['Tv','Movie']} onTabChange={onTabChange}/>
         </div>
-        <Slider data={data?.results} loading={loading}/>
+        <Slider data={data?.results} loading={loading} endpoint={endpoint}/>
      </ContentWrapper>
      </div>
   )
 }
 
-export default Trending
+export default Toprated
