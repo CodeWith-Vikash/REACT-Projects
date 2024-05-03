@@ -8,7 +8,7 @@ import Slider from '../../../components/imgslider/Slider'
 const Toprated = () => {
     const [endpoint, setendpoint] = useState("tv")
     const {data,loading}=useFetch(`/${endpoint}/top_rated`)
-    console.log(data);
+    // console.log(data);
     const onTabChange=(qurey)=>{
        if(qurey==1){
          setendpoint("movie")

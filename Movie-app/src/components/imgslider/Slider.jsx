@@ -7,12 +7,12 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Img from '../lazyload/img';
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-import Genres from './genres/Genres';
+import Genres from '../genres/Genres';
 import { useNavigate } from 'react-router-dom';
 
 const Slider = ({ data, loading,endpoint }) => {
     const navigate=useNavigate()
-    console.log(data, loading);
+    // console.log(data, loading);
     const { url } = useSelector((state) => state.home);
     const slidecontainerref = useRef(null);
 
@@ -39,7 +39,7 @@ const Slider = ({ data, loading,endpoint }) => {
                     <div className="loading">
                         {
                            [...Array(10)].map((item,index)=>{
-                              return <div className="loadingSkeleton">
+                              return <div className="loadingSkeleton" key={index}>
                               <div className="posterske skeleton"></div>
                               <div className="textske">
                                   <div className="titleske skeleton"></div>
@@ -52,7 +52,9 @@ const Slider = ({ data, loading,endpoint }) => {
                 ) : (
                     <div className="slideitems" ref={slidecontainerref}>
                         {data?.map((item) => (
-                            <div className="card" key={item.id} onClick={()=> navigate(`/${item.media_type || endpoint}/${item.id}`)}>
+                            <div className="card" key={item.id} onClick={()=> {
+                                navigate(`/${item.media_type || endpoint}/${item.id}`)
+                            }}>
                                 <Img src={item.poster_path ? url.poster + item.poster_path : posteralt} alt="" />
                                 <div className="circle">
                                     <CircularProgressbar
