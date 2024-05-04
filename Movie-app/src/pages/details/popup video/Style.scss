@@ -1,0 +1,27 @@
+@import '../../../mixins.scss';
+
+.popup{
+     position: absolute;
+     top: 870px;
+     left:15%;
+     @include md{
+        top: 100px;
+        left: 40%;
+     }
+     p{
+        text-align: right;
+        padding: 5px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: red;
+     }
+    .video{
+        height: 250px;
+        width: 300px;
+        background-color: white;
+        @include md{
+            width: 500px;
+            height: 350px;
+        }
+    }
+}

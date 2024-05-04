@@ -2,21 +2,18 @@
 
 .cast{
     .title{
-        font-size: 4.5vmax;
-        padding-left: 8vw;
-        @include md{
-            font-size: 2rem;
-        }
+        font-size:1.5rem;
+        padding-left: 7vw;
     }
     .contentWrapper{
         display: flex;
         gap: 20px;
         overflow: auto;
-        justify-content: center;
-        padding-left: 30vw;
-        @include md{
-            padding-left:65vw;
-        }
+        // justify-content: center;
+        // padding-left: 30vw;
+        // @include md{
+        //     padding-left:65vw;
+        // }
         // background: #000;
         .person{
             display: flex;
@@ -26,6 +23,8 @@
             img{
                 height: 100px;
                 width: 100px;
+                object-fit: cover;
+                object-position: center;
                 border-radius: 50%;
                 @include md{
                     height: 150px;
@@ -44,6 +43,7 @@
                 color: rgb(60, 60, 61);
                 font-weight: 600;
                 font-size: 0.7rem;
+                text-align: center;
                 @include md{
                     font-size: 1rem;
                 }

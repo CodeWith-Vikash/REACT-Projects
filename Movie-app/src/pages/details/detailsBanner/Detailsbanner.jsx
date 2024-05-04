@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useFetch from '../../../Hooks/useFetch'
 import Img from '../../../components/lazyload/img'
@@ -10,18 +10,26 @@ import { CircularProgressbar,buildStyles } from 'react-circular-progressbar'
 import { FiPlayCircle } from "react-icons/fi";
 import noposter from '../../../assets/no-poster.png'
 import dayjs from 'dayjs'
+import Popup from '../popup video/Popup'
 
-const Detailsbanner = ({credits}) => {
+const Detailsbanner = ({credits,viddata}) => {
     const {mediaType,id} = useParams()
   const {data,loading}=useFetch(`/${mediaType}/${id}`)
-//   console.log(data,loading);
-   const genres=data?.genres.map((item)=> item.id)
+   const genres=data?.genres?.map((item)=> item.id)
   const {url} = useSelector((state)=> state.home)
   const convertminute=(min)=>{
     return `${(min/60).toFixed(0)}h ${min%60}min`
   }
   let creaters=credits?.filter((maker)=> maker.job=="Director" || maker.job=="Writer")
   console.log(creaters);
+  const directors=creaters?.filter((person)=>person.job=='Director')
+  const Writers=creaters?.filter((person)=>person.job=='Writer')
+
+const [show, setshow] = useState(false)
+const toggle=()=>{
+     setshow(!show)
+}
+
   return (
         <>
           {loading? <ContentWrapper>
@@ -67,7 +75,7 @@ const Detailsbanner = ({credits}) => {
                                               })}
                                           />
                               </div>
-                              <div className="trailer">
+                              <div className="trailer" onClick={toggle}>
                                   <FiPlayCircle className='icon'/>
                                   <p>Watch Trailer</p>
                               </div>
@@ -90,19 +98,20 @@ const Detailsbanner = ({credits}) => {
                               </div>}
                           </div>
                           <hr />
-                          <div className="makers">
-                              {
-                                  creaters?.map((person)=>{
-                                      return <div className='maker'>
-                                          <b>{person.job}:</b>
-                                          <span>{person.name}</span>
-                                      </div>
-                                  })
-                              }
-                          </div>
+                          {creaters?.length>0 && <div className="makers">
+                              {directors?.length>0 && <div className="maker">
+                                <b>Director :</b>
+                                <span>{directors?.map((item)=>item.name+", ")}</span>
+                              </div>}
+                              {Writers?.length>0 && <div className="maker">
+                                <b>Writter :</b>
+                                <span>{Writers?.map((item)=>item.name+", ")}</span>
+                              </div>}
+                          </div>}
                           </div>
                       </div>
                   </div>
+                  <Popup show={show} toggle={toggle} vidid={viddata?.results.filter((item)=> item.name.includes('Trailer'))[0]?.key}/>
                </ContentWrapper>
             </div>
           </div>

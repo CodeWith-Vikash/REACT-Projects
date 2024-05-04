@@ -1,0 +1,62 @@
+@import '../../../mixins.scss';
+.officialvid{
+    position: relative;
+    .title{
+        font-size: 1.5rem;
+        padding: 0;
+        padding-left: 7vw;
+    }
+    .contentWrapper{
+        overflow: auto;
+        
+        .videos{
+              display: flex;
+              gap: 30px;
+              padding-right: 20px;
+              .popup{
+                    left:50%;
+                    transform:translateX(-50%) ;
+                    top:0;
+                    .video{
+                        height:200px;
+                    }
+              }
+              
+            .video-container{
+                width:150px;
+                @include md{
+                    width: 200px;
+                  }
+                .video{
+                    height:100px ;
+                    width: 150px;
+                    background-color:black;
+                    border-radius: 20px;
+                    position: relative;
+                    cursor: pointer;
+                    @include md{
+                        height: 150px;
+                        width: 200px;
+                    }
+                    .icon{
+                        position: absolute;
+                         height: 100%;
+                         width: 100%;
+                         top: 0;
+                    }
+                }
+                .video:hover{
+                    opacity:0.7;
+                }
+                p{
+                    padding:10px 5px;
+                    font-size: 0.9rem;
+                    @include md{
+                        font-size: 1rem;
+                        line-height: 1.2;
+                    }
+                }
+            }
+        }
+    }
+}
