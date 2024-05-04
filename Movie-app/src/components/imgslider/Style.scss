@@ -35,6 +35,9 @@
             gap: 10px;
             overflow: auto;
             height: fit-content;
+            @include md {
+                overflow:hidden;
+            }
             // background-color: rebeccapurple;
             
             .card{

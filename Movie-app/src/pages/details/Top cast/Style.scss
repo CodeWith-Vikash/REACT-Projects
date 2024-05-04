@@ -1,0 +1,53 @@
+@import '../../../mixins.scss';
+
+.cast{
+    .title{
+        font-size: 4.5vmax;
+        padding-left: 8vw;
+        @include md{
+            font-size: 2rem;
+        }
+    }
+    .contentWrapper{
+        display: flex;
+        gap: 20px;
+        overflow: auto;
+        justify-content: center;
+        padding-left: 30vw;
+        @include md{
+            padding-left:65vw;
+        }
+        // background: #000;
+        .person{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1vh;
+            img{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                @include md{
+                    height: 150px;
+                    width: 150px;
+                }
+            }
+            p{
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-align: center;
+                @include md{
+                    font-size: 1.1rem;
+                }
+            }
+            span{
+                color: rgb(60, 60, 61);
+                font-weight: 600;
+                font-size: 0.7rem;
+                @include md{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
