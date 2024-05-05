@@ -16,7 +16,7 @@ const Videos = ({data,loading}) => {
       <ContentWrapper>
          <div className="videos">
             {data?.results.map((vid)=>{
-              return <>
+              return <React.Fragment key={vid.id}>
                 <div className="video-container">
               <div className="video" onClick={toggle}>
               <ReactPlayer
@@ -29,7 +29,7 @@ const Videos = ({data,loading}) => {
               <p>{vid.name}</p>
             </div>
               <Popup show={show} toggle={toggle} vidid={vid.key}/>
-              </>
+              </React.Fragment>
             })}
          </div>
       </ContentWrapper>

@@ -9,7 +9,7 @@ const Recomendation = () => {
   const {data,loading}=useFetch(`/${mediaType}/${id}/recommendations`)
   console.log(data,loading);
   return (
-    <div className='.recomend'>
+    data?.results?.lenght>0 && <div className='.recomend'>
         <div className="title" style={{paddingLeft:"7vw",fontSize:"1.5rem"}}>Recommendations</div>
         <ContentWrapper>
             <Slider data={data?.results} loading={loading} endpoint={mediaType}/>

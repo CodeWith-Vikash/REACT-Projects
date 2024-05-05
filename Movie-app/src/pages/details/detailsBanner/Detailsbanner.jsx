@@ -15,6 +15,7 @@ import Popup from '../popup video/Popup'
 const Detailsbanner = ({credits,viddata}) => {
     const {mediaType,id} = useParams()
   const {data,loading}=useFetch(`/${mediaType}/${id}`)
+  console.log(data);
    const genres=data?.genres?.map((item)=> item.id)
   const {url} = useSelector((state)=> state.home)
   const convertminute=(min)=>{
@@ -64,12 +65,12 @@ const toggle=()=>{
                           <div className="options">
                               <div className="rating">
                               <CircularProgressbar
-                                              value={data?.vote_average.toFixed(1)}
+                                              value={data?.vote_average?.toFixed(1)}
                                               maxValue={10}
-                                              text={data?.vote_average.toFixed(1)}
+                                              text={data?.vote_average?.toFixed(1)}
                                               styles={buildStyles({
                                                   pathColor:
-                                                      data?.vote_average.toFixed(1) < 5 ? "red" : data?.vote_average.toFixed(1) < 7 ? "orange" : "green",
+                                                      data?.vote_average?.toFixed(1) < 5 ? "red" : data?.vote_average?.toFixed(1) < 7 ? "orange" : "green",
                                                   textColor: "white",
                                                   textSize: "30"
                                               })}
@@ -88,10 +89,10 @@ const toggle=()=>{
                                   <b>Status:</b>
                                   <span>{data?.status}</span>
                               </div>
-                              <div className="statusopt">
+                              {data?.first_air_date!="" && <div className="statusopt">
                                   <b>Release Date:</b>
-                                  <span>{dayjs(data?.release_date).format('MMM d YYYY')}</span>
-                              </div>
+                                  <span>{dayjs(data?.release_date ||data?.first_air_date).format('MMM d YYYY')}</span>
+                              </div>}
                               {data?.runtime && <div className="statusopt">
                                   <b>Runtime:</b>
                                   <span>{convertminute(data?.runtime)}</span>
@@ -111,7 +112,7 @@ const toggle=()=>{
                           </div>
                       </div>
                   </div>
-                  <Popup show={show} toggle={toggle} vidid={viddata?.results.filter((item)=> item.name.includes('Trailer'))[0]?.key}/>
+                  <Popup show={show} toggle={toggle} vidid={viddata?.results?.filter((item)=> item.name.includes('Trailer'||'TRAILER'))[0]?.key}/>
                </ContentWrapper>
             </div>
           </div>

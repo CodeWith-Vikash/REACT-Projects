@@ -10,7 +10,7 @@ const Similler = () => {
   const {data,loading}=useFetch(`/${mediaType}/${id}/similar`)
   console.log(data,loading);
   return (
-    <div className='similler'>
+    data?.results?.length>0 && <div className='similler'>
         <div className="title">
             Similler Movies
         </div>
