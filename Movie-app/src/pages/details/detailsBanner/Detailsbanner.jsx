@@ -112,7 +112,7 @@ const toggle=()=>{
                           </div>
                       </div>
                   </div>
-                  <Popup show={show} toggle={toggle} vidid={viddata?.results?.filter((item)=> item.name.includes('Trailer'||'TRAILER'))[0]?.key}/>
+                  <Popup show={show} toggle={toggle} vidid={viddata?.results?.filter((item)=> item.name.includes('Trailer'))[0]?.key || viddata?.results?.filter((item)=> item.name.includes('TRAILER'))[0]?.key || viddata?.results?.filter((item)=> item.name.includes('trailer'))[0]?.key}/>
                </ContentWrapper>
             </div>
           </div>

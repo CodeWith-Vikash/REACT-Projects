@@ -1,0 +1,74 @@
+@import '../../mixins.scss';
+
+.explore{
+    min-height: 100vh;
+    padding-top: 12vh;
+    .container{
+        display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            height: fit-content;
+            .card{
+                height: 320px;
+                // background-color: red;
+                display: flex;
+                flex-direction: column;
+                gap: 2vh;
+                position: relative;
+                cursor: pointer;
+                img{
+                  width: 150px;
+                  border-radius:15px;
+                  height: 220px;
+                }
+                @include md{
+                    img{
+                        width: 190px;
+                        height: 280px;
+                    }
+                }
+                span{
+                    color: rgb(72, 71, 71);
+                }
+                p,span{
+                    padding-left: 10px;
+                }
+                p{
+                    margin-top: 3vh;
+                    width: 130px;
+                    height: 17px;
+                    overflow: hidden;
+                }
+                .circle{
+                    background-color: white;
+                    width: 45px;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom:80px;
+                    left: 20px;
+                }
+                .genres{
+                    position: absolute;
+                    bottom: 130px;
+                    right: 0px;
+                    display: none;
+                }
+                @include md{
+                    .circle{
+                        bottom:97px;
+                        width: 50px;
+                    }
+                    .genres{
+                        display: block;
+                    }
+                }
+            }
+            @include md{
+                .card{
+                    height: 400px;
+                }
+            }
+    }
+    
+}
