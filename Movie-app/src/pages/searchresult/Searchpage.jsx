@@ -72,15 +72,16 @@ const Searchpage = () => {
                loader={<Loader/>}
              >
              <div className="wrapper">
-             {data?.results?.map((item) => (
-                            <div className="card" key={item.id} onClick={()=> {
+             {data?.results?.map((item) => {
+                           if(item.media_type=='person') return;
+                           return <div className="card" key={item.id} onClick={()=> {
                                 navigate(`/${item.media_type}/${item.id}`)
                             }}>
                                 <Img src={item.poster_path ? url.poster + item.poster_path : posteralt} alt="" />
                                 <p>{item.title || item.name}</p>
                                 <span>{item.release_date || item.first_air_date}</span>
                             </div>
-                        ))}
+})}
              </div>
              </InfiniteScroll>
          </>

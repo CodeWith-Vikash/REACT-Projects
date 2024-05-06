@@ -307,3 +307,18 @@
         }
     }
 }
+
+@media(max-width:"500px"){
+   .detailbanner{
+      .popup{
+         top:500px;
+         left:50%;
+         transform: translateX(-50%);
+         .video{
+           width: 250px;
+           height: 200px;
+         }
+      }
+   }
+}
+

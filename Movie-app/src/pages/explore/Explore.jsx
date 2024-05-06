@@ -29,17 +29,22 @@ const Explore = () => {
        setloading(false)
      })
   }
-  const fetchnextpage=()=>{
-    setloading(true)
-    fetchdatafromapi(`/discover/${mediaType}&page=${pageNum}`,filters).then((res)=>{
-       if(data?.results){
-        setdata({...data,results:[...data.results,res.results]})
-       }else{
-         setdata(res)
-       }
-      setpageNum((pre)=>pre+1)
-    })
-  }
+  const fetchNextPageData = () => {
+    fetchdatafromapi(
+        `/discover/${mediaType}?page=${pageNum}`,
+        filters
+    ).then((res) => {
+        if (data?.results) {
+            setdata({
+                ...data,
+                results: [...data?.results, ...res.results],
+            });
+        } else {
+            setdata(res);
+        }
+        setpageNum((prev) => prev + 1);
+    });
+};
   useEffect(()=>{
     setpageNum(1)
     filters={}
@@ -52,14 +57,15 @@ const Explore = () => {
           <InfiniteScroll
             className="content"
             dataLength={data?.results?.length || []}
-            next={fetchnextpage}
+            next={fetchNextPageData}
             hasMore={pageNum <= data?.total_pages}
             loader={<Loader/>}
           >
 
          <div className="container">
-           {data?.results?.map((item) => (
-                            <div className="card" key={item?.id} onClick={()=> {
+           {data?.results?.map((item) => {
+                           if (item?.media_type === "person") return;
+                            return <div className="card" key={item?.id} onClick={()=> {
                                 navigate(`/${item.media_type || mediaType}/${item.id}`)
                             }}>
                                 <Img src={item?.poster_path ? url.poster + item?.poster_path : posteralt} alt="" />
@@ -82,7 +88,7 @@ const Explore = () => {
                                 <p>{item?.title || item?.name}</p>
                                 <span>{item?.release_date || item?.first_air_date}</span>
                             </div>
-                        ))}
+})}
          </div>
           </InfiniteScroll>
       </ContentWrapper>
