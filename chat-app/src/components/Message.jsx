@@ -21,8 +21,9 @@ const Message = ({message}) => {
             } className='rounded-full h-10 w-10'/>
             {/* <p className='text-sm text-gray-800'>just now</p> */}
         </div>
-        <div className='bg-white px-4 py-2 rounded-xl font-semibold max-w-[250px] rounded-tl-none text h-fit mt-4'>{message.inputtext}
-        {message.img && <img src={message.img} alt="" />}
+        <div className='bg-white rounded-xl font-semibold max-w-[250px] rounded-tl-none text-center leading-4  mt-4 py-2 text'>
+            <span className='m-4'>{message.inputtext}</span>
+        {message.img && <img src={message.img} alt="" className='messimg'/>}
         </div>
     </div>
      </div>

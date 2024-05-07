@@ -87,3 +87,11 @@ form{
         width: 70%;
     }
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+img{
+    object-fit: cover;
+    object-position: center;
+}

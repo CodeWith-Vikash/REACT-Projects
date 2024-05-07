@@ -57,14 +57,16 @@ const Chatbox = () => {
       }
     );
     }else{
-      await updateDoc(doc(db,"chats",data.chatId),{
-        messages:arrayUnion({
-          id:uuid(),
-          inputtext,
-          senderId:currentuser.uid,
-          date:Timestamp.now(),
+      if(inputtext != "" && inputtext !=" "){
+        await updateDoc(doc(db,"chats",data.chatId),{
+          messages:arrayUnion({
+            id:uuid(),
+            inputtext,
+            senderId:currentuser.uid,
+            date:Timestamp.now(),
+          })
         })
-      })
+      }
     }
 
     await updateDoc(doc(db,"userChats",data.user.uid),{
@@ -99,6 +101,11 @@ const Chatbox = () => {
             <input type="text" placeholder='write something....' className='outline-none bg-transparent px-4 py-2 w-[50vw]'
              value={inputtext}
               onChange={e=>setinputtext(e.target.value)}
+              onKeyDown={(e)=>{
+                if(e.key=="Enter"){
+                  handlesend()
+                }
+              }}
             />
             <div className='flex items-center gap-4'>
                 <input type="file" id='attach' style={{display:"none"}} onChange={e=>setinputimg(e.target.files[0])}/>

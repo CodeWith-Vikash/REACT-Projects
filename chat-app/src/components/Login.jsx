@@ -15,16 +15,18 @@ const Login = () => {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
-
+  
     try {
-      signInWithEmailAndPassword(auth, email, password) 
-      navigate("/")
-      // console.log(response);
-
+      // Sign in the user
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  
+      // Proceed if sign-in is successful
+      navigate("/");
+  
       // Uploading file to Firebase Storage
-      const fileRef = ref(storage, `avatars/${response.user.uid}/${file.name}`);
+      const fileRef = ref(storage, `avatars/${userCredential.user.uid}/${file.name}`);
       const uploadTask = uploadBytesResumable(fileRef, file);
-
+  
       uploadTask.on('state_changed', 
         null, 
         (uploadError) => {
@@ -37,16 +39,16 @@ const Login = () => {
               displayName,
               photoURL: downloadURL
             });
-
+  
             // Creating user document in Firestore
-            await setDoc(doc(db, "users", response.user.uid), {
+            await setDoc(doc(db, "users", userCredential.user.uid), {
               displayName,
               photoURL: downloadURL,
               email,
-              uid: response.user.uid
+              uid: userCredential.user.uid
             });
-            await setDoc(doc(db,"userChats",response.user.uid),{})
-            navigate("/")
+            await setDoc(doc(db,"userChats",userCredential.user.uid),{})
+            navigate("/");
           });
         }
       );
@@ -54,13 +56,14 @@ const Login = () => {
       setError(true);
     }
   };
+  
   return (
     <div className='bg-gray-900 h-screen flex justify-center items-center'>
         <form className=" bg-blue-600 p-4 rounded-lg" onSubmit={handleSubmit}>
             <input type="email" placeholder='Email'className='rounded-lg px-4 py-2 outline-none'/>
             <input type="password" placeholder='password'className='rounded-lg px-4 py-2 outline-none'/>
             <button className='bg-violet-800 text-white font-semibold px-4 py-2 rounded-lg w-fit'>Login</button>
-            {error && <p className='text-red-400'>Something went wrong</p>}
+            {error && <p className='text-red-500'>Something went wrong</p>}
             <p className='text-white'>you don't have an account?<Link to="/signup"><span className='text-black'>signup</span></Link></p>
         </form>
     </div>

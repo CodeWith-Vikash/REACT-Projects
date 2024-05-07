@@ -68,7 +68,7 @@ const Register = () => {
         </label>
         <button className='bg-violet-800 text-white font-semibold px-4 py-2 rounded-lg w-fit'>Register</button>
         {error && <p className='text-red-400'>Something went wrong</p>}
-        <p className='text-white'>Do you have an account?<Link to="/login"><span className='text-black'> login</span></Link></p>
+        <p className='text-white'>You already have an account?<Link to="/login"><span className='text-black'> login</span></Link></p>
       </form>
     </div>
   );

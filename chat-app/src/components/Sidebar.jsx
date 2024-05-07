@@ -91,7 +91,7 @@ const Sidebar = () => {
                 <button className='bg-blue-800 px-2 h-7 rounded-lg text-sm' onClick={()=> signOut(auth)}>Logout</button>
             </div>
         </nav>
-        <input type="text" placeholder="search friends" className='w-full outline-none text-black px-4 py-2 bg-gray-200'value={username} onChange={(e)=> setusername(e.target.value)} 
+        <input type="text" placeholder="search registered users ex:- vikash" className='w-full outline-none text-black px-4 py-2 bg-gray-200'value={username} onChange={(e)=> setusername(e.target.value)} 
           onKeyDown={(e)=>handlekeydown(e)}
         />
         <section className='user-section  border-t-black overflow-auto h-[75vh]'>
