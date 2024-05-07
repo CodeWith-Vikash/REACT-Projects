@@ -37,7 +37,7 @@ const Hero = () => {
                 Welcome.
             </div>
             <div className="subtitle">
-                watch popular movies and tv shows absolutely free of cost
+                Explore popular movies and tv shows absolutely free of cost
             </div>
             <div className="search-section">
                 <input type="text" placeholder='search tvshows and movies'

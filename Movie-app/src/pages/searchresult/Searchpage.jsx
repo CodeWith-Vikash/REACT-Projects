@@ -10,6 +10,7 @@ import ContentWrpper from '../../components/contentWrapper/Wrapper'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import noresults from '../../assets/no-results.png'
 
 const Searchpage = () => {
   const [data, setData] = useState(null);
@@ -86,7 +87,7 @@ const Searchpage = () => {
              </InfiniteScroll>
          </>
       : <div className='notfound'>
-                               data not found
+                  <img src={noresults} alt="data not found" />
                           </div>}
       </ContentWrpper>
     </div>

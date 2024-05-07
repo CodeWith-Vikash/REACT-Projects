@@ -46,6 +46,16 @@
             font-size: 2rem;
             padding-top: 10vh;
             text-shadow: 1px 1px 10px;
+            display: flex;
+            justify-content: center;
+            img{
+                 height: 300px;
+                object-fit:cover;
+                object-position: center;
+                @include md{
+                    height: 450px;
+                }
+            }
         }
     }
 }
