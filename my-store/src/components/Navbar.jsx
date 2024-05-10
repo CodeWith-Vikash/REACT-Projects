@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -9,7 +9,7 @@ const Navbar = () => {
   const [slidenav, setslidenav] = useState(false)
   const { loginWithRedirect, logout, isAuthenticated,user} = useAuth0();
 
-  const {cart} =useContext(CartContext)
+  const {cart,setcart} =useContext(CartContext)
   let navref=useRef()
   const toggleNav=()=>{
     if(slidenav){
@@ -19,10 +19,16 @@ const Navbar = () => {
     }
     setslidenav(!slidenav)
   }
+  useEffect(()=>{
+    const localCart = JSON.parse(localStorage.getItem("mystorecart"));
+    if(localCart){
+      setcart(localCart)
+    }
+  },[])
   return (
     <>
       <nav>
-      <div className="logo">Devshop</div>
+      <NavLink to="/"><div className="logo">Devshops</div></NavLink>
       <GiHamburgerMenu size="2rem" style={{cursor:"pointer"}} onClick={toggleNav} className='ham'/>
       <div className="options">
         <NavLink to='/'>Home</NavLink>
@@ -44,7 +50,7 @@ const Navbar = () => {
         {isAuthenticated? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>:<button onClick={() => loginWithRedirect()}>Log In</button>}
         <div className="carticon">
           <NavLink to='/cart'><FaCartShopping size="1.5rem"/></NavLink>
-          <div className="circle">0</div>
+          <div className="circle">{cart.length}</div>
         </div>
      </div>
     </>

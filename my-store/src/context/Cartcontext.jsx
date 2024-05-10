@@ -40,5 +40,5 @@ const removefromcart = (cartitems, id) => {
     //     localStorage.setItem("mystorecart", JSON.stringify(cart));
     //    }
     //  },[cart,removefromcart])
-    return <CartContext.Provider value={{cart,addtocart,getprodata,removefromcart,clearcart}}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{cart,addtocart,getprodata,removefromcart,clearcart,setcart}}>{children}</CartContext.Provider>
 }

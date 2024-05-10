@@ -16,6 +16,8 @@ nav{
   padding: 10px 20px;
   align-items: center;
   padding-right: 80px;
+  position: sticky;
+  top: 0;
 }
 nav .options{
   display: flex;
@@ -203,9 +205,8 @@ nav img{
   gap: 30px;
   justify-content: center;
 }
-.companies img{
-   width: 50px;
-   height: 50px;
+.companies .icon{
+   font-size: 3rem;
 }
 
 /* contact section */
@@ -459,9 +460,8 @@ nav img{
   .features-container{
     padding: 15vh 0;
   }
-  .companies img{
-     height: 100px;
-     width: 100px;
+  .companies .icon{
+     font-size: 5rem;
   }
   .trust{
     gap: 10vh;
@@ -481,4 +481,8 @@ nav img{
    .feature{
      width: 250px;
    }
+}
+
+::-webkit-scrollbar{
+  display: none;
 }

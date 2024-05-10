@@ -10,6 +10,11 @@ import { MdSystemSecurityUpdateGood } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { NavLink } from 'react-router-dom';
 import { Appcontext } from '../context/Productcontext'
+import { SiZara } from "react-icons/si";
+import { SiSamsung } from "react-icons/si";
+import { FaPlaystation } from "react-icons/fa";
+import { SiCocacola } from "react-icons/si";
+
 
 const Home = () => {
   const {getsingledata}=useContext(Appcontext)
@@ -63,10 +68,10 @@ const Home = () => {
        <section className="trust">
          <b>Trusted by 1000+ companies</b>
          <div className="companies">
-          <img src="src\components\images\logo1.jfif"/>
-          <img src="src\components\images\logo2.jfif"/>
-          <img src="src\components\images\logo3.jfif"/>
-          <img src="src\components\images\logo4.jfif"/>
+          <SiZara className='icon' color='black'/>
+          <SiSamsung className='icon' color='black'/>
+          <FaPlaystation className='icon' color='black'/>
+          <SiCocacola className='icon' color='black'/>
          </div>
        </section>
     </section>
