@@ -37,7 +37,7 @@ const App = () => {
     let data= await Promise.all(responses)
     // console.log(data);
     data.map(({genres})=>{
-        return genres.map((item)=> allgenres[item.id]=item)
+        return genres?.map((item)=> allgenres[item.id]=item)
     })
     dispatch(getGenres(allgenres))
   }

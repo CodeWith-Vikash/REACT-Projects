@@ -17,13 +17,20 @@ const Hero = () => {
             navigate(`/search/${query}`)
         }
     }
+    const handleSearch=()=>{
+        if(query!=" " && query!=""){
+            navigate(`/search/${query}`)
+        }
+    }
     // console.log(data);
-    useEffect(()=>{
-        let random=Math.floor(Math.random()*20)
-        // console.log(random);
-        let bg=url.backdrop+data?.results[random]?.backdrop_path;
-        setbackground(bg)
-    },[data])
+    useEffect(() => {
+        if (data && data.results && data.results.length > 0) {
+            let random = Math.floor(Math.random() * data.results.length);
+            let bg = url.backdrop + (data.results[random]?.backdrop_path || '');
+            setbackground(bg);
+        }
+    }, [data]);
+    
   return (
     <div className="heropage">
         {!loading && 
@@ -45,7 +52,7 @@ const Hero = () => {
                  onChange={(e)=> setquery(e.target.value)}
                  onKeyDown={handlekeydown}
                 />
-                <button>search</button>
+                <button onClick={handleSearch}>search</button>
             </div>
         </div>
          </div>
