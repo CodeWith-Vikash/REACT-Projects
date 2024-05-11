@@ -5,6 +5,9 @@ nav{
     justify-content: space-between;
     height: 10vh;
     padding: 0 20px;
+    background-color: white;
+    position: sticky;
+    top: 0;
     .logo{
         display: flex;
         align-items: center;
@@ -47,12 +50,13 @@ nav{
 
 .subnav{
     height: 90vh;
+    // margin-top: 10vh;
     position: absolute;
     width: 100vw;
     display: flex;
     justify-content: center;
     padding-top: 10vh;
-    background-color: rgba(253, 251, 251,0.1);
+    background-color: rgba(253, 251, 251,0.3);
     backdrop-filter: blur(4px);
     transform: translateX(-500%);
     transition: 0.5s all ease;
@@ -72,5 +76,6 @@ nav{
             margin: 0;
             cursor: pointer;
         }
+        
     }
 }

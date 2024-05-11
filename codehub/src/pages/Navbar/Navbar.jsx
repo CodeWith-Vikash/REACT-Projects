@@ -4,27 +4,17 @@ import { NavLink } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md"
+import { useDispatch,useSelector } from 'react-redux';
+import {toggle} from '../../Redux/homeslice'
 
 const Navbar = () => {
   const [login, setlogin] = useState(false)
-  const [isdark, setisdark] = useState(false)
   const [show, setshow] = useState(false)
+  const dispatch=useDispatch()
+  const {isdark}=useSelector((state)=>state.mainReducer.home)
   
-  const toggle=()=>{
-      if(isdark){
-        document.body.style.backgroundColor='white'
-        document.body.querySelectorAll('a').forEach((item)=>{
-          item.style.color='black'
-        })
-        document.body.style.color='black'
-      }else{
-        document.body.style.backgroundColor='var(--bg)'
-        document.body.querySelectorAll('a').forEach((item)=>{
-          item.style.color='white'
-        })
-        document.body.style.color='white'
-      }
-      setisdark(!isdark)
+  const togglemode=()=>{
+      dispatch(toggle())
   }
 
   const navref=useRef(null)
@@ -50,7 +40,7 @@ const Navbar = () => {
         <NavLink to="/"></NavLink>
       {login?<button>Logout</button>:<button>Login</button>}
       </div>
-      {isdark?<MdLightMode className='icon' size="2rem" onClick={toggle}/>:<MdDarkMode className='icon' size="2rem" onClick={toggle}/>}
+      {isdark?<MdLightMode className='icon' size="1.8rem" onClick={togglemode}/>:<MdDarkMode className='icon' size="2rem" onClick={togglemode}/>}
       <GiHamburgerMenu className='icon' size="1.5rem" color='var(--color)' onClick={navtoggle}/>
       </div>
     </nav>

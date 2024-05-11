@@ -1,0 +1,22 @@
+@import '../../../mixins.scss';
+.hero{
+    img{
+        height:350px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        @include md{
+            height: 500px;
+        }
+    }
+    .blur{
+
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        top: 320px;
+        @include md{
+            top: 460px;
+        }
+    }
+}
