@@ -21,3 +21,23 @@ body{
     background-color: var(--bg);
     color: white;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.btn{
+    background-color: var(--color);
+            color: white;
+            width: fit-content;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+}
+.btn:hover{
+    opacity: 0.7;
+    scale: 0.95;
+    cursor: pointer;
+}

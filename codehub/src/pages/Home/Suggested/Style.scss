@@ -1,0 +1,19 @@
+@import '../../../mixins.scss';
+
+.suggested{
+    padding-top: 5vh;
+    h3{
+        text-align: center;
+        color: var(--color);
+        @include md{
+            font-size: 1.4rem;
+        }
+    }
+    .courses{
+        display: flex;
+        justify-content: center;
+        padding: 5vh 0;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+}

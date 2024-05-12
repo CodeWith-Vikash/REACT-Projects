@@ -1,0 +1,33 @@
+footer{
+     background-color: rgb(1, 1, 16,0.2);
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 20px;
+     justify-content:space-around;
+     padding: 5px;
+     padding-top: 19px;
+    .title{
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+    }
+    span{
+        font-size: 0.9rem;
+        color: gray;
+    }
+    .links{
+        display: flex;
+        gap: 10px;
+
+        a:hover{
+            box-shadow: 1px 1px 10px red;
+            scale:0.9;
+        }
+    }
+}

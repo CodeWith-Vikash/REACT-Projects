@@ -26,14 +26,14 @@
                 }
             }
             .title{
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 font-weight: 700;
                 @include md{
                     font-size: 2rem;
                 }
             }
             .subtitle{
-                font-size: 1.2rem;
+                font-size: 1rem;
                 font-weight: 500;
                 @include md{
                     font-size: 1.5rem;
@@ -43,9 +43,9 @@
                }
             }
             .para{
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 line-height: 1.2;
-                width: 400px;
+                width: 300px;
                 text-align: center;
                 @include md{
                     font-size: 1.1rem;

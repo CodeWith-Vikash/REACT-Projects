@@ -1,0 +1,46 @@
+@import '../../mixins.scss';
+
+.course{
+    box-shadow: 1px 1px 10px black;
+    width: 300px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:2vh;
+    justify-content: center;
+    img{
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        padding: 0 20px;
+        padding-bottom: 20px;
+        .title{
+            font-family: 700;
+            font-size: 1.2rem;
+        }
+        .subtitle{
+            font-size: 0.8rem;
+        }
+        button{
+            background-color: var(--color);
+            color: white;
+            width: fit-content;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        button:hover{
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    }
+}
