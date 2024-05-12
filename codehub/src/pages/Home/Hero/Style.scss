@@ -1,16 +1,75 @@
 @import '../../../mixins.scss';
 .hero{
-    img{
+    .banner{
         height:350px;
         width: 100%;
-        object-fit: cover;
-        object-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         @include md{
             height: 500px;
         }
+        .content{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 5vh;
+            gap: 2vh;
+            @include md{
+                padding-top: 10vh;
+            }
+            p{
+                span{
+                    color:var(--color);
+                }
+            }
+            .title{
+                font-size: 1.5rem;
+                font-weight: 700;
+                @include md{
+                    font-size: 2rem;
+                }
+            }
+            .subtitle{
+                font-size: 1.2rem;
+                font-weight: 500;
+                @include md{
+                    font-size: 1.5rem;
+                }
+               span{
+                  color: yellow;
+               }
+            }
+            .para{
+                font-size: 0.9rem;
+                line-height: 1.2;
+                width: 400px;
+                text-align: center;
+                @include md{
+                    font-size: 1.1rem;
+                    width: 450px;
+                }
+            }
+            button{
+                background-color: var(--color);
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                @include md{
+                    font-size: 1rem;
+                }
+            }
+            button:hover{
+                color: var(--color);
+                background-color: white;
+            }
+        }
     }
     .blur{
-
         height: 100px;
         width: 100%;
         position: absolute;

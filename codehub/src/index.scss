@@ -4,7 +4,7 @@
     --bg:rgb(11, 22, 37);
     font-family: "Poppins", sans-serif;
     a{
-        color: black;
+        color:white;
         text-decoration: none;
     }
     .icon{
@@ -16,4 +16,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body{
+    background-color: var(--bg);
+    color: white;
 }

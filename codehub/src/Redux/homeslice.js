@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState={home:{isdark:false}}
+const initialState={home:{isdark:true}}
 
 const Mainslice=createSlice({
     name:"home",
@@ -10,11 +10,12 @@ const Mainslice=createSlice({
             if(state.home.isdark){
                 document.body.style.backgroundColor='white'
                 document.querySelector('nav').style.backgroundColor='white'
+                document.querySelector('nav').style.color='black'
                 document.querySelector('.subnav').style.backgroundColor='rgba(253, 251, 251,0.3)'
                 document.querySelector('.blur').style.background=`linear-gradient(
                   180deg,
                   rgba(255, 255, 255,0) 0%,
-                   #ffffff 79.17%
+                   #ffffff 50.17%
               )`
                 document.body.querySelectorAll('a').forEach((item)=>{
                   item.style.color='black'
@@ -23,11 +24,12 @@ const Mainslice=createSlice({
               }else{
                 document.body.style.backgroundColor='var(--bg)'
                 document.querySelector('nav').style.backgroundColor='var(--bg)'
+                document.querySelector('nav').style.color='white'
                 document.querySelector('.subnav').style.backgroundColor='rgba(0,0,0,0.5)'
                 document.querySelector('.blur').style.background=` linear-gradient(
                   180deg,
-                  rgba(11, 22, 37, 0.1) 0%,
-                  rgb(11, 22, 37) 79.17%
+                  rgba(11, 22, 37, 0) 0%,
+                  rgb(11, 22, 37) 50.17%
               )
               `
                 document.body.querySelectorAll('a').forEach((item)=>{
