@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useAuth0 } from "@auth0/auth0-react";
 import './Style.scss'
 import { NavLink } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -8,7 +9,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import {toggle} from '../../Redux/homeslice'
 
 const Navbar = () => {
-  const [login, setlogin] = useState(false)
+  const { loginWithRedirect,logout ,isAuthenticated} = useAuth0();
   const [show, setshow] = useState(false)
   const dispatch=useDispatch()
   const {isdark}=useSelector((state)=>state.mainReducer.home)
@@ -38,7 +39,10 @@ const Navbar = () => {
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>
         <NavLink to="/"></NavLink>
-      {login?<button>Logout</button>:<button>Login</button>}
+      {isAuthenticated?<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+    </button>:<button onClick={()=>{loginWithRedirect()}}>Login</button>}
+      
       </div>
       {isdark?<MdLightMode className='icon' size="1.8rem" onClick={togglemode}/>:<MdDarkMode className='icon' size="2rem" onClick={togglemode}/>}
       <GiHamburgerMenu className='icon ham' size="1.5rem" color='var(--color)' onClick={navtoggle}/>
@@ -49,7 +53,9 @@ const Navbar = () => {
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>
         <NavLink to="/"></NavLink>
-      {login?<button>Logout</button>:<button>Login</button>}
+        {isAuthenticated?<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+    </button>:<button onClick={()=>{loginWithRedirect()}}>Login</button>}
       </div>
       </div>
     </>
