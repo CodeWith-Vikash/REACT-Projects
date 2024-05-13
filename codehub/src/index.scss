@@ -10,7 +10,23 @@
     .icon{
         cursor: pointer;
     }
-
+    .active{
+        color:yellow;
+    }
+    .dark{
+        background-color: var(--bg);
+        color: white;
+        a{
+            color: white;
+        }
+    }
+    .light{
+        background-color: white;
+        color: black;
+        a{
+            color: black;
+        }
+    }
 }
 *{
     margin: 0;
@@ -41,3 +57,4 @@ body{
     scale: 0.95;
     cursor: pointer;
 }
+

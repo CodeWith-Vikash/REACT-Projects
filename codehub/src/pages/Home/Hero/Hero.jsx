@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Style.scss'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 const Hero = () => {
     const [images, setimages] = useState([])
@@ -53,9 +54,9 @@ const Hero = () => {
                 <p className='title'>welcome to <span>CodeWithVikash</span></p>
                 <p className="subtitle">Learn <span>{careers[careerIndex].slice(0,characterIndex)}</span> free of cost</p>
                 <p className="para">
-                Confused on which tech stack to choose? I have got you covered. Browse courses and find out the best course for you. Its free! Code With Vikash is my attempt to Provide those coding techniques to people in short time which took me ages to learn.
+                Confused on which tech stack to choose? I have got you covered. Browse courses and find out the best course for you. Its free! Code With Vikash is my attempt to Provide those coding techniques to people in short time which took me years to learn.
                 </p>
-                <button>Explore Courses</button>
+                <NavLink to='courses'><button>Explore Courses</button></NavLink>
             </div>
         </div>
         <div className="blur" style={isdark?{background:` linear-gradient(

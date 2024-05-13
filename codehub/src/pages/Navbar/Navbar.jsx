@@ -28,7 +28,7 @@ const Navbar = () => {
   }
   return (
     <>
-          <nav>
+          <nav className={isdark?'dark':'light'}>
       <div className="logo">
         <b>&lt; / &gt;</b>
         <NavLink to="/"><h1>codewithvikash</h1></NavLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
       {login?<button>Logout</button>:<button>Login</button>}
       </div>
       {isdark?<MdLightMode className='icon' size="1.8rem" onClick={togglemode}/>:<MdDarkMode className='icon' size="2rem" onClick={togglemode}/>}
-      <GiHamburgerMenu className='icon' size="1.5rem" color='var(--color)' onClick={navtoggle}/>
+      <GiHamburgerMenu className='icon ham' size="1.5rem" color='var(--color)' onClick={navtoggle}/>
       </div>
     </nav>
       <div className="subnav" ref={navref}>

@@ -15,7 +15,7 @@ export const data = [
         id: 3,
         tech: "Java",
         image: "/java.webp",
-        link: "https://www.java.com/"
+        link: "https://www.tutorialspoint.com/java/java_documentation.htm"
     },
     {
         id: 4,
@@ -27,55 +27,55 @@ export const data = [
         id: 5,
         tech: "C++",
         image: "/cpp.webp",
-        link: "https://isocpp.org/"
+        link: "https://www.tutorialspoint.com/cplusplus/index.htm"
     },
     {
         id: 6,
         tech: "PHP",
-        image: "php.png",
-        link: "https://www.php.net/"
+        image: "/php.jfif",
+        link: "https://www.php.net/manual/en/"
     },
     {
         id: 7,
         tech: "Swift",
-        image: "swift.png",
-        link: "https://developer.apple.com/swift/"
+        image: "/swift.webp",
+        link: "https://www.swift.org/documentation/"
     },
     {
         id: 8,
         tech: "Kotlin",
         image: "/kotlin.webp",
-        link: "https://kotlinlang.org/"
+        link: "https://kotlinlang.org/docs/home.html"
     },
     {
         id: 9,
         tech: "Ruby",
         image: "/ruby.webp",
-        link: "https://www.ruby-lang.org/"
+        link: "https://www.ruby-lang.org/en/documentation/"
     },
     {
         id: 10,
         tech: "Go (Golang)",
         image: "/go.webp",
-        link: "https://golang.org/"
+        link: "https://go.dev/doc/"
     },
     {
         id: 11,
         tech: "C",
         image: "/c.webp",
-        link: "https://en.wikipedia.org/wiki/C_(programming_language)"
+        link: "https://www.tutorialspoint.com/cprogramming/index.htm"
     },
     {
         id: 12,
         tech: "DSA",
         image: "/dsa.webp",
-        link: "https://en.wikipedia.org/wiki/Data_structure"
+        link: "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/"
     },
     {
         id: 13,
         tech: "HTML",
         image: "/html.webp",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        link: "https://www.w3schools.com/html/html_intro.asp"
     },
     {
         id: 14,
@@ -87,43 +87,43 @@ export const data = [
         id: 15,
         tech: "React",
         image: "/react.png",
-        link: "https://reactjs.org/"
+        link: "https://react.dev/learn"
     },
     {
         id: 16,
         tech: "Vue",
         image: "/vue.png",
-        link: "https://vuejs.org/"
+        link: "https://www.vueframework.com/guide/introduction.html#what-is-vue-js"
     },
     {
         id: 17,
         tech: "Node.js",
         image: "/nodejs.png",
-        link: "https://nodejs.org/"
+        link: "https://www.geeksforgeeks.org/nodejs/"
     },
     {
         id: 18,
         tech: "Express.js",
         image: "/expressjs.webp",
-        link: "https://expressjs.com/"
+        link: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs"
     },
     {
         id: 19,
         tech: "Mongoose",
-        image: "mongoose.png",
-        link: "https://mongoosejs.com/"
+        image: "/mongoose.png",
+        link: "https://mongoosejs.com/docs/guide.html"
     },
     {
         id: 20,
         tech: "MongoDB",
         image: "/mongodb.webp",
-        link: "https://www.mongodb.com/"
+        link: "https://www.tutorialspoint.com/mongodb/index.htm"
     },
     {
         id: 21,
         tech: "MySQL",
         image: "/mysql.webp",
-        link: "https://www.mysql.com/"
+        link: "https://www.geeksforgeeks.org/what-is-mysql/"
     },
     {
         id: 22,
@@ -134,7 +134,7 @@ export const data = [
     {
         id: 23,
         tech: "Angular",
-        image: "angular.png",
-        link: "https://angular.io/"
+        image: "/angular.jfif",
+        link: "https://angular.io/docs"
     }
 ];
