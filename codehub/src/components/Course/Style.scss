@@ -7,13 +7,14 @@
     display: flex;
     flex-direction: column;
     gap:2vh;
-    justify-content: center;
+    // justify-content: center;
     img{
         width: 100%;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         height: 200px;
         object-fit: cover;
+        
     }
     .content{
         display: flex;
@@ -24,9 +25,13 @@
         .title{
             font-family: 700;
             font-size: 1.4rem;
+            height: 52px;
+            overflow: auto;
         }
         .subtitle{
             font-size: 0.9rem;
+            height: 150px;
+            overflow: auto;
         }
         button{
             width: fit-content;

@@ -53,7 +53,7 @@ const Navbar = () => {
       {isAuthenticated && <img src={user.picture}/>}
       </div>
     </nav>
-      <div className="subnav" ref={navref}>
+      <div className={`subnav ${isdark?'darknav':'lightnav'}`} ref={navref}>
       <div className="options">
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>

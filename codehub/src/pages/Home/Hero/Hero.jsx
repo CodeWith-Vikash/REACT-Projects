@@ -3,7 +3,7 @@ import './Style.scss'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import brandlogo from '../../../../public/brandlogo.png'
+import brandlogo from '/brandlogo.png'
 
 const Hero = () => {
     const imgref=useRef(null)
@@ -21,7 +21,7 @@ const Hero = () => {
     const getimage=()=>{
         try {
             axios.get(url).then((res)=>{
-                console.log(res.data);
+                // console.log(res.data);
                 setimages(res.data?.results)
             })
         } catch (error) {

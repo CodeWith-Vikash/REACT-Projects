@@ -80,6 +80,7 @@ nav{
     backdrop-filter: blur(4px);
     transform: translateX(-500%);
     transition: 0.5s all ease;
+    z-index: 3;
     .options{
         display: flex;
         flex-direction: column;
@@ -97,5 +98,17 @@ nav{
             cursor: pointer;
         }
         
+    }
+}
+.darknav{
+    background-color: rgba(0, 0, 0,0.3);
+    color: white;
+}
+.lightnav{
+    background-color: rgba(255, 255, 255,0.3);
+    .options{
+        a{
+            color: black;
+        }
     }
 }
