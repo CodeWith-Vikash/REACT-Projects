@@ -1,7 +1,7 @@
 @import '../../../mixins.scss';
 .hero{
     .banner{
-        height:350px;
+        height:500px;
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
@@ -10,16 +10,36 @@
             height: 500px;
         }
         .content{
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            align-items: center;
             height: 100%;
             width: 100%;
+            padding-top: 5vh;
+             @include md{
+                 padding-top:0;
+                 padding-bottom: 5vh;
+                 flex-direction: row;
+                 gap: 20px;
+                 justify-content: center;
+                 align-items:center;
+             }
+            img{
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                @include lg{
+                    height: 250px;
+                    width: 250px;
+                }
+            }
+            .bannercontent{
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 5vh;
             gap: 2vh;
-            @include md{
-                padding-top: 10vh;
-            }
+        }
             p{
                 span{
                     color:var(--color);
@@ -46,26 +66,11 @@
                 font-size: 0.8rem;
                 line-height: 1.2;
                 width: 300px;
-                text-align: center;
+                text-align: left;
                 @include md{
                     font-size: 1.1rem;
                     width: 450px;
                 }
-            }
-            button{
-                background-color: var(--color);
-                color: white;
-                border: none;
-                padding: 5px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                @include md{
-                    font-size: 1rem;
-                }
-            }
-            button:hover{
-                color: var(--color);
-                background-color: white;
             }
         }
     }
@@ -73,7 +78,7 @@
         height: 100px;
         width: 100%;
         position: absolute;
-        top: 320px;
+        top: 470px;
         @include md{
             top: 460px;
         }

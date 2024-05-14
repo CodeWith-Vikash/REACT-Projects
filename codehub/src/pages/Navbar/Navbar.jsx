@@ -7,9 +7,10 @@ import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md"
 import { useDispatch,useSelector } from 'react-redux';
 import {toggle} from '../../Redux/homeslice'
+import logo from '../../../public/brandlogo.png'
 
 const Navbar = () => {
-  const { loginWithRedirect,logout ,isAuthenticated} = useAuth0();
+  const { loginWithRedirect,logout ,isAuthenticated,user} = useAuth0();
   const [show, setshow] = useState(false)
   const dispatch=useDispatch()
   const {isdark}=useSelector((state)=>state.mainReducer.home)
@@ -30,15 +31,18 @@ const Navbar = () => {
   return (
     <>
           <nav className={isdark?'dark':'light'}>
+      <NavLink to="/">
       <div className="logo">
-        <b>&lt; / &gt;</b>
-        <NavLink to="/"><h1>codewithvikash</h1></NavLink>
+        <img src={logo} alt="" />
+        <h1>Techbro</h1>
       </div>
+      </NavLink>
       <div className="content">
       <div className="options">
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>
         <NavLink to="/"></NavLink>
+      {isAuthenticated && <div className="name">welcome,{user.name}</div>}
       {isAuthenticated?<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
     </button>:<button onClick={()=>{loginWithRedirect()}}>Login</button>}
@@ -46,6 +50,7 @@ const Navbar = () => {
       </div>
       {isdark?<MdLightMode className='icon' size="1.8rem" onClick={togglemode}/>:<MdDarkMode className='icon' size="2rem" onClick={togglemode}/>}
       <GiHamburgerMenu className='icon ham' size="1.5rem" color='var(--color)' onClick={navtoggle}/>
+      {isAuthenticated && <img src={user.picture}/>}
       </div>
     </nav>
       <div className="subnav" ref={navref}>

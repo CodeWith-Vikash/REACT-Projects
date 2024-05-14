@@ -3,6 +3,7 @@ import './Style.scss'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import brandlogo from '../../../../public/brandlogo.png'
 
 const Hero = () => {
     const [images, setimages] = useState([])
@@ -51,12 +52,14 @@ const Hero = () => {
     <div className='hero'>
         <div className="banner" style={{backgroundImage:`url(${images[number]?.urls?.full})`}}>
             <div className="content" style={isdark?{backgroundColor: 'rgb(0, 0, 0,0.5)'}:{backgroundColor: 'rgb(132, 132, 132,0.5)'}}>
-                <p className='title'>welcome to <span>CodeWithVikash</span></p>
+                <img src={brandlogo} alt="" />
+                <div className="bannercontent">
                 <p className="subtitle">Learn <span>{careers[careerIndex].slice(0,characterIndex)}</span> free of cost</p>
                 <p className="para">
-                Confused on which tech stack to choose? I have got you covered. Browse courses and find out the best course for you. Its free! Code With Vikash is my attempt to Provide those coding techniques to people in short time which took me years to learn.
+                Confused on which tech stack to choose? I have got you covered. Browse courses and find out the best course for you. Its free! Techbro is my attempt to Provide those coding techniques to people in short time which took me years to learn.
                 </p>
                 <NavLink to='courses'><button>Explore Courses</button></NavLink>
+                </div>
             </div>
         </div>
         <div className="blur" style={isdark?{background:` linear-gradient(

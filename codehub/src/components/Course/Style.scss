@@ -23,24 +23,18 @@
         padding-bottom: 20px;
         .title{
             font-family: 700;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
         .subtitle{
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         button{
-            background-color: var(--color);
-            color: white;
             width: fit-content;
             padding: 10px 15px;
             border-radius: 20px;
-            border: none;
             font-size: 1rem;
             font-weight: 600;
         }
-        button:hover{
-            opacity: 0.7;
-            cursor: pointer;
-        }
+       
     }
 }
