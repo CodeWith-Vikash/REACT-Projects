@@ -29,6 +29,8 @@
                 height: 200px;
                 width: 200px;
                 border-radius: 50%;
+                transform: translate(-200%,-200%);
+                transition:all ease 1s;
                 @include lg{
                     height: 250px;
                     width: 250px;
@@ -39,19 +41,15 @@
             flex-direction: column;
             align-items: center;
             gap: 2vh;
+            transform: translate(200%,-350%);
+                transition:all ease 1s;
         }
             p{
                 span{
                     color:var(--color);
                 }
             }
-            .title{
-                font-size: 1.2rem;
-                font-weight: 700;
-                @include md{
-                    font-size: 2rem;
-                }
-            }
+            
             .subtitle{
                 font-size: 1rem;
                 font-weight: 500;
