@@ -1,8 +1,9 @@
 import React from 'react'
 import './Style.scss'
-import dummyimg from '../../7wnove7K-ZQ-HD.jpg'
+import { useNavigate } from 'react-router-dom'
 
-const Course = ({title,desc,img}) => {
+const Course = ({title,desc,img,id}) => {
+  const navigate=useNavigate()
   return (
     <div className='course'>
        <img src={img} alt="noimg" />
@@ -13,7 +14,7 @@ const Course = ({title,desc,img}) => {
        <p className="subtitle">
        {desc}
        </p>
-       <button>Start Watching</button>
+       <button onClick={()=> navigate(`/video/${id}`)}>Start Watching</button>
        </div>
     </div>
   )

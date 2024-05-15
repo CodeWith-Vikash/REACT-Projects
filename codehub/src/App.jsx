@@ -5,6 +5,7 @@ import Navbar from './pages/Navbar/Navbar'
 import Courses from './pages/Courses/Courses'
 import Docs from './pages/Docs/Docs'
 import Footer from './components/Footer/Footer'
+import Video from './pages/Video/Video'
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,7 +14,7 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/courses" element={<Courses/>}/>
         <Route path="/docs" element={<Docs/>}/>
-        <Route path="/video/:id" element={<Docs/>}/>
+        <Route path="/video/:id" element={<Video/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

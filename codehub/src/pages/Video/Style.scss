@@ -1,0 +1,65 @@
+@import  '../../mixins.scss';
+
+.video{
+    min-height: 100vh;
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        align-items: center;
+        padding: 5vh 20px;
+        @include md{
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .videosec{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            @include lg{
+                font-size: 1.3rem;
+            }
+            iframe{
+                width: 90vw;
+                height: 250px;
+                border-radius: 20px;
+                @include md{
+                    width:360px;
+                }
+                @include lg{
+                    width: 600px;
+                    height: 350px;
+                }
+                @include lg{
+                    width: 700px;
+                    height: 400px;
+                }
+            }
+        }
+        .playlist{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color:rgb(255, 192, 203,0.4);
+            border-radius: 20px;
+            // padding: 10px;
+            height: 200px;
+            overflow: auto;
+            width: 100%;
+            @include md{
+                height: 500px;
+            }
+            p{
+                background-color: rgb(42, 41, 41,0.5);
+                padding: 20px ;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.load{
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 1.5rem;
+    color:var(--color);
+}
