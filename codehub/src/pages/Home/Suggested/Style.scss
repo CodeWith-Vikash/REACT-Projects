@@ -10,10 +10,11 @@
         }
     }
     .courses{
-        display: flex;
-        justify-content: center;
-        padding: 5vh 0;
-        gap: 30px;
-        flex-wrap: wrap;
+        .wrap{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
     }
 }

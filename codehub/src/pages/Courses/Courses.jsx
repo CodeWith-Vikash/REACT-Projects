@@ -8,13 +8,13 @@ const Courses = () => {
   const [inputval, setinputval] = useState("")
   const {isdark}=useSelector((state)=>state.mainReducer.home)
   const [results, setresults] = useState([])
-  const chanelids = ['UCeVMnSShP_Iviwkknt83cww','UCNQ6FEtztATuaVhZKCY28Yw','UCwfaAHy4zQUb2APNOGXUCCA'];
+  const chanelids = ['UCeVMnSShP_Iviwkknt83cww','UCNQ6FEtztATuaVhZKCY28Yw','UCwfaAHy4zQUb2APNOGXUCCA','UCkGS_3D0HEzfflFnG0bD24A','UCM-yUTYGmrNvKOCcAl21g3w','UCc7gpqMnnOSbU_F2-5MVVZw','UCldyi11QYNXYXiLjVbyw5dA'];
   
   const fetchdata=async()=>{
     let list=await Promise.all(chanelids.map((id)=> fetchdatafromapi(id)))
-    let data=list.map((item=> item.filter((elem)=> elem.snippet.title.toLowerCase().includes('javascript') || elem.snippet.title.toLowerCase().includes('python'))))
-    let subdata=[].concat(...list)
-    // console.log(subdata);
+    let data=list.map((item=> item.filter((elem)=> elem.snippet.title.toLowerCase().startsWith('chai aur javascript') || elem.snippet.title.toLowerCase().startsWith('python for beginners (full course)')||elem.snippet.title.toLowerCase().startsWith('chai aur react | with projects')||elem.snippet.title.toLowerCase().includes('java tutorial')||elem.snippet.title.toLowerCase().includes('chai aur next')||elem.snippet.title.toLowerCase().includes('php tutorials')||elem.snippet.title.toLowerCase().includes('logic building with c')||elem.snippet.title.toLowerCase().startsWith('programming in c')||elem.snippet.title.toLowerCase().startsWith('c#.net')||elem.snippet.title.toLowerCase().startsWith('front-end development')||elem.snippet.title.toLowerCase().includes('complete c++ placement')||elem.snippet.title.toLowerCase().includes('flutter series'))))
+    let subdata=[].concat(...data)
+    console.log(subdata);
     setresults(subdata)
   }
 
