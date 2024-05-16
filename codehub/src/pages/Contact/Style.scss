@@ -1,0 +1,64 @@
+@import '../../mixins.scss';
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    padding: 5vh 0;
+    min-height: 100vh;
+    p{
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+  .social{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px dotted;
+    padding: 5vh 0;
+    img{
+        border-radius: 50%;
+        height: 200px;
+    }
+    .socialmedias{
+        display: flex;
+        gap: 20px;
+        a:hover{
+            color: var(--color);
+            scale: 1.1;
+        }
+    }
+    .phone{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 5vh;
+    input{
+        padding: 10px;
+        border-radius: 10px;
+        border:1px solid;
+        outline: none;
+        width: 288px;
+        font-size: 1rem;
+    }
+    textarea{
+        border-radius: 10px;
+        padding: 10px;
+        outline: none;
+        font-size: 1rem;
+    }
+    button{
+        padding: 10px 0;
+        font-size: 1rem;
+        width:285px;
+    }
+  }
+}

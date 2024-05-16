@@ -11,9 +11,7 @@
     .icon{
         cursor: pointer;
     }
-    .active{
-        color:yellow;
-    }
+    
     .dark{
         background-color: var(--bg);
         color: white;
@@ -67,5 +65,13 @@ button{
 button:hover{
     color:white;
     background-color: var(--color);
+}
+
+nav{
+    .options{
+        .active{
+            color:var(--color);
+        }
+    }
 }
 
