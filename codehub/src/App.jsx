@@ -6,6 +6,8 @@ import Courses from './pages/Courses/Courses'
 import Docs from './pages/Docs/Docs'
 import Footer from './components/Footer/Footer'
 import Video from './pages/Video/Video'
+import Roadmaps from './pages/Roadmaps/Roadmaps';
+import Carrer from './pages/carrer/Carrer';
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="/courses" element={<Courses/>}/>
         <Route path="/docs" element={<Docs/>}/>
         <Route path="/video/:id" element={<Video/>}/>
+        <Route path="/roadmaps" element={<Roadmaps/>}/>
+        <Route path="/carrer/:tech" element={<Carrer/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

@@ -1,0 +1,44 @@
+@import '../../mixins.scss';
+
+.roadmaps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    input{
+        padding: 10px;
+        outline: none;
+        border-radius: 20px;
+        border: 1px solid;
+        font-size: 1rem;
+        width: 95%;
+        margin-top: 5vh;
+    }
+    .data{
+        display: flex;
+    justify-content: center;
+    padding: 10vh 0;
+    flex-wrap: wrap;
+    gap: 30px;
+    .roadmap{
+        background-color:rgb(10, 10, 10,0.4);
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        border-radius: 20px;
+        gap: 30px;
+        box-shadow: 1px 1px 10px black;
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        button{
+            border-radius: 20px;
+            padding:10px;
+        }
+    }
+    }
+}

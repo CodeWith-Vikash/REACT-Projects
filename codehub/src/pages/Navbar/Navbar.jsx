@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="options">
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>
-        <NavLink to="/"></NavLink>
+        <NavLink to="/roadmaps">Roadmaps</NavLink>
       {isAuthenticated && <div className="name">welcome,{user.name}</div>}
       {isAuthenticated?<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div className="options">
         <NavLink to="/courses">Courses</NavLink>
         <NavLink to="/docs">Docs</NavLink>
-        <NavLink to="/"></NavLink>
+        <NavLink to="/roadmaps">Roadmaps</NavLink>
         {isAuthenticated?<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
     </button>:<button onClick={()=>{loginWithRedirect()}}>Login</button>}

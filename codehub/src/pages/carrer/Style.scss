@@ -1,0 +1,15 @@
+.carrer {
+    padding:5vh 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    iframe{
+        width: 90%;
+        height: 100vh;
+    }
+    img{
+        width: 90%;
+        object-fit: cover;
+    }
+  }
+  
