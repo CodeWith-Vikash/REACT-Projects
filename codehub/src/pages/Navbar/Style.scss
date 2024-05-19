@@ -7,7 +7,7 @@ nav{
     padding: 0 20px;
     background-color:var(--bg);
     color: white;
-    z-index: 2;
+    z-index: 3;
     @include md{
         position: sticky;
         top: 0;

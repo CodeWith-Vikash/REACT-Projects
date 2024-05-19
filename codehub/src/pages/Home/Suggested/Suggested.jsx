@@ -11,7 +11,7 @@ const Suggested = () => {
     let list=await Promise.all(chanelids.map((id)=> fetchdatafromapi(id)))
     let data=list.map((item=> item.filter((elem)=> elem.snippet.title.toLowerCase().startsWith('chai aur javascript') || elem.snippet.title.toLowerCase().startsWith('python for beginners (full course)')||elem.snippet.title.toLowerCase().startsWith('front-end development'))))
     let subdata=[].concat(...data)
-    console.log(subdata);
+    // console.log(subdata);
     setresults(subdata)
   }
   useEffect(()=>{

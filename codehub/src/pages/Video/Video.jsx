@@ -17,7 +17,7 @@ const Video = () => {
       // console.log(res.data);
       setvideos(res.data.items)
       setactivevid(res.data.items[0])
-      console.log(res.data.items[0]);
+      // console.log(res.data.items[0]);
     })
   }
 

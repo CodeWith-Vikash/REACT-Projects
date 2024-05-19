@@ -13,7 +13,7 @@ const Footer = () => {
             <img src="/brandlogo.png" alt="" />
             <b>Techbro</b>
         </div>
-        <span>Copyright © 2024  Techbro.vercel.app</span>
+        <span>Copyright © 2024   learnwithtechbro.vercel.app</span>
         <div className="links">
            <a target='_blank' href="https://www.linkedin.com/in/code-with-vikash/"><FaLinkedin size="1.7rem"/></a>
             <a target='_blank' href="https://twitter.com/codeWithVikash"><FaSquareXTwitter size="1.7rem"/></a>

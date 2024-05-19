@@ -22,9 +22,10 @@
             iframe{
                 width: 90vw;
                 height: 250px;
-                border-radius: 20px;
+                border-radius: 4px;
                 @include md{
                     width:360px;
+                    border-radius: 20px;
                 }
                 @include lg{
                     width: 600px;
@@ -41,13 +42,13 @@
             flex-direction: column;
             gap: 20px;
             background-color:rgb(255, 192, 203,0.4);
-            border-radius: 20px;
+            border-radius: 5px;
             // padding: 10px;
-            height: 200px;
+            height: 500px;
             overflow: auto;
             width: 100%;
             @include md{
-                height: 500px;
+                border-radius: 20px;
             }
             p{
                 background-color: rgb(42, 41, 41,0.5);

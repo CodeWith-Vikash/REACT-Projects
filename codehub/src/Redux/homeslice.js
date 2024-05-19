@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState={home:{isdark:true}}
+const initialState={home:{isdark:false}}
 
 const Mainslice=createSlice({
     name:"home",

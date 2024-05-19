@@ -75,12 +75,13 @@
         }
     }
     .blur{
-        height: 100px;
+        height: 120px;
         width: 100%;
         position: absolute;
         top: 470px;
         @include md{
-            top: 460px;
+            height: 200px;
+            top: 405px;
         }
     }
 }

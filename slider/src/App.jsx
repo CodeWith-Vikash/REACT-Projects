@@ -12,7 +12,7 @@ const App = () => {
         <div className='flex justify-center mt-[10vh]'>
           
       <section className='text-center shadow-xl w-[480px] p-2 bg-white'>
-        <img src={image} className='rounded-full w-[170px] h-[165px] my-0 mx-auto' />
+        <img src={image} className='rounded-full w-[170px] h-[165px] my-0 mx-auto object-cover object-center' />
         <b className='text-orange-700 text-xl font-semibold'>{name}</b>
         <br />
         <span className='font-semibold text-sm'>{title}</span>
