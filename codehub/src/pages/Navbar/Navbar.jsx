@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import './Style.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useLocation } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md"
@@ -14,6 +14,7 @@ const Navbar = () => {
   const [show, setshow] = useState(false)
   const dispatch=useDispatch()
   const {isdark}=useSelector((state)=>state.mainReducer.home)
+  const location=useLocation()
   
   const togglemode=()=>{
       dispatch(toggle())
@@ -28,6 +29,10 @@ const Navbar = () => {
     }
     setshow(!show)
   }
+
+  useEffect(()=>{
+    navref.current.style.transform='translateX(-100%)'
+  },[location])
   return (
     <>
           <nav className={isdark?'dark':'light'}>

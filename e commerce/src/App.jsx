@@ -1,29 +1,29 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home/Home'
+import Cart from './components/Cart/Cart'
+import About from './components/About/About'
+import Search from './components/Search/Search'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Products from './components/Products/Products'
+import Error from './components/Errorpage/Error'
 
-import Home from './pages/home/Home';
-import Order from './pages/orders/Order';
-import Cart from './pages/cart/Cart';
-import Dashboard from './pages/admin/dashboard/Dashboard';
-import Nopage from './pages/nopage/Nopage'
-import Allproducts from './pages/allproducts/Allproducts'
+const App = () => {
 
-function App() {
   return (
-    <Router>
+    <BrowserRouter>
+      <Header/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/order" element={<Order/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/*" element={<Nopage/>} />
-        <Route path="/products" element={<Allproducts/>} />
+        <Route path='/' element={<Home/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/search/:query' element={<Search/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='*' element={<Error/>}/>
       </Routes>
-    </Router>
+      <Footer/>
+    </BrowserRouter>
   )
 }
 
