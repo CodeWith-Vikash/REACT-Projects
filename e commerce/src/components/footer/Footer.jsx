@@ -4,7 +4,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-around items-center px-3 flex-wrap gap-4 h-14 bg-gray-900 text-white">
+    <footer className="flex justify-around items-center px-3 flex-wrap gap-4 min-h-14 bg-gray-900 text-white py-3">
       <img src="/logo.png" alt="" className="h-10" />
       <p className="text-sm ">Copyright © 2024 indicart.vercel.app</p>
       <div className="flex gap-2">

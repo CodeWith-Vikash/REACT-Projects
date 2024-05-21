@@ -13,7 +13,7 @@ const Header = () => {
       setquery('')
   }
   return (
-    <nav className='flex justify-between h-14 items-center px-3 sticky top-0 bg-gray-900 text-white'>
+    <nav className='flex justify-between h-14 items-center px-3 sticky top-0 bg-gray-900 text-white z-40'>
       <NavLink to="/">
       <img src="/logo.png" alt="" className='h-10 shadow-xl'/>
       </NavLink>
@@ -24,7 +24,7 @@ const Header = () => {
       </div>
       <section className='flex gap-6'>
           <div className='relative text-gray-900'>
-            <input type="text" placeholder='Search....' className='outline-none border-none px-4 rounded-full w-[30vw] max-w-[250px]'
+            <input type="text" placeholder='Search....' className='outline-none border-none px-4 rounded-full w-[30vw] max-w-[250px] h-8'
               onChange={(e)=>setquery(e.target.value)}
               onKeyDown={(e)=> e.key=='Enter' && searchProduct()}
             />
