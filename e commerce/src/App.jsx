@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Products from './components/Products/Products'
 import Error from './components/Errorpage/Error'
+import Singleprod from './components/singleprod/Singleprod'
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/search/:query' element={<Search/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/product/:name' element={<Singleprod/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
       <Footer/>

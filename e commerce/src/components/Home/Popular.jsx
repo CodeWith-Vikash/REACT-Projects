@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Product from '../Product/Product'
+import Skeleton from '../Skeleton/Skeleton'
 
 const Popular = () => {
   const [products, setproducts] = useState([])
+  const [isloading, setisloading] = useState(false)
   const fetchpopular=async()=>{
 
+    setisloading(true)
 const options = {
   method: 'GET',
-  url: 'https://ebay-search-result.p.rapidapi.com/search/men-fashion',
+  url: 'https://ebay-search-result.p.rapidapi.com/search/trending',
   headers: {
     'X-RapidAPI-Key': '59a2f37d10msh5e0c2313caf714ep125022jsn34d1b7daea85',
     'X-RapidAPI-Host': 'ebay-search-result.p.rapidapi.com'
@@ -20,27 +24,33 @@ try {
   setproducts(response.data.results)
 } catch (error) {
 	console.error(error);
+}finally{
+  setisloading(false)
 }
 
 }
 // console.log(products);
 useEffect(()=>{
    fetchpopular()
-},[products])
+},[])
   return (
     <div className='flex flex-col gap-10 px-4 py-20'>
       <h3 className='font-seimibold text-[1.5rem]'>Popular Products</h3>
-      <div className='flex flex-wrap justify-center gap-6'>
+      {isloading?<div className='flex flex-wrap justify-center gap-6 p-10'>
         {
-          products.slice(0,16).map((item)=>{
-            return <div className='w-[250px]  min-h-[250px] flex flex-col gap-2 shadow-xl' key={item.id}>
-            <img src={item.image} alt="" className='h-[200px] w-full object-cover object-center'/>
-            <p className='leading-5 font-semibold px-2'>{item.title}</p>
-            <b className='p-2'>{item.price}</b>
-          </div>
+         Array.from({length:20}).map(()=>{
+            return <Skeleton key={Math.random()}/>
           })
         }
       </div>
+      :<div className='flex flex-wrap justify-center gap-6'>
+      {
+        products.slice(0,16).map((item)=>{
+          return <Product item={item} id={item.id} image={item.image} price={item.price} title={item.title} key={item.id}/>
+        })
+      }
+    </div>}
+      
     </div>
   )
 }

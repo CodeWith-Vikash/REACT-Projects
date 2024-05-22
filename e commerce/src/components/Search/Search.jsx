@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Skeleton from '../Skeleton/Skeleton'
+import Product from '../Product/Product'
 
 const Search = () => {
   const {query}=useParams()
@@ -35,12 +36,12 @@ useEffect(()=>{
    fetchpopular()
 },[query])
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen py-10'>
       {
         isloading?<div className='flex flex-wrap justify-center gap-6 p-10'>
           {
            Array.from({length:20}).map(()=>{
-              return <Skeleton/>
+              return <Skeleton key={Math.random()}/>
             })
           }
         </div>:
@@ -49,11 +50,7 @@ useEffect(()=>{
         <div className='flex flex-wrap justify-center gap-6'>
           {
             products.map((item)=>{
-              return <div className='w-[250px]  min-h-[250px] flex flex-col gap-2 shadow-xl' key={item.id}>
-              <img src={item.image} alt="" className='h-[200px] w-full object-cover object-center'/>
-              <p className='leading-5 font-semibold px-2'>{item.title}</p>
-              <b className='p-2'>{item.price}</b>
-            </div>
+              return <Product id={item.id} image={item.image} title={item.title} price={item.price} key={item.id} item={item}/>
             })
           }
         </div>
