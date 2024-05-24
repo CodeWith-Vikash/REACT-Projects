@@ -9,19 +9,12 @@ const Popular = () => {
   const fetchpopular=async()=>{
 
     setisloading(true)
-const options = {
-  method: 'GET',
-  url: 'https://ebay-search-result.p.rapidapi.com/search/trending',
-  headers: {
-    'X-RapidAPI-Key': '59a2f37d10msh5e0c2313caf714ep125022jsn34d1b7daea85',
-    'X-RapidAPI-Host': 'ebay-search-result.p.rapidapi.com'
-  }
-};
+
 
 try {
-	const response = await axios.request(options);
+	const response = await axios.request('https://fakestoreapiserver.reactbd.com/products');
 	console.log(response.data);
-  setproducts(response.data.results)
+  setproducts(response.data)
 } catch (error) {
 	console.error(error);
 }finally{
@@ -45,8 +38,8 @@ useEffect(()=>{
       </div>
       :<div className='flex flex-wrap justify-center gap-6'>
       {
-        products.slice(0,16).map((item)=>{
-          return <Product item={item} id={item.id} image={item.image} price={item.price} title={item.title} key={item.id}/>
+        products.map((item)=>{
+          return <Product item={item} id={item._id} image={item.image} price={item.price} title={item.title} key={item.id}/>
         })
       }
     </div>}

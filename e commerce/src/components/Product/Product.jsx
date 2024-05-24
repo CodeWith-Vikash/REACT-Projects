@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink ,useNavigate} from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {adddata} from '../../Redux/productSlice'
+import { SingleContext } from "../../context/SingleContext";
 
 const Product = ({id,image,title,price,item}) => {
+  const {setselectedprod} =useContext(SingleContext)
   const navigate=useNavigate()
-  const dispatch=useDispatch()
   const handlenavigate=()=>{
+    setselectedprod(item)
     navigate(`/product/${title}`)
-    dispatch(adddata(item))
   }
   return (
       <div
@@ -19,11 +18,11 @@ const Product = ({id,image,title,price,item}) => {
         <img
           src={image}
           alt=""
-          className=" object-contain object-center h-full w-full hover:scale-[1.1]"
+          className=" object-cover object-center h-full w-full hover:scale-[1.1]"
         />
       </div>
       <p className="leading-5 font-semibold px-2">{title}</p>
-      <b className="p-2">{price}</b>
+      <b className="p-2">{String(price).startsWith('$')?'':'$'}{price}</b>
     </div>
   );
 };

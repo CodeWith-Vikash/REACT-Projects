@@ -49,7 +49,7 @@ useEffect(()=>{
         <h3 className='font-seimibold text-[1.5rem]'>results for '{query}'</h3>
         <div className='flex flex-wrap justify-center gap-6'>
           {
-            products.map((item)=>{
+            products.filter((item)=> !item.price.includes('to')).map((item)=>{
               return <Product id={item.id} image={item.image} title={item.title} price={item.price} key={item.id} item={item}/>
             })
           }

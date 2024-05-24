@@ -38,13 +38,13 @@ useEffect(()=>{
         <div className='flex flex-wrap justify-center gap-6 p-10'>
         {
          Array.from({length:20}).map(()=>{
-            return <Skeleton/>
+            return <Skeleton key={Math.random()}/>
           })
         }
       </div>
       :<div className='flex flex-wrap justify-center gap-6'>
         {
-          products.map((item)=>{
+          products.filter((item)=>!item.price.includes('to')).map((item)=>{
             return <Product id={item.id} image={item.image} price={item.price} title={item.title} item={item}/>
           })
         }

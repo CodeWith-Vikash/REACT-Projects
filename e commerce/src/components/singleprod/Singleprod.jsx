@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import {SingleContext} from '../../context/SingleContext'
+import { CartContext } from '../../context/CartContext'
+
 
 const Singleprod = () => {
+  const {selectedprod} = useContext(SingleContext)
+  const {addToCart} = useContext(CartContext)
   const {name}=useParams()
   const [isloading, setisloading] = useState(false)
   const [products, setproducts] = useState([])
-  const [quantity, setquantity] = useState(0)
-  const data=useSelector((state)=>state.productSlice)
-  console.log(data);
+  const [quantity, setquantity] = useState(1)
+  console.log(selectedprod);
+  const navigate=useNavigate()
+
 
 
   const fetchpopular=async()=>{
@@ -40,18 +45,21 @@ useEffect(()=>{
   return (
     <div className='min-h-screen pt-10'>
       <section className='flex flex-col w-fit h-fit my-0 mx-auto md:flex-row'>
-         <img src={data.image} alt=""  className='h-[300px] w-[300px] object-cover border-2'/>
+         <img src={selectedprod.image} alt=""  className='h-[300px] w-[300px] object-cover border-2'/>
          <div className='w-[300px] p-4 flex flex-col gap-2 md:gap-4'>
-          <p className='font-semibold text-lg'>{data.title}</p>
-          <b>{data.price}</b>
+          <p className='font-semibold text-lg'>{selectedprod.title}</p>
+          <b>{String(selectedprod.price).startsWith('$')?'':'$'}{selectedprod.price}</b>
 
           <div className='flex gap-2'>
             <div className="counter my-2 font-semibold text-xl">
               <span className='px-4 py-[6px] border-black border-2' onClick={()=> setquantity(quantity+1)}>+</span>
               <span className='px-4 py-[6px] border-black border-2'>{quantity}</span>
-              <span className='px-4 py-[6px] border-black border-2' onClick={()=> setquantity(quantity-1)}>-</span>
+              <span className='px-4 py-[6px] border-black border-2' onClick={()=>quantity>1 && setquantity(quantity-1)}>-</span>
             </div>
-            <button className=' text-white bg-gray-900 px-2 py-1 rounded w-fit  font-semibold'>Add to cart</button>
+            <button className=' text-white bg-gray-900 px-2 py-1 rounded w-fit  font-semibold' onClick={()=>{
+              addToCart(selectedprod,quantity)
+              navigate('/cart')
+            }}>Add to cart</button>
           </div>
 
          </div>
