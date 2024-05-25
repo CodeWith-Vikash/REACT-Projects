@@ -39,7 +39,10 @@ useEffect(()=>{
       :<div className='flex flex-wrap justify-center gap-6'>
       {
         products.map((item)=>{
-          return <Product item={item} id={item._id} image={item.image} price={item.price} title={item.title} key={item.id}/>
+          return <div className='relative'>
+            <Product item={item} id={item._id} image={item.image} price={item.price} title={item.title} key={item.id}/>
+            <span className='bg-black text-white px-4 py-1 text-sm absolute top-0 right-0'>Sale</span>
+          </div>
         })
       }
     </div>}

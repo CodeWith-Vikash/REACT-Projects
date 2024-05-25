@@ -7,15 +7,22 @@ import { CartContext } from '../../context/CartContext'
 
 const Singleprod = () => {
   const {selectedprod} = useContext(SingleContext)
-  const {addToCart} = useContext(CartContext)
+  const {addToCart,cart} = useContext(CartContext)
   const {name}=useParams()
   const [isloading, setisloading] = useState(false)
   const [products, setproducts] = useState([])
   const [quantity, setquantity] = useState(1)
+  const [unique, setunique] = useState(true)
   console.log(selectedprod);
   const navigate=useNavigate()
 
-
+  useEffect(()=>{
+    cart.forEach((item)=>{
+       if(item.title==selectedprod.title){
+           setunique(false)
+       }
+    })
+  },[selectedprod])
 
   const fetchpopular=async()=>{
     setisloading(true)
@@ -57,7 +64,11 @@ useEffect(()=>{
               <span className='px-4 py-[6px] border-black border-2' onClick={()=>quantity>1 && setquantity(quantity-1)}>-</span>
             </div>
             <button className=' text-white bg-gray-900 px-2 py-1 rounded w-fit  font-semibold' onClick={()=>{
-              addToCart(selectedprod,quantity)
+              if(unique){
+                addToCart(selectedprod,quantity)
+              }else{
+                alert('you already added this item')
+              }
               navigate('/cart')
             }}>Add to cart</button>
           </div>
