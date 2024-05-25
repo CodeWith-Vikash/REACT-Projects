@@ -1,22 +1,46 @@
-import { createContext, useState } from "react";
-import { json } from "react-router-dom";
+import { createContext, useState, useEffect } from "react";
 
+export const CartContext = createContext();
 
-export const CartContext=createContext()
+const getLocalStorage = () => {
+  let localCart = localStorage.getItem('indicart');
+  return localCart ? JSON.parse(localCart) : [];
+};
 
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(getLocalStorage());
 
-export const CartProvider=({children})=>{
-    const [cart, setcart] = useState([])
-    const addToCart=(item,quantity)=>{
-        item.count=quantity
-        setcart([...cart,item])
-        localStorage.setItem('indicart',JSON.stringify([...cart,item]))
-    }
-    const removeFromCart=(title)=>{
-        let newcart=cart.filter((item)=> item.title!=title)
-        setcart(newcart)
-        localStorage.setItem('indicart',JSON.stringify(newcart))
-    }
+  useEffect(() => {
+    localStorage.setItem('indicart', JSON.stringify(cart));
+  }, [cart]);
 
-    return <CartContext.Provider value={{cart,addToCart,removeFromCart}}>{children}</CartContext.Provider>
-}
+  const addToCart = (item, quantity) => {
+    item.count = quantity;
+    setCart(prevCart => {
+      const newCart = [...prevCart, item];
+      return newCart;
+    });
+  };
+
+  const removeFromCart = (title) => {
+    setCart(prevCart => {
+      const newCart = prevCart.filter(item => item.title !== title);
+      return newCart;
+    });
+  };
+
+  const updateQuantity = (title, quantity) => {
+    setCart(prevCart => {
+      const newCart = prevCart.map(item => 
+        item.title === title ? { ...item, count: quantity } : item
+      );
+      return newCart;
+    });
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+      {children}
+    </CartContext.Provider>
+  );
+};

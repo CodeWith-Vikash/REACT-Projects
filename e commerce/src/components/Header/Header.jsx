@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { NavLink,useNavigate,useLocation} from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import { HiShoppingCart } from "react-icons/hi2";
+import {CartContext} from '../../context/CartContext'
 
 const Header = () => {
   const location=useLocation()
@@ -10,6 +11,7 @@ const Header = () => {
   const [isnav, setisnav] = useState(false)
   const navigate=useNavigate()
   const [query, setquery] = useState('')
+  const {cart} =useContext(CartContext)
 
   const searchProduct=(e)=>{
       navigate(`/search/${query}`)
@@ -49,7 +51,10 @@ const Header = () => {
           </div>
          
          <NavLink to="/cart" className={`${isfocus && 'hidden'} md:block`}>
+           <div className='relative'>
            <HiShoppingCart size="1.5rem"/>
+          {cart.length>0 && <div className='absolute bg-green-600 text-sm font-semibold top-[-5px] right-[-3px] rounded-full h-3 w-3 flex items-center justify-center p-2'>{cart.length}</div>}
+           </div>
         </NavLink>
         <GiHamburgerMenu className='md:hidden cursor-pointer' size="1.5rem" onClick={togglenav} style={isfocus?{display:'none'}:null}/>
       </section>
