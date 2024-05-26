@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { SingleContext } from '../../context/SingleContext';
 import { CartContext } from '../../context/CartContext';
+import Product from '../Product/Product'
+import Skeleton from '../Skeleton/Skeleton';
 
 const Singleprod = () => {
   const { selectedprod } = useContext(SingleContext);
@@ -70,6 +72,25 @@ const Singleprod = () => {
 
         </div>
       </section>
+
+      <section className='flex flex-col gap-10 px-4 py-20'>
+      <h3 className='font-seimibold text-[1.5rem]'>Similler Products</h3>
+      {isloading?<div className='flex flex-wrap justify-center gap-6 p-10'>
+        {
+         Array.from({length:4}).map(()=>{
+            return <Skeleton key={Math.random()}/>
+          })
+        }
+      </div>
+      :<div className='flex flex-wrap justify-center gap-6'>
+      {
+        products.filter((item)=>!item.price.includes('to')).filter((item)=>item.title!== selectedprod.title).slice(0,4).map((item)=>{
+          return <Product id={item.id} image={item.image} price={item.price} title={item.title} item={item}/>
+        })
+      }
+    </div>}
+      
+    </section>
     </div>
   );
 };
