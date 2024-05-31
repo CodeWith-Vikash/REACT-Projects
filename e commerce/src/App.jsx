@@ -6,18 +6,18 @@ import About from './components/About/About'
 import Search from './components/Search/Search'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import Products from './components/Products/Products'
 import Error from './components/Errorpage/Error'
 import Singleprod from './components/singleprod/Singleprod'
+import ScrollToTop from './Scrolltop'
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <Header/>
+      <ScrollToTop/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/products' element={<Products/>}/>
         <Route path='/search/:query' element={<Search/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/about' element={<About/>}/>

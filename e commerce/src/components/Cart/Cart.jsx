@@ -3,8 +3,10 @@ import { FaTrashCan } from "react-icons/fa6";
 import { CartContext } from '../../context/CartContext';
 import { NavLink,useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify'
+import { User, useAuth0 } from '@auth0/auth0-react';
 
 const Cart = () => {
+  const {isAuthenticated,user,loginWithRedirect} = useAuth0()
   const navigate=useNavigate()
   const { cart, removeFromCart, updateQuantity,setCart } = useContext(CartContext);
   const [counts, setCounts] = useState([]);
@@ -56,7 +58,7 @@ const Cart = () => {
   }, []);
 
   // Payment integration
-  const [name, setName] = useState("");
+  const [name, setName] = useState(isAuthenticated?user.name:"");
   const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -147,7 +149,11 @@ const Cart = () => {
           <p>Shipping Fees: <b>$100</b></p>
           <hr />
           <p>Total Price: <b>${(grandTotal + 100).toFixed(2)}</b></p>
-          <button className='text-white bg-gray-900 px-2 py-1 rounded font-semibold' onClick={() => setIsFormVisible(true)}>Checkout</button>
+          <button className='text-white bg-gray-900 px-2 py-1 rounded font-semibold' onClick={() =>{
+             isAuthenticated?
+             setIsFormVisible(true):
+             loginWithRedirect()
+          }}>Checkout</button>
         </section>
       ) : (
         <div className='text-center'>

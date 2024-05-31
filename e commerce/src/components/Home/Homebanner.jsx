@@ -8,9 +8,7 @@ const Homebanner = () => {
             <div className='flex flex-col gap-2'>
             <h3 className='text-[100px] font-bold text-gray-900'>SALE</h3>
             <p className='w-[300px] font-semibold leading-4 text-gray-900'>Indicart: Elevating Online Shopping with Quality, Convenience, and Integrity - Where Every Purchase Reflects Our Commitment to Excellence.</p>
-            <NavLink to="/products">
-            <button className='border-2 border-gray-900 text-gray-900 px-2 py-1 rounded w-fit hover:bg-gray-900 hover:text-white font-semibold'>Shop now</button>
-            </NavLink>
+           
             </div>
         </div>
     </div>
