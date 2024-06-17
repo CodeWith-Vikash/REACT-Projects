@@ -37,8 +37,8 @@
   height: 250px;
 }
 img{
-  height: 250px;
-  width: 350px;
+  height:100%;
+  width:350px;
   object-fit: cover;
 }
 .dot{
